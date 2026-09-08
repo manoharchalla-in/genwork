@@ -97,12 +97,12 @@ export default function ChatArea({ sidebarOpen, setSidebarOpen, activeChat, mess
     const body = parsedRows.slice(1);
 
     return (
-      <div key={key} className="my-2.5 w-full overflow-x-auto rounded-lg border border-gray-200 shadow-sm bg-white -mx-1 sm:mx-0">
-        <table className="w-full text-left text-[11px] sm:text-xs border-collapse min-w-[320px]">
+      <div key={key} className="my-2 w-full overflow-x-auto rounded-lg border border-gray-200 shadow-sm bg-white -mx-1 sm:mx-0 p-0">
+        <table className="w-full text-left text-[11px] sm:text-xs border-collapse min-w-[300px]">
           <thead>
             <tr className="bg-gray-100/90 border-b border-gray-200 text-gray-700 font-semibold">
               {headers.map((h, hIdx) => (
-                <th key={hIdx} className="px-2.5 sm:px-3.5 py-2 whitespace-nowrap">
+                <th key={hIdx} className="px-2 sm:px-3 py-1.5 sm:py-2.5 whitespace-nowrap">
                   {h}
                 </th>
               ))}
@@ -112,7 +112,7 @@ export default function ChatArea({ sidebarOpen, setSidebarOpen, activeChat, mess
             {body.map((row, rIdx) => (
               <tr key={rIdx} className="hover:bg-gray-50/80 transition-colors">
                 {row.map((cell, cIdx) => (
-                  <td key={cIdx} className="px-2.5 sm:px-3.5 py-1.5 sm:py-2 text-gray-800 font-medium max-w-[200px] break-words">
+                  <td key={cIdx} className="px-2 sm:px-3 py-1.5 sm:py-2 text-gray-800 font-medium max-w-[200px] break-words">
                     {cIdx === 0 ? (
                       <span className="font-semibold text-gray-900">{cell}</span>
                     ) : cell.includes('🟢') ? (
@@ -140,20 +140,23 @@ export default function ChatArea({ sidebarOpen, setSidebarOpen, activeChat, mess
     <main className="flex-1 flex flex-col h-[100dvh] bg-[#f9f9f9] relative overflow-hidden w-full">
       
       {/* Top Navbar */}
-      <header className="h-12 px-3 sm:px-4 flex items-center justify-between text-gray-700 bg-[#f9f9f9]/90 backdrop-blur-md border-b border-gray-200/40 shrink-0 z-10">
-        <div className="flex items-center gap-2.5">
+      <header className="h-12 px-2.5 sm:px-4 flex items-center justify-between text-gray-700 bg-[#f9f9f9]/90 backdrop-blur-md border-b border-gray-200/40 shrink-0 z-10">
+        <div className="flex items-center gap-2">
           {!sidebarOpen && (
             <button 
               onClick={() => setSidebarOpen(true)}
-              className="p-1.5 hover:bg-gray-200/60 rounded-lg transition-colors text-gray-700"
+              className="p-1 hover:bg-gray-200/60 rounded-lg transition-colors text-gray-700"
               title="Open sidebar"
             >
               <PanelLeftOpen className="w-5 h-5" />
             </button>
           )}
-          <h1 className="font-semibold text-xs sm:text-sm tracking-tight text-gray-800 truncate max-w-[200px] sm:max-w-none">
-            {activeChat || 'ChatGPT'}
-          </h1>
+          <div className="flex items-center gap-2">
+            <img src="./logo.jpg" alt="MYCHAT Logo" className="w-6 h-6 object-contain rounded-md" />
+            <h1 className="font-bold text-xs sm:text-sm tracking-tight text-gray-800 truncate max-w-[160px] sm:max-w-none">
+              {activeChat || 'MYCHAT'}
+            </h1>
+          </div>
         </div>
 
         <div className="flex items-center gap-1">
@@ -168,29 +171,31 @@ export default function ChatArea({ sidebarOpen, setSidebarOpen, activeChat, mess
       </header>
 
       {/* Main Content Scroll Container */}
-      <div className="flex-1 overflow-y-auto px-2 sm:px-4 flex flex-col items-center w-full">
+      <div className="flex-1 overflow-y-auto px-1.5 sm:px-4 flex flex-col items-center w-full">
         {messages.length === 0 ? (
           /* Empty State - Landing screen matching reference screenshot */
-          <div className="flex-1 flex flex-col items-center justify-center -mt-12 text-center px-4">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-gray-800 tracking-tight mb-6 select-none">
-              Where should we begin?
+          <div className="flex-1 flex flex-col items-center justify-center -mt-10 text-center px-4">
+            <img src="./logo.jpg" alt="MYCHAT Logo" className="w-16 h-16 sm:w-20 sm:h-20 object-contain rounded-2xl mb-4 shadow-md border border-gray-100" />
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 tracking-tight mb-2 select-none">
+              MYCHAT
             </h2>
+            <p className="text-xs sm:text-sm text-gray-500 font-medium max-w-sm mb-6">
+              Your AI Assistant for Student Portal Data & Analytics
+            </p>
           </div>
         ) : (
           /* Active Chat Stream */
-          <div className="w-full max-w-3xl py-4 sm:py-6 space-y-4 sm:space-y-6">
+          <div className="w-full max-w-3xl py-2.5 sm:py-6 space-y-3 sm:space-y-6">
             {messages.map((msg, index) => (
               <div 
                 key={index}
-                className={`flex gap-2.5 sm:gap-4 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                className={`flex gap-2 sm:gap-4 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 {msg.role === 'assistant' && (
-                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-black text-white flex items-center justify-center text-[10px] sm:text-xs font-bold shrink-0 mt-0.5">
-                    GPT
-                  </div>
+                  <img src="./logo.jpg" alt="MYCHAT Avatar" className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg object-contain shrink-0 mt-0.5 border border-gray-200" />
                 )}
                 <div 
-                  className={`max-w-[92%] sm:max-w-[85%] rounded-2xl px-3.5 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm leading-relaxed overflow-hidden ${
+                  className={`max-w-[96%] sm:max-w-[85%] rounded-2xl px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm leading-relaxed overflow-hidden ${
                     msg.role === 'user'
                       ? 'bg-gray-200 text-gray-900 rounded-br-none'
                       : 'text-gray-800 bg-white border border-gray-200/80 shadow-sm rounded-bl-none'
@@ -211,7 +216,7 @@ export default function ChatArea({ sidebarOpen, setSidebarOpen, activeChat, mess
       </div>
 
       {/* Floating Bottom Pill Input Container */}
-      <div className="w-full px-2 sm:px-4 pb-3 sm:pb-6 pt-1 flex justify-center bg-gradient-to-t from-[#f9f9f9] via-[#f9f9f9] to-transparent shrink-0">
+      <div className="w-full px-2 sm:px-4 pb-2.5 sm:pb-6 pt-1 flex justify-center bg-gradient-to-t from-[#f9f9f9] via-[#f9f9f9] to-transparent shrink-0">
         <form 
           onSubmit={handleSubmit}
           className="w-full max-w-3xl bg-white rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.06)] border border-gray-200/90 px-2.5 sm:px-3 py-1.5 sm:py-2 flex items-center gap-1.5 sm:gap-2 transition-all focus-within:shadow-[0_4px_24px_rgba(0,0,0,0.1)]"
@@ -219,7 +224,7 @@ export default function ChatArea({ sidebarOpen, setSidebarOpen, activeChat, mess
           {/* Plus Attachment Button */}
           <button 
             type="button"
-            className="p-1.5 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-full transition-colors shrink-0"
+            className="p-1 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-full transition-colors shrink-0"
             title="Attach file"
           >
             <Plus className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
@@ -253,7 +258,7 @@ export default function ChatArea({ sidebarOpen, setSidebarOpen, activeChat, mess
           {/* Mic Button */}
           <button 
             type="button"
-            className="p-1.5 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-full transition-colors shrink-0"
+            className="p-1 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-full transition-colors shrink-0"
             title="Voice Input"
           >
             <Mic className="w-4 h-4" />

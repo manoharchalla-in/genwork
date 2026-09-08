@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { 
   SquarePen, 
   MessageSquare, 
@@ -23,7 +23,7 @@ export default function Sidebar({
       {/* Mobile Backdrop Overlay */}
       {isOpen && (
         <div 
-          className="md:hidden fixed inset-0 bg-black/40 backdrop-blur-sm z-40 transition-opacity"
+          className="md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity"
           onClick={() => setIsOpen(false)}
         />
       )}
@@ -34,10 +34,11 @@ export default function Sidebar({
         flex flex-col transition-transform duration-300 ease-in-out select-none left-0 top-0
         ${isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0 md:w-0 md:opacity-0 md:overflow-hidden'}
       `}>
-        {/* Header Icons: Title & Close */}
+        {/* Header Icons: Logo & Title */}
         <div className="p-3 flex items-center justify-between border-b border-gray-200/50 shrink-0">
-          <div className="flex items-center gap-2">
-            <span className="text-base font-semibold text-gray-900 tracking-tight pl-1">ChatGPT</span>
+          <div className="flex items-center gap-2.5">
+            <img src="./logo.jpg" alt="MYCHAT Logo" className="w-7 h-7 object-contain rounded-md shadow-sm" />
+            <span className="text-base font-bold text-gray-900 tracking-tight">MYCHAT</span>
           </div>
           <div className="flex items-center gap-1 text-gray-500">
             <button className="p-1.5 hover:bg-gray-200/60 rounded-md transition-colors">
