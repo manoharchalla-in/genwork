@@ -6572,6 +6572,8 @@
   "24HT1A4323": {
     "id": "24HT1A4323",
     "name": "BOLLEPALLI VAISHNAVI",
+    "branch": "CSE-AI",
+    "currentSemester": "II - II SEM",
     "adminDate": "01/08/2024",
     "batch": "2024 - 2025",
     "dob": "23/03/2007",
@@ -6588,494 +6590,658 @@
     "subjectDue": "0/38",
     "failedCount": 0,
     "failedSubjects": [],
-    "subjects": [
-      {
-        "code": "R231102",
-        "subject": "Linear Algebra & Calculus",
-        "grade": "C",
-        "credits": "3.00",
-        "status": "P",
-        "sem": "I - I SEM"
-      },
-      {
-        "code": "R231103",
-        "subject": "Engineering Physics",
-        "grade": "C",
-        "credits": "3.00",
-        "status": "P",
-        "sem": "I - I SEM"
-      },
-      {
-        "code": "R231106",
-        "subject": "Basic Electrical & Electronics Engineering",
-        "grade": "D",
-        "credits": "3.00",
-        "status": "P",
-        "sem": "I - I SEM"
-      },
-      {
-        "code": "R231107",
-        "subject": "Engineering Graphics",
-        "grade": "A",
-        "credits": "3.00",
-        "status": "P",
-        "sem": "I - I SEM"
-      },
-      {
-        "code": "R231108",
-        "subject": "Introduction to Programming",
-        "grade": "C",
-        "credits": "3.00",
-        "status": "P",
-        "sem": "I - I SEM"
-      },
-      {
-        "code": "R231110",
-        "subject": "Engineering Physics Lab",
-        "grade": "S",
-        "credits": "1.00",
-        "status": "P",
-        "sem": "I - I SEM"
-      },
-      {
-        "code": "R231113",
-        "subject": "Electrical & Electronics Engineering Workshop",
-        "grade": "A",
-        "credits": "1.50",
-        "status": "P",
-        "sem": "I - I SEM"
-      },
-      {
-        "code": "R231114",
-        "subject": "Computer Programming Lab",
-        "grade": "S",
-        "credits": "1.50",
-        "status": "P",
-        "sem": "I - I SEM"
-      },
-      {
-        "code": "R231115",
-        "subject": "IT Workshop",
-        "grade": "S",
-        "credits": "1.00",
-        "status": "P",
-        "sem": "I - I SEM"
-      },
-      {
-        "code": "R231117",
-        "subject": "NSS/NCC/Scouts & Guides/Community Service",
-        "grade": "S",
-        "credits": "0.50",
-        "status": "P",
-        "sem": "I - I SEM"
-      },
-      {
-        "code": "R231201",
-        "subject": "Communicative English",
-        "grade": "C",
-        "credits": "2.00",
-        "status": "P",
-        "sem": "I - II SEM"
-      },
-      {
-        "code": "R231202",
-        "subject": "Differential Equations & Vector Calculus",
-        "grade": "D",
-        "credits": "3.00",
-        "status": "P",
-        "sem": "I - II SEM"
-      },
-      {
-        "code": "R231204",
-        "subject": "Chemistry",
-        "grade": "D",
-        "credits": "3.00",
-        "status": "P",
-        "sem": "I - II SEM"
-      },
-      {
-        "code": "R231205",
-        "subject": "Basic Civil & Mechanical Engineering",
-        "grade": "A",
-        "credits": "3.00",
-        "status": "P",
-        "sem": "I - II SEM"
-      },
-      {
-        "code": "R231209",
-        "subject": "Data structures",
-        "grade": "C",
-        "credits": "3.00",
-        "status": "P",
-        "sem": "I - II SEM"
-      },
-      {
-        "code": "R231210",
-        "subject": "Communicative English Lab",
-        "grade": "S",
-        "credits": "1.00",
-        "status": "P",
-        "sem": "I - II SEM"
-      },
-      {
-        "code": "R231212",
-        "subject": "Chemistry Lab",
-        "grade": "S",
-        "credits": "1.00",
-        "status": "P",
-        "sem": "I - II SEM"
-      },
-      {
-        "code": "R231213",
-        "subject": "Engineering Workshop",
-        "grade": "S",
-        "credits": "1.50",
-        "status": "P",
-        "sem": "I - II SEM"
-      },
-      {
-        "code": "R231216",
-        "subject": "Data structures Lab",
-        "grade": "S",
-        "credits": "1.50",
-        "status": "P",
-        "sem": "I - II SEM"
-      },
-      {
-        "code": "R231219",
-        "subject": "Health and wellness, Yoga and Sports",
-        "grade": "A",
-        "credits": "0.50",
-        "status": "P",
-        "sem": "I - II SEM"
-      },
-      {
-        "code": "R2321011",
-        "subject": "UNIVERSAL HUMAN VALUES \u2013UNDERSTANDING HARMONY AND ETHICAL HUMAN CONDUCT",
-        "grade": "B",
-        "credits": "3.00",
-        "status": "P",
-        "sem": "II - I SEM"
-      },
-      {
-        "code": "R2321051",
-        "subject": "DISCRETE MATHEMATICS & GRAPH THEORY",
-        "grade": "B",
-        "credits": "3.00",
-        "status": "P",
-        "sem": "II - I SEM"
-      },
-      {
-        "code": "R2321431",
-        "subject": "ARTIFICIAL INTELLIGENCE",
-        "grade": "D",
-        "credits": "3.00",
-        "status": "P",
-        "sem": "II - I SEM"
-      },
-      {
-        "code": "R2321053",
-        "subject": "ADVANCED DATA STRUCTURES & ALGORITHMS ANALYSIS",
-        "grade": "C",
-        "credits": "3.00",
-        "status": "P",
-        "sem": "II - I SEM"
-      },
-      {
-        "code": "R2321054",
-        "subject": "OBJECT ORIENTED PROGRAMMING THROUGH JAVA",
-        "grade": "C",
-        "credits": "3.00",
-        "status": "P",
-        "sem": "II - I SEM"
-      },
-      {
-        "code": "R2321055",
-        "subject": "ADVANCED DATA STRUCTURES AND ALGORITHMS ANALYSIS LAB",
-        "grade": "S",
-        "credits": "1.50",
-        "status": "P",
-        "sem": "II - I SEM"
-      },
-      {
-        "code": "R2321056",
-        "subject": "OBJECT ORIENTED PROGRAMMING THROUGH JAVA LAB",
-        "grade": "A",
-        "credits": "1.50",
-        "status": "P",
-        "sem": "II - I SEM"
-      },
-      {
-        "code": "R2321057",
-        "subject": "(SKILL ENHANCEMENT COURSE) PYTHON PROGRAMMING",
-        "grade": "S",
-        "credits": "2.00",
-        "status": "P",
-        "sem": "II - I SEM"
-      },
-      {
-        "code": "R232101M",
-        "subject": "ENVIRONMENTAL SCIENCE",
-        "grade": "CP",
-        "credits": "0.00",
-        "status": "P",
-        "sem": "II - I SEM"
-      },
-      {
-        "code": "R2322431",
-        "subject": "Optimization Techniques",
-        "grade": "A",
-        "credits": "2.00",
-        "status": "P",
-        "sem": "II - II SEM"
-      },
-      {
-        "code": "R2322051",
-        "subject": "Probability & Statistics",
-        "grade": "A",
-        "credits": "3.00",
-        "status": "P",
-        "sem": "II - II SEM"
-      },
-      {
-        "code": "R2322432",
-        "subject": "Machine Learning",
-        "grade": "A",
-        "credits": "3.00",
-        "status": "P",
-        "sem": "II - II SEM"
-      },
-      {
-        "code": "R2322053",
-        "subject": "Database Management Systems",
-        "grade": "B",
-        "credits": "3.00",
-        "status": "P",
-        "sem": "II - II SEM"
-      },
-      {
-        "code": "R2322433",
-        "subject": "Digital Logic and Computer Organization",
-        "grade": "B",
-        "credits": "3.00",
-        "status": "P",
-        "sem": "II - II SEM"
-      },
-      {
-        "code": "R2322434",
-        "subject": "AI & ML LAB",
-        "grade": "S",
-        "credits": "1.50",
-        "status": "P",
-        "sem": "II - II SEM"
-      },
-      {
-        "code": "R2322056",
-        "subject": "Database Management Systems Lab",
-        "grade": "S",
-        "credits": "1.50",
-        "status": "P",
-        "sem": "II - II SEM"
-      },
-      {
-        "code": "R2322057",
-        "subject": "Full Stack Development \u2013I",
-        "grade": "S",
-        "credits": "2.00",
-        "status": "P",
-        "sem": "II - II SEM"
-      },
-      {
-        "code": "R2322019",
-        "subject": "Design Thinking & Innovation",
-        "grade": "A",
-        "credits": "2.00",
-        "status": "P",
-        "sem": "II - II SEM"
-      }
-    ],
     "semesters": {
       "I - I SEM": {
-        "examDate": "Academic Evaluation",
-        "sgpa": "8.95",
-        "cgpa": "8.13",
+        "examDate": "December 2024",
+        "sgpa": "7.88",
+        "cgpa": "7.88",
         "subjectsPassed": 10,
         "subjectsDue": 0,
-        "credits": "0.00",
+        "credits": "20.50",
         "subjects": [
           {
+            "sno": 1,
             "code": "R231102",
             "subject": "Linear Algebra & Calculus",
-            "grade": "P",
-            "credits": "3.0",
-            "status": "Pass",
-            "sem": "I - I SEM"
+            "grade": "C",
+            "credits": "3.00",
+            "status": "Pass"
           },
           {
+            "sno": 2,
             "code": "R231103",
             "subject": "Engineering Physics",
-            "grade": "P",
-            "credits": "3.0",
-            "status": "Pass",
-            "sem": "I - I SEM"
+            "grade": "C",
+            "credits": "3.00",
+            "status": "Pass"
           },
           {
+            "sno": 3,
             "code": "R231106",
             "subject": "Basic Electrical & Electronics Engineering",
-            "grade": "P",
-            "credits": "3.0",
-            "status": "Pass",
-            "sem": "I - I SEM"
+            "grade": "D",
+            "credits": "3.00",
+            "status": "Pass"
           },
           {
+            "sno": 4,
             "code": "R231107",
             "subject": "Engineering Graphics",
-            "grade": "P",
-            "credits": "3.0",
-            "status": "Pass",
-            "sem": "I - I SEM"
+            "grade": "A",
+            "credits": "3.00",
+            "status": "Pass"
           },
           {
+            "sno": 5,
             "code": "R231108",
             "subject": "Introduction to Programming",
-            "grade": "P",
-            "credits": "3.0",
-            "status": "Pass",
-            "sem": "I - I SEM"
+            "grade": "C",
+            "credits": "3.00",
+            "status": "Pass"
           },
           {
+            "sno": 6,
             "code": "R231110",
             "subject": "Engineering Physics Lab",
-            "grade": "P",
-            "credits": "1.0",
-            "status": "Pass",
-            "sem": "I - I SEM"
+            "grade": "S",
+            "credits": "1.00",
+            "status": "Pass"
           },
           {
+            "sno": 7,
             "code": "R231113",
             "subject": "Electrical & Electronics Engineering Workshop",
-            "grade": "P",
-            "credits": "1.5",
-            "status": "Pass",
-            "sem": "I - I SEM"
+            "grade": "A",
+            "credits": "1.50",
+            "status": "Pass"
           },
           {
+            "sno": 8,
             "code": "R231114",
             "subject": "Computer Programming Lab",
-            "grade": "P",
-            "credits": "1.5",
-            "status": "Pass",
-            "sem": "I - I SEM"
+            "grade": "S",
+            "credits": "1.50",
+            "status": "Pass"
           },
           {
+            "sno": 9,
             "code": "R231115",
             "subject": "IT Workshop",
-            "grade": "P",
-            "credits": "1.0",
-            "status": "Pass",
-            "sem": "I - I SEM"
+            "grade": "S",
+            "credits": "1.00",
+            "status": "Pass"
           },
           {
+            "sno": 10,
             "code": "R231117",
             "subject": "NSS/NCC/Scouts &Guides/Community Service",
-            "grade": "P",
-            "credits": "0.5",
-            "status": "Pass",
-            "sem": "I - I SEM"
+            "grade": "S",
+            "credits": "0.50",
+            "status": "Pass"
           }
         ]
       },
       "I - II SEM": {
-        "examDate": "Academic Evaluation",
-        "sgpa": "8.95",
-        "cgpa": "8.13",
+        "examDate": "June 2025",
+        "sgpa": "7.82",
+        "cgpa": "7.85",
         "subjectsPassed": 10,
         "subjectsDue": 0,
-        "credits": "0.00",
+        "credits": "19.50",
         "subjects": [
           {
+            "sno": 1,
             "code": "R231201",
             "subject": "Communicative English",
-            "grade": "P",
-            "credits": "2.0",
-            "status": "Pass",
-            "sem": "I - II SEM"
+            "grade": "C",
+            "credits": "2.00",
+            "status": "Pass"
           },
           {
+            "sno": 2,
             "code": "R231202",
             "subject": "Differential Equations & Vector Calculus",
-            "grade": "P",
-            "credits": "3.0",
-            "status": "Pass",
-            "sem": "I - II SEM"
+            "grade": "D",
+            "credits": "3.00",
+            "status": "Pass"
           },
           {
+            "sno": 3,
             "code": "R231204",
             "subject": "Chemistry",
-            "grade": "P",
-            "credits": "3.0",
-            "status": "Pass",
-            "sem": "I - II SEM"
+            "grade": "D",
+            "credits": "3.00",
+            "status": "Pass"
           },
           {
+            "sno": 4,
             "code": "R231205",
             "subject": "Basic Civil & Mechanical Engineering",
-            "grade": "P",
-            "credits": "3.0",
-            "status": "Pass",
-            "sem": "I - II SEM"
+            "grade": "A",
+            "credits": "3.00",
+            "status": "Pass"
           },
           {
+            "sno": 5,
             "code": "R231209",
             "subject": "Data structures",
-            "grade": "P",
-            "credits": "3.0",
-            "status": "Pass",
-            "sem": "I - II SEM"
+            "grade": "C",
+            "credits": "3.00",
+            "status": "Pass"
           },
           {
+            "sno": 6,
             "code": "R231210",
             "subject": "Communicative English Lab",
-            "grade": "P",
-            "credits": "1.0",
-            "status": "Pass",
-            "sem": "I - II SEM"
+            "grade": "S",
+            "credits": "1.00",
+            "status": "Pass"
           },
           {
+            "sno": 7,
             "code": "R231212",
             "subject": "Chemistry Lab",
-            "grade": "P",
-            "credits": "1.0",
-            "status": "Pass",
-            "sem": "I - II SEM"
+            "grade": "S",
+            "credits": "1.00",
+            "status": "Pass"
           },
           {
+            "sno": 8,
             "code": "R231213",
             "subject": "Engineering Workshop",
-            "grade": "P",
-            "credits": "1.5",
-            "status": "Pass",
-            "sem": "I - II SEM"
+            "grade": "S",
+            "credits": "1.50",
+            "status": "Pass"
           },
           {
+            "sno": 9,
             "code": "R231216",
             "subject": "Data structures Lab",
-            "grade": "P",
-            "credits": "1.5",
-            "status": "Pass",
-            "sem": "I - II SEM"
+            "grade": "S",
+            "credits": "1.50",
+            "status": "Pass"
           },
           {
+            "sno": 10,
             "code": "R231219",
             "subject": "Health and wellness, Yoga and Sports",
-            "grade": "P",
-            "credits": "0.5",
-            "status": "Pass",
-            "sem": "I - II SEM"
+            "grade": "A",
+            "credits": "0.50",
+            "status": "Pass"
+          }
+        ]
+      },
+      "II - I SEM": {
+        "examDate": "November 2025",
+        "sgpa": "7.83",
+        "cgpa": "7.84",
+        "subjectsPassed": 9,
+        "subjectsDue": 0,
+        "credits": "20.00",
+        "subjects": [
+          {
+            "sno": 1,
+            "code": "R2321011",
+            "subject": "UNIVERSAL HUMAN VALUES \u2013UNDERSTANDING HARMONY AND ETHICAL HUMAN CONDUCT",
+            "grade": "B",
+            "credits": "3.00",
+            "status": "Pass"
+          },
+          {
+            "sno": 2,
+            "code": "R2321051",
+            "subject": "DISCRETE MATHEMATICS & GRAPH THEORY",
+            "grade": "B",
+            "credits": "3.00",
+            "status": "Pass"
+          },
+          {
+            "sno": 3,
+            "code": "R2321431",
+            "subject": "ARTIFICIAL INTELLIGENCE",
+            "grade": "D",
+            "credits": "3.00",
+            "status": "Pass"
+          },
+          {
+            "sno": 4,
+            "code": "R2321053",
+            "subject": "ADVANCED DATA STRUCTURES & ALGORITHMS ANALYSIS",
+            "grade": "C",
+            "credits": "3.00",
+            "status": "Pass"
+          },
+          {
+            "sno": 5,
+            "code": "R2321054",
+            "subject": "OBJECT ORIENTED PROGRAMMING THROUGH JAVA",
+            "grade": "C",
+            "credits": "3.00",
+            "status": "Pass"
+          },
+          {
+            "sno": 6,
+            "code": "R2321055",
+            "subject": "ADVANCED DATA STRUCTURES AND ALGORITHMS ANALYSIS LAB",
+            "grade": "S",
+            "credits": "1.50",
+            "status": "Pass"
+          },
+          {
+            "sno": 7,
+            "code": "R2321056",
+            "subject": "OBJECT ORIENTED PROGRAMMING THROUGH JAVA LAB",
+            "grade": "A",
+            "credits": "1.50",
+            "status": "Pass"
+          },
+          {
+            "sno": 8,
+            "code": "R2321057",
+            "subject": "(SKILL ENHANCEMENT COURSE) PYTHON PROGRAMMING",
+            "grade": "S",
+            "credits": "2.00",
+            "status": "Pass"
+          },
+          {
+            "sno": 9,
+            "code": "R232101M",
+            "subject": "ENVIRONMENTAL SCIENCE",
+            "grade": "CP",
+            "credits": "0.00",
+            "status": "Pass"
+          }
+        ]
+      },
+      "II - II SEM": {
+        "examDate": "April 2026",
+        "sgpa": "8.95",
+        "cgpa": "8.13",
+        "subjectsPassed": 9,
+        "subjectsDue": 0,
+        "credits": "21.00",
+        "subjects": [
+          {
+            "sno": 1,
+            "code": "R2322431",
+            "subject": "Optimization Techniques",
+            "grade": "A",
+            "credits": "2.00",
+            "status": "Pass"
+          },
+          {
+            "sno": 2,
+            "code": "R2322051",
+            "subject": "Probability & Statistics",
+            "grade": "A",
+            "credits": "3.00",
+            "status": "Pass"
+          },
+          {
+            "sno": 3,
+            "code": "R2322432",
+            "subject": "Machine Learning",
+            "grade": "A",
+            "credits": "3.00",
+            "status": "Pass"
+          },
+          {
+            "sno": 4,
+            "code": "R2322053",
+            "subject": "Database Management Systems",
+            "grade": "B",
+            "credits": "3.00",
+            "status": "Pass"
+          },
+          {
+            "sno": 5,
+            "code": "R2322433",
+            "subject": "Digital Logic and Computer Organization",
+            "grade": "B",
+            "credits": "3.00",
+            "status": "Pass"
+          },
+          {
+            "sno": 6,
+            "code": "R2322434",
+            "subject": "AI & ML LAB",
+            "grade": "S",
+            "credits": "1.50",
+            "status": "Pass"
+          },
+          {
+            "sno": 7,
+            "code": "R2322056",
+            "subject": "Database Management Systems Lab",
+            "grade": "S",
+            "credits": "1.50",
+            "status": "Pass"
+          },
+          {
+            "sno": 8,
+            "code": "R2322057",
+            "subject": "Full Stack Development \u2013I",
+            "grade": "S",
+            "credits": "2.00",
+            "status": "Pass"
+          },
+          {
+            "sno": 9,
+            "code": "R2322019",
+            "subject": "Design Thinking & Innovation",
+            "grade": "A",
+            "credits": "2.00",
+            "status": "Pass"
           }
         ]
       }
-    }
+    },
+    "subjects": [
+      {
+        "sno": 1,
+        "code": "R231102",
+        "subject": "Linear Algebra & Calculus",
+        "grade": "C",
+        "credits": "3.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 2,
+        "code": "R231103",
+        "subject": "Engineering Physics",
+        "grade": "C",
+        "credits": "3.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 3,
+        "code": "R231106",
+        "subject": "Basic Electrical & Electronics Engineering",
+        "grade": "D",
+        "credits": "3.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 4,
+        "code": "R231107",
+        "subject": "Engineering Graphics",
+        "grade": "A",
+        "credits": "3.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 5,
+        "code": "R231108",
+        "subject": "Introduction to Programming",
+        "grade": "C",
+        "credits": "3.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 6,
+        "code": "R231110",
+        "subject": "Engineering Physics Lab",
+        "grade": "S",
+        "credits": "1.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 7,
+        "code": "R231113",
+        "subject": "Electrical & Electronics Engineering Workshop",
+        "grade": "A",
+        "credits": "1.50",
+        "status": "Pass"
+      },
+      {
+        "sno": 8,
+        "code": "R231114",
+        "subject": "Computer Programming Lab",
+        "grade": "S",
+        "credits": "1.50",
+        "status": "Pass"
+      },
+      {
+        "sno": 9,
+        "code": "R231115",
+        "subject": "IT Workshop",
+        "grade": "S",
+        "credits": "1.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 10,
+        "code": "R231117",
+        "subject": "NSS/NCC/Scouts &Guides/Community Service",
+        "grade": "S",
+        "credits": "0.50",
+        "status": "Pass"
+      },
+      {
+        "sno": 1,
+        "code": "R231201",
+        "subject": "Communicative English",
+        "grade": "C",
+        "credits": "2.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 2,
+        "code": "R231202",
+        "subject": "Differential Equations & Vector Calculus",
+        "grade": "D",
+        "credits": "3.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 3,
+        "code": "R231204",
+        "subject": "Chemistry",
+        "grade": "D",
+        "credits": "3.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 4,
+        "code": "R231205",
+        "subject": "Basic Civil & Mechanical Engineering",
+        "grade": "A",
+        "credits": "3.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 5,
+        "code": "R231209",
+        "subject": "Data structures",
+        "grade": "C",
+        "credits": "3.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 6,
+        "code": "R231210",
+        "subject": "Communicative English Lab",
+        "grade": "S",
+        "credits": "1.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 7,
+        "code": "R231212",
+        "subject": "Chemistry Lab",
+        "grade": "S",
+        "credits": "1.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 8,
+        "code": "R231213",
+        "subject": "Engineering Workshop",
+        "grade": "S",
+        "credits": "1.50",
+        "status": "Pass"
+      },
+      {
+        "sno": 9,
+        "code": "R231216",
+        "subject": "Data structures Lab",
+        "grade": "S",
+        "credits": "1.50",
+        "status": "Pass"
+      },
+      {
+        "sno": 10,
+        "code": "R231219",
+        "subject": "Health and wellness, Yoga and Sports",
+        "grade": "A",
+        "credits": "0.50",
+        "status": "Pass"
+      },
+      {
+        "sno": 1,
+        "code": "R2321011",
+        "subject": "UNIVERSAL HUMAN VALUES \u2013UNDERSTANDING HARMONY AND ETHICAL HUMAN CONDUCT",
+        "grade": "B",
+        "credits": "3.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 2,
+        "code": "R2321051",
+        "subject": "DISCRETE MATHEMATICS & GRAPH THEORY",
+        "grade": "B",
+        "credits": "3.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 3,
+        "code": "R2321431",
+        "subject": "ARTIFICIAL INTELLIGENCE",
+        "grade": "D",
+        "credits": "3.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 4,
+        "code": "R2321053",
+        "subject": "ADVANCED DATA STRUCTURES & ALGORITHMS ANALYSIS",
+        "grade": "C",
+        "credits": "3.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 5,
+        "code": "R2321054",
+        "subject": "OBJECT ORIENTED PROGRAMMING THROUGH JAVA",
+        "grade": "C",
+        "credits": "3.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 6,
+        "code": "R2321055",
+        "subject": "ADVANCED DATA STRUCTURES AND ALGORITHMS ANALYSIS LAB",
+        "grade": "S",
+        "credits": "1.50",
+        "status": "Pass"
+      },
+      {
+        "sno": 7,
+        "code": "R2321056",
+        "subject": "OBJECT ORIENTED PROGRAMMING THROUGH JAVA LAB",
+        "grade": "A",
+        "credits": "1.50",
+        "status": "Pass"
+      },
+      {
+        "sno": 8,
+        "code": "R2321057",
+        "subject": "(SKILL ENHANCEMENT COURSE) PYTHON PROGRAMMING",
+        "grade": "S",
+        "credits": "2.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 9,
+        "code": "R232101M",
+        "subject": "ENVIRONMENTAL SCIENCE",
+        "grade": "CP",
+        "credits": "0.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 1,
+        "code": "R2322431",
+        "subject": "Optimization Techniques",
+        "grade": "A",
+        "credits": "2.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 2,
+        "code": "R2322051",
+        "subject": "Probability & Statistics",
+        "grade": "A",
+        "credits": "3.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 3,
+        "code": "R2322432",
+        "subject": "Machine Learning",
+        "grade": "A",
+        "credits": "3.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 4,
+        "code": "R2322053",
+        "subject": "Database Management Systems",
+        "grade": "B",
+        "credits": "3.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 5,
+        "code": "R2322433",
+        "subject": "Digital Logic and Computer Organization",
+        "grade": "B",
+        "credits": "3.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 6,
+        "code": "R2322434",
+        "subject": "AI & ML LAB",
+        "grade": "S",
+        "credits": "1.50",
+        "status": "Pass"
+      },
+      {
+        "sno": 7,
+        "code": "R2322056",
+        "subject": "Database Management Systems Lab",
+        "grade": "S",
+        "credits": "1.50",
+        "status": "Pass"
+      },
+      {
+        "sno": 8,
+        "code": "R2322057",
+        "subject": "Full Stack Development \u2013I",
+        "grade": "S",
+        "credits": "2.00",
+        "status": "Pass"
+      },
+      {
+        "sno": 9,
+        "code": "R2322019",
+        "subject": "Design Thinking & Innovation",
+        "grade": "A",
+        "credits": "2.00",
+        "status": "Pass"
+      }
+    ]
   },
   "24HT1A4325": {
     "id": "24HT1A4325",
