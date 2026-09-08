@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	Student Login
+</title><link href="../CSS/form.css" rel="stylesheet" /><link href="../CSS/Vertical.css" rel="stylesheet" /><link href="../CSS/styles.css" rel="stylesheet" />
+
+    
+  
+
+       <script type="text/javascript">
+
+           //function PostToNewWindow() {
+           //    originalTarget = document.forms[0].target;
+           //    document.forms[0].target = '_blank';
+           //    window.setTimeout("document.forms[0].target=originalTarget;", 0);
+           //    return true;
+           //}
+
+
+
+
+           //top.window.moveTo(0, 0);
+           if (document.all) {
+               top.window.resizeTo(screen.availWidth, screen.availHeight);
+           }
+           else if (document.layers || document.getElementById) {
+               if (top.window.outerHeight < screen.availHeight || top.window.outerWidth < screen.availWidth) {
+
+                   top.window.outerHeight = screen.availHeight;
+                   top.window.outerWidth = screen.availWidth;
+               }
+           }
+
+
+           function noBack() {
+               window.history.forward();
+           }
+           noBack();
+           window.onload = noBack;
+           window.onpageshow = function (evt) {
+               if (evt.persisted) noBack();
+           }
+           window.onunload = function () {
+               void (0);
+           }
+
+       </script>
+
+    <script type="text/javascript">
+
+        $(document).keydown(function (event) {
+            if (event.keyCode == 123) {
+                return false;
+            }
+            else if ((event.ctrlkey && event.shiftkey && event.keyCode == 73) || (event.shiftkey && event.ctrlkey && event.keyCode == 74)) {
+                return false;
+            }
+        });
+        $(document).on("contextmenu", function (e) {
+            e.preventDefault();
+        });
+        </script>
+
+
+   
+    
+</head>
+<body oncontextmenu="return false;">
+   <form method="post" action="./MainStud.aspx" id="form1" autocomplete="off">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEyMDAxNDQ3NTcPZBYCZg8PFgQeD19fQW50aVhzcmZUb2tlbgUgYTM1MTI0MWM4Nzc1NGYxMzgyZGRiYTIzMzU1MTZjZGYeEl9fQW50aVhzcmZVc2VyTmFtZWVkFgICAw9kFg4CBQ8PFgIeCEltYWdlVXJsBT9+XFN0dWRlbnRMb2dpblxTdHVkZW50XFN0dWRlbnRQaG90by5hc3B4P1N0dWRJZD05OTcmQ29sQ29kZT1QU1NkZAIJDw8WAh4EVGV4dAUKMjNIVDFBNDMwMWRkAg0PDxYCHwMFHkFCQlVSSSBTSVZBIFNBTktBUiBWQVJBIFBSQVNBRGRkAhEPDxYCHwMFBkNTRS1BSWRkAhUPDxYCHwMFCklJIC0gSSBTRU1kZAIdD2QWEAIFD2QWAmYPDxYCHgdWaXNpYmxlaGRkAgcPZBYGZg8PFgIfBGhkZAICDw8WAh8EaGRkAgQPDxYCHwRoZGQCCQ9kFgICAg8PFgIfBGhkZAIVD2QWCAIKDw8WAh8EaGRkAgwPDxYCHwRoZGQCFg8PFgIfBGhkZAIYDw8WAh8EaGRkAhcPZBYCZg8PFgIfBGhkZAIZD2QWBgIEDw8WAh8EaGRkAgYPDxYCHwRoZGQCCA8PFgIfBGhkZAIbD2QWAmYPDxYCHwRoZGQCHQ9kFgZmDw8WAh8EaGRkAgIPDxYCHwRoZGQCBA8PFgIfBGhkZAIfD2QWAgIBD2QWAgIBD2QWAgIDD2QWAgIBDzwrABEEAA8WBB4LXyFEYXRhQm91bmRnHgtfIUl0ZW1Db3VudAIBFgIeBXN0eWxlBSl3b3JkLWJyZWFrOmJyZWFrLWFsbDt3b3JkLXdyYXA6YnJlYWstd29yZAUWCB4PSG9yaXpvbnRhbEFsaWduCyopU3lzdGVtLldlYi5VSS5XZWJDb250cm9scy5Ib3Jpem9udGFsQWxpZ24BHg1WZXJ0aWNhbEFsaWduCyonU3lzdGVtLldlYi5VSS5XZWJDb250cm9scy5WZXJ0aWNhbEFsaWduAh4GSGVpZ2h0GwAAAAAAADlAAQAAAB4EXyFTQgKAgQwLFgYeCkZvbnRfTmFtZXMVAQVBcmlhbB4JRm9udF9TaXplKCoiU3lzdGVtLldlYi5VSS5XZWJDb250cm9scy5Gb250VW5pdAM5cHQfCwKADAwUKwADFggeBE5hbWUFBERhdGUeCklzUmVhZE9ubHloHgRUeXBlGSsCHglEYXRhRmllbGQFBERhdGUWCB8OBQ5Ob3RpZmljYXRpb25Obx8PaB8QGSsCHxEFDk5vdGlmaWNhdGlvbk5vFggfDgUHTWVzc2FnZR8PaB8QGSsCHxEFB01lc3NhZ2UWAmYPZBYGZg8PFgoeCUJhY2tDb2xvcgkicPP/HwobAAAAAAAAPkABAAAAHglGb3JlQ29sb3IKIx8JCysFAh8LAoyBCGQWBmYPDxYEHwgLKwQBHwsCgIAEZGQCAQ8PFgQfCAsrBAEfCwKAgARkZAICDw8WBB8ICysEAR8LAoCABGRkAgEPZBYGZg8PFgYfAwUGJm5ic3A7HgVXaWR0aBsAAAAAAABUQAEAAAAfCwKAAmRkAgEPDxYGHwMFBiZuYnNwOx8UGwAAAAAAAGlAAQAAAB8LAoACZGQCAg8PFgYfAwUGJm5ic3A7HxQbAAAAAABAj0ABAAAAHwsCgAJkZAICDw8WAh8EaGRkGAIFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYCBQ1jdGwwMCRidG5CYWNrBQ9jdGwwMCRidG5Mb2dvdXQFG2N0bDAwJGNwU3R1ZENvcm5lciRncmROb3RpZg88KwAMAQgCAWQMP8NBlWwXrALRTCbYFXAHouONWbOn6fDkvSfW6grHqQ==" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="75536BD9" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdACGLxSxtigIfvVG8AI7s2eeCPsyKhdavx+AciqUhrYDSxptHBelCd+gvDm/As3EuQ0S2s3uEAsM9bq05PW5thOmfgUFlgNU1eucH/1aaMMUqPn2Kyrs4V0NBpfQ4WNKRk65alieJwzYXthGW935FjZ262KJReIz20L3UDY+BGxzggdca3mN8BEZZ5FE81KogYHqk7joxL44Zq/eSkuISqhTPXi0P+g0qr0erWGtxu3FDON8pM2qw0Ev7MYcqW84UK+eZ6LAW9Y52m8VOhGmmJ8quEfYS4dNk/k8VLjCliWeMZ2s10EYAeXFnzhevd50sjj0M+BLVOb8eU7MpfZ8JToryuNkRzZN6iqWTkA26Ue32Rk28tybxjPCL81CRh8BnjeuUCic0G2FOXhQDMLZhcLYXXaiwjVWwe8F4Y1Jiy2Aq+TRTljIYZhRlWym+Rdtfb+sdpB57YK8Rl4Kd4zQ5xUCRQTzsZ/gB+alB17c5w1lJwx6RX4d2sjcT+OyYsSs0FXAumxwAS7cxxqivGQofbQk2zNBM98trssXld5dD73vgQdQWaA9lbwRTuiTREAFK5XJ5sDQbRG7yBoT3ZXuGDRS4dS8zgq0govHVmWIYxnJ/X5x1oTM6sC6pstDnjXrYT+eXE2l6lrA6F1bBWC2ykKOQYbKJLRZbfCSuAA4dWzU8mT3LIoh2I1fzMihQwnKgz+d4M67W7aRPSKDly5NV4iarriuawyfQ3p3FodKQbRi0OQ==" />
+</div>
+            <div class="header">
+                 <table>
+                    <tr>
+                        <td>
+                            
+   
+   
+                        </td>
+                    </tr>                         
+                </table>
+                <table style="width:100%;"> 
+                    <tr>
+                        <td  style="vertical-align:top;width:900px;">
+                           
+                            <img id="Image2" src="../Images/header.jpg" style="height:89px;" />
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                     <img id="ImgStudent" src="Student/StudentPhoto.aspx?StudId=997&amp;ColCode=PSS" style="height:80px;width:80px;" />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <span id="Label15" class="labelColor">HTNo:</span>
+                                                </td>
+                                                <td>
+                                                    <span id="lblHTNo" class="form_text">23HT1A4301</span>                                                                           
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span id="Label23" class="labelColor">Name:</span>
+                                                </td>
+                                                <td>
+                                                    <span id="lblStudName" class="form_text">ABBURI SIVA SANKAR VARA PRASAD</span>                                                                                                                                                   
+                                                </td>
+                                            </tr>                                                                                                          
+                                        </table>
+                                        <table>
+                                             <tr>                                                                        
+                                                <td>
+                                                    <span id="Label2" class="labelColor">Branch:</span>
+                                                </td>
+                                                <td>
+                                                        <span id="lblBranch" class="smalltxt_box">CSE-AI</span>                                                                                                                                                   
+                                                </td>
+                                                <td>
+                                                    <span id="Label16" class="labelColor">Sem:</span>
+                                                </td>
+                                                <td>
+                                                    <span id="lblSem" class="smalltxt_box">II - I SEM</span>                                                                                                                                                   
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td style="vertical-align:top;">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <input type="image" name="ctl00$btnBack" id="btnBack" src="../Images/Home.jpg" alt="GoBack" align="middle" style="color:Black;" />                                                                          
+                                    </td>
+                                    <td>
+                                        <input type="image" name="ctl00$btnLogout" id="btnLogout" src="../Images/StuLogout.jpg" alt="Logout" align="middle" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                   </tr>
+                </table>
+                <table class="Footer">
+                    <tr>
+                        <td colspan="2">
+                            <span id="lblStudentPortal" style="color:White;font-family:Arial;font-size:Larger;"> Student Portal </span>
+                        </td>
+                       
+                    </tr>
+                </table>               
+                <table>                    
+                    <tr>
+                        <td>
+                            <table style="margin-top:10px;width:100%;"> 
+                                <tr>
+                                    <td style="vertical-align:top; width:200px;">
+                                        <div id="PanelStudMenus">
+	
+                                            <nav class="vertical">
+                                            <ul>                                                
+                                                <li id="liStuInfo"><a id="lnkStuInfo" href="javascript:__doPostBack(&#39;ctl00$lnkStuInfo&#39;,&#39;&#39;)">Basic Information</a></li>	
+                                                <li id="liAcademic"><a id="LinkButton1" class="list" href="javascript:__doPostBack(&#39;ctl00$LinkButton1&#39;,&#39;&#39;)">Academic Information</a>
+                                                    <ul>
+                                                        <li><a id="lnkHolidaysList" href="javascript:__doPostBack(&#39;ctl00$lnkHolidaysList&#39;,&#39;&#39;)">List of Holidays</a></li>  
+                                                        <li><a id="lnkAcademicCalender" href="javascript:__doPostBack(&#39;ctl00$lnkAcademicCalender&#39;,&#39;&#39;)">Academic Calendar</a></li> 
+                                                    </ul>
+                                                </li> 
+                                                <li id="liFacultySelection"></li>	
+                                                <li id="liAssign">
+                                                    <ul>
+                                                        <li></li>  
+                                                        <li></li>  
+                                                    </ul>
+                                                </li>                                                
+
+                                                <li id="liTimeTables"><a id="lnkTimeTables" class="list" href="javascript:__doPostBack(&#39;ctl00$lnkTimeTables&#39;,&#39;&#39;)">Exam Time Tables</a>
+                                                    <ul>
+                                                         <li></li>  
+                                                         <li><a id="lnkExtTimeTable" href="javascript:__doPostBack(&#39;ctl00$lnkExtTimeTable&#39;,&#39;&#39;)">External Time Table</a></li>          
+                                                    </ul>                                                                                                 
+                                                </li>
+                                                <li >
+                                                      <ul>
+                                                      <li><a id="lnkExamFeePaymentRegForHonorsMinors" href="javascript:__doPostBack(&#39;ctl00$lnkExamFeePaymentRegForHonorsMinors&#39;,&#39;&#39;)">Regular Fee Payment For Honors and Minors</a></li>
+                                                      <li><a id="lnkExamFeePaymentSupplyForHonorsMinors" href="javascript:__doPostBack(&#39;ctl00$lnkExamFeePaymentSupplyForHonorsMinors&#39;,&#39;&#39;)">Supply Fee Payment For Honors and Minors</a></li>  
+                                                       <li></li>  
+                                                           <li><a id="lnkOnlineFeePaymentDetailsForHonorsMinors" href="javascript:__doPostBack(&#39;ctl00$lnkOnlineFeePaymentDetailsForHonorsMinors&#39;,&#39;&#39;)">Online FeePayment Details For Honors and Minors</a></li>          
+                                                          </ul>
+                                                          </li>  
+
+                                                <li id="liOnlinePayments"><a id="lnkOnlinePayments" class="list" href="javascript:__doPostBack(&#39;ctl00$lnkOnlinePayments&#39;,&#39;&#39;)">Online Fee Payments</a>
+                                                    <ul>
+                                                        <li><a id="lnkFeePayInstruction" href="javascript:__doPostBack(&#39;ctl00$lnkFeePayInstruction&#39;,&#39;&#39;)">Instructions</a></li>                             		              
+                                                        <li><a id="lnkExamFeepaymentReg" href="javascript:__doPostBack(&#39;ctl00$lnkExamFeepaymentReg&#39;,&#39;&#39;)">Regular Fee Payment</a></li>    
+                                                        <li><a id="lnkExamFeepaymentSupply" href="javascript:__doPostBack(&#39;ctl00$lnkExamFeepaymentSupply&#39;,&#39;&#39;)">Supply Fee Payment</a></li>  
+                                                        <!--SREC-->
+                                                      
+                                                        <li><a id="lnkOnlineRevaluation" href="javascript:__doPostBack(&#39;ctl00$lnkOnlineRevaluation&#39;,&#39;&#39;)">Re-Evaluation Fee Payment</a></li>
+                                                        <li></li>   
+                                                        <li></li> 
+                                                        <li><a id="lnkOnlineScriptView" href="javascript:__doPostBack(&#39;ctl00$lnkOnlineScriptView&#39;,&#39;&#39;)">Script View Fee Payment</a></li>
+                                                        <li><a id="lnkOnlineTranscripts" href="javascript:__doPostBack(&#39;ctl00$lnkOnlineTranscripts&#39;,&#39;&#39;)">Transcripts Fee Payment</a></li>                                                     
+                                                        <li><a id="lnkOnlineFeePaymentDet" href="javascript:__doPostBack(&#39;ctl00$lnkOnlineFeePaymentDet&#39;,&#39;&#39;)">Regular/Supply Fee Receipts</a></li>   
+                                                        <li><a id="lnkOnlineReValFeeDet" href="javascript:__doPostBack(&#39;ctl00$lnkOnlineReValFeeDet&#39;,&#39;&#39;)">Re- Evaluation Fee Receipts</a></li>    
+                                                        <li></li>
+                                                        <li></li>
+                                                        <li><a id="lnkOnlineScriptViewFeeDet" href="javascript:__doPostBack(&#39;ctl00$lnkOnlineScriptViewFeeDet&#39;,&#39;&#39;)">Script View Fee Receipts</a></li>
+                                                        <li><a id="lnkOnlineTranscriptFeeDet" href="javascript:__doPostBack(&#39;ctl00$lnkOnlineTranscriptFeeDet&#39;,&#39;&#39;)">Transcripts Fee Receipts</a></li>
+                                                    </ul>
+                                                </li> 
+
+                                                 <li id="liScriptUploading">
+                                                    <ul>
+                                                        <li><a id="lnkInternalScript" href="javascript:__doPostBack(&#39;ctl00$lnkInternalScript&#39;,&#39;&#39;)">Internal</a></li>
+                                                        <li><a id="lnkExternalScript" href="javascript:__doPostBack(&#39;ctl00$lnkExternalScript&#39;,&#39;&#39;)">External</a></li>                                                                   
+                                                    </ul>
+                                                </li>               
+
+
+                                                <li id="liMarks"><a id="LinkButton2" class="list" href="javascript:__doPostBack(&#39;ctl00$LinkButton2&#39;,&#39;&#39;)">Marks Details</a>
+                                                    <ul>
+                                                        <li></li>
+                                                        <li></li>
+                                                        <li></li>       
+                                                        <li></li>       
+                                                        <li></li>  
+                                                              <li><a id="lnkExternalMarksQuestionWise" href="javascript:__doPostBack(&#39;ctl00$lnkExternalMarksQuestionWise&#39;,&#39;&#39;)">External Script View</a></li>   
+
+                                                        <li><a id="lnkOverallMarks" href="javascript:__doPostBack(&#39;ctl00$lnkOverallMarks&#39;,&#39;&#39;)">Overall Marks</a></li>
+                                                        <li><a id="lnkOverallMarksHonorsMinors" href="javascript:__doPostBack(&#39;ctl00$lnkOverallMarksHonorsMinors&#39;,&#39;&#39;)">Overall Marks Honors and Minors</a></li>
+                                                        <li><a id="lnkOverallMarksSemwise" href="javascript:__doPostBack(&#39;ctl00$lnkOverallMarksSemwise&#39;,&#39;&#39;)">Overall Marks - Semwise</a></li>   
+                                                         <li><a id="lnkOverallMarksSemwiseHonorsMinors" href="javascript:__doPostBack(&#39;ctl00$lnkOverallMarksSemwiseHonorsMinors&#39;,&#39;&#39;)">Overall Marks - Semwise Honors and Minors</a></li> 
+                                                        
+                                                        <li></li>                 
+                                                    </ul>
+                                                </li>                                             
+                                                <li id="liChangePwd"></li>                      		                                                   		             
+                                                <li id="liDownloads">
+                                                    <ul>
+                                                         <li></li>
+                                                         <li></li>
+                                                         <li><a id="lnkSVDownload" href="javascript:__doPostBack(&#39;ctl00$lnkSVDownload&#39;,&#39;&#39;)">Script Downloading</a></li>
+                                                    </ul>
+                                                </li>                                           		                                  
+                                                                        		             
+                                                <li id="liContactUs"><a id="lnkContactUs" href="javascript:__doPostBack(&#39;ctl00$lnkContactUs&#39;,&#39;&#39;)">Contact Us</a></li> 
+                                                                                                
+                                            </ul>                               
+                                         </nav> 
+                                        
+</div>
+                                                           	                                                                       
+	                                </td>	
+                                    <td style="vertical-align:top;">                                                                          
+                                        <div style="width:1120px;">
+	
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        
+     <div id="cpStudCorner_PanelNotification" style="width:1130px;text-align:left;">
+		
+         <table class="formTableAuto">
+            <tr>
+                <td>     
+                    <table style="text-align:center;width:1090px;">
+                        <tr>
+                            <td>
+                                <span id="cpStudCorner_Label2" class="MessageLabelRed" style="font-size:Medium;font-weight:bold;">Notifications</span>
+                            </td>
+                        </tr>
+                    </table>           
+                    <table>
+                        <tr>
+                            <td>
+                                <div id="cpStudCorner_pnlgrid" class="grid_PayStructure" style="border-width:1px;border-style:Solid;overflow:scroll;text-align:left;">
+			
+                                    <div>
+				<table cellspacing="0" rules="all" border="1" id="cpStudCorner_grdNotif" style="font-family:Arial;font-size:9pt;border-collapse:collapse;word-break:break-all;word-wrap:break-word">
+					<tr align="left" valign="middle" style="color:Black;background-color:#F37022;height:30px;">
+						<th align="left" scope="col">Date</th><th align="left" scope="col">NotificationNo</th><th align="left" scope="col">Message</th>
+					</tr><tr align="left" valign="middle" style="height:25px;">
+						<td style="width:80px;">&nbsp;</td><td style="width:200px;">&nbsp;</td><td style="width:1000px;">&nbsp;</td>
+					</tr>
+				</table>
+			</div>
+                                
+		</div>
+                            </td>
+                        </tr>
+                    </table>                                       
+                </td>
+            </tr>
+         </table>
+     
+	</div>     
+  
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        
+</div>
+                                    </td>                    
+                                </tr>
+                            </table>
+                         </td> 
+                    </tr>
+		        </table>	
+            </div>
+   </form>
+     <script type="text/javascript">
+         document.onmousedown = disableRightclick;
+         var message = "Sorry ! Right Click No Access.";
+         function disableRightclick(evt) {
+             if (evt.button == 2) {
+                 alert(message);
+                 return false;
+             }
+         }
+    </script>
+</body>
+</html>

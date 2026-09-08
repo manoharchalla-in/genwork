@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head><link href="../../CSS/styles.css" rel="stylesheet" /> 
+        <script src="CSS/jquery-1.8.0.min.js"></script>
+        <script src="CSS/script.js"></script>
+        <title>
+	BET e-Portal Login
+</title>      
+    <style>
+           .html, body{
+            padding:0;
+            margin:0;            
+            }
+
+           .body {
+            background:#fff;
+            color: #000; 
+            }
+     
+
+
+
+
+        .TopHeader
+        {
+            height:30px;
+	        width:100%;
+	        background-color:#ebb04c;
+            text-align:center;
+            padding-top: 0px;
+            padding-bottom:0px;
+            font-family :Arial ,Arial ; 
+            background-image:url(../Images/MainLoginheader.jpg);
+        }
+        .MessageLabelRed
+            {
+                color:#ff0000;
+                font-family:arial;
+                font-size: 11px;
+                width:150px;
+            }
+        .Footer
+        {
+	        height:30px;
+	        width:100%;	       
+            text-align:center;
+            padding-top: 0px;
+            padding-bottom:0px;
+            font-family :Arial ,Arial ;
+            font-size:13px;
+            font-weight:bold;
+            background-image:url(../Images/MainLoginFooter.jpg);
+        }
+        .SmallFont
+        {
+            font-family:arial,Arial ;
+            font-size:13px;
+            font-weight:bold;
+            color:#C0C0C0;
+        }
+        .fieldset
+         {
+             text-align:center;
+             background-color:none;
+             width: 150px;
+             height:390px;
+             border: 3px solid #000;
+             border-radius: 20px;
+	         padding: 5px 0px 0px 40px;        
+             margin-left:260px;
+             margin-right:10px;
+             margin-bottom:0px;
+             margin-top:190px;
+             font-family :Arial ,Arial ;
+        }
+       .fieldsetclasslogin
+         {
+             width: 300px;
+	         border: 3px solid #000;
+	         border-radius: 5px;
+	 
+             text-align:left;
+             font-family :Arial ,Arial ;       
+         }
+       .FormText
+        {
+            font-size:12px;
+            font-weight:bold;
+            font-family:arial,Arial;
+        }
+        .Image
+        {
+            /*margin-left:60px;*/
+            text-align:center;
+        }
+        /*.ImageHeading
+        {
+            margin-left:-10px;
+            color:white;
+            background-color:black;
+            width:250px;
+            margin-top:-5px;
+        }*/
+        .LabelHeading
+        {
+            text-align:center;
+            width:300px;
+        }
+        .TextBoxes
+        {
+            width:200px;
+
+        }
+        .submit 
+        {
+            color: #000;
+            background-color: #f9c903;
+            border: none;
+            border-radius: 5px;
+            width: 55px;
+            font-family: 'Arial';
+            font-weight:bold;
+        }
+        submit:hover
+            {
+	        background-color:#FC0;  
+            }
+        .CollegeName
+        {
+            font-family:Arial ,arial;
+            font-weight:bold;
+            font-size:25px;
+        }
+
+        
+               nav 
+               {
+                  font-family:arial,Arial;
+                  line-height: 0.5;
+                  margin: 50px 0px 0px 0px; /*for display only*/
+                  width: 170px;
+                  -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,1);
+                     -moz-box-shadow: 2px 2px 5px rgba(0,0,0,1);
+                          box-shadow: 2px 2px 5px rgba(0,0,0,1);
+                } 
+              
+    </style>
+         
+</head>
+    <body class="Body">
+          
+
+            <form method="post" action="../../Login.aspx" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTMwMTg5NjI5NA9kFgICAw9kFgICBQ8PFgIeB1Zpc2libGVoZGRkMpLAi30PJWMELxlG+aGijvklq91TW2vUVvEgNl6ejeE=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="C2EE9ABB" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAASq1YPjyyGWctfe5Bqsa8h9ELYayygIrYKbL/Dx4x5DdMr/oJFE+eOmI+wQrfEPHbtpOCqQ5ELEfO+O75msrGKkU24L6Qj079FRzPRR1MdAColRcHR7JrhH9wJfn4sR2Ws=" />
+</div>
+                 
+               <div style="text-align:center;width:100%;height:100%;">
+                   <table class="TopHeader">
+                       <tr>
+                           <td colspan="2">
+
+                           </td>
+                       </tr>
+                   </table>
+                   <table >                       
+                       <tr style="height:120px;">
+                           <td colspan="3">
+                               <table style="margin-left:150px;">
+                                   <tr>
+                                       <td >
+                                           
+                                           <img id="Image2" src="../../Images/header.jpg" />
+                                       </td>                                      
+                                   </tr>
+                               </table>
+                           </td>                                              
+                       </tr>
+                       <tr  style="height:462px;">
+                            <td style="vertical-align:top; width:269px;">
+                                <table>
+                                        <tr>
+                                            <td>
+                                             <div id='cssmenu'>                                                   
+                                                      <ul>
+                                                            <li class="has-sub"><a id="lnkLogins" href="javascript:__doPostBack(&#39;lnkLogins&#39;,&#39;&#39;)">Logins</a>
+                                                                <ul>
+                                                                        <li>
+                                                                            
+                                                                        </li>                                                      
+                                                                        <li>
+                                                                            <a id="lnkStaff" href="javascript:__doPostBack(&#39;lnkStaff&#39;,&#39;&#39;)"> Staff Login</a>
+                                                                        </li>
+                                                                        <li>
+                                                                            <a id="lnkStudent" href="javascript:__doPostBack(&#39;lnkStudent&#39;,&#39;&#39;)"> Student Login</a>
+                                                                        </li>                                                                                                               
+                                                                </ul>
+                                                            </li>                                                                                                              
+                                                      </ul>                                     
+                                                    </div>     
+                                            </td>
+                                        </tr>               
+                                </table>
+                            </td>
+                            <td style="width:1080px;">
+                                <table>
+                                    <tr>
+                                       <td style="text-align:center;">
+                                            <table style="margin-left:210px; margin-top:-90px;">
+                                                <tr>
+                                                    <td>
+                                                        <span id="lblMainWarning" class="MessageLabelRed" style="font-size:Medium;"></span>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                                 
+                                        </td>
+                                    </tr>
+                                </table>                                                            
+                             </td>
+                        </tr>                  
+                     </table>   
+                   <table class="Footer">
+                        <tr>
+                            <td colspan="2">
+                                <span id="lblfutr" style="color:Black;font-family:Arial;"> Copyrights &copy 2015.   All Rights Reserved BeeS Software Solutions Pvt.Ltd  </span>
+                            </td>
+                        </tr>
+                    </table> 
+               </div>
+                                              
+            </form>
+        </body>
+</html>
