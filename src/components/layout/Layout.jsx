@@ -26,9 +26,16 @@ export const NAV_ITEMS = [
 
 export const ADMIN_NAV_ITEMS = [
   { id: 'admin', label: 'Admin Command Center', icon: ShieldCheck },
-  { id: 'assessments', label: 'Assessment Manager', icon: FileSpreadsheet },
-  { id: 'courses', label: 'Course Content', icon: BookOpen },
-  { id: 'blogs', label: 'Publish Blogs', icon: FileText },
+  { id: 'admin-overview', label: '1. Overview', icon: LayoutDashboard },
+  { id: 'admin-people', label: '2. People & RBAC', icon: Users },
+  { id: 'admin-content', label: '3. Content Pipeline', icon: Layers },
+  { id: 'admin-engagement', label: '4. Gamification & Blogs', icon: Flame },
+  { id: 'admin-monitoring', label: '5. Live Proctoring & Audit', icon: ShieldCheck },
+  { id: 'admin-reports', label: '6. Custom Reports', icon: FileSpreadsheet },
+  { id: 'admin-settings', label: '7. Platform Settings', icon: Bot },
+  { id: 'admin-dir', label: 'Student Directory & Impersonation', icon: Users },
+  { id: 'admin-rbac', label: 'RBAC Permission Matrix', icon: ShieldCheck },
+  { id: 'admin-csv', label: 'Batch & CSV Bulk Import', icon: FileSpreadsheet },
 ];
 
 export default function Layout({ children }) {
@@ -168,7 +175,9 @@ export default function Layout({ children }) {
               return (
                 <button
                   key={item.id}
-                  onClick={() => setCurrentView(item.id)}
+                  onClick={() => {
+                    setCurrentView('admin');
+                  }}
                   title={!sidebarOpen ? item.label : undefined}
                   className={`w-full flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all relative ${
                     isActive 
