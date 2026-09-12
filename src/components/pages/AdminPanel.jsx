@@ -169,19 +169,16 @@ export default function AdminPanel() {
         </div>
       </div>
 
-      {/* Main Navigation Bar (10 Master & Patch v2 Clusters) */}
+      {/* Main Navigation Bar (Exact 7 Sections Specified) */}
       <div className="flex overflow-x-auto p-1.5 bg-white border border-slate-200 rounded-2xl text-xs font-bold scrollbar-none shadow-sm gap-1">
         {[
-          { id: 'overview', label: '1. Overview & At-Risk', icon: Activity },
-          { id: 'people', label: '2. People & ABAC Scoping', icon: Users },
-          { id: 'content', label: '3. Content & Practice Bank', icon: Layers },
-          { id: 'trainings', label: '4. Live Trainings & Flashcards', icon: Video },
-          { id: 'ai-gov', label: '5. AI Governance & QC Queues', icon: Sparkles },
-          { id: 'flagged', label: '6. Unified Flagged Inbox', icon: AlertTriangle },
-          { id: 'monitoring', label: '7. Live Proctor & Audit Log', icon: ShieldAlert },
-          { id: 'reports', label: '8. Custom Report Builder', icon: BarChart2 },
-          { id: 'data-control', label: '9. Data Control Center', icon: Database },
-          { id: 'settings', label: '10. Platform & Privacy', icon: Settings },
+          { id: 'overview', label: '1. Overview', icon: Activity },
+          { id: 'people', label: '2. People & RBAC', icon: Users },
+          { id: 'content', label: '3. Content Pipeline', icon: Layers },
+          { id: 'engagement', label: '4. Gamification & Blogs', icon: Flame },
+          { id: 'monitoring', label: '5. Live Proctoring & Audit', icon: ShieldAlert },
+          { id: 'reports', label: '6. Custom Reports', icon: BarChart2 },
+          { id: 'settings', label: '7. Platform Settings', icon: Settings },
         ].map(nav => {
           const Icon = nav.icon;
           const isSelected = activeSection === nav.id;
@@ -189,7 +186,7 @@ export default function AdminPanel() {
             <button
               key={nav.id}
               onClick={() => { setActiveSection(nav.id); setSubTab('kpis'); }}
-              className={`flex-1 min-w-[140px] py-2.5 px-3 rounded-xl transition-all flex items-center justify-center space-x-2 ${
+              className={`flex-1 min-w-[130px] py-2.5 px-3 rounded-xl transition-all flex items-center justify-center space-x-2 ${
                 isSelected
                   ? 'bg-slate-900 text-white font-black shadow-xs'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
