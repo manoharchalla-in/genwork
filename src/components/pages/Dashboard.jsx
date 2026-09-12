@@ -30,84 +30,84 @@ export default function Dashboard() {
   ];
 
   return (
-    <div className="space-y-8 text-slate-100 font-sans pb-12">
-      {/* Asymmetric Hero Framing Profile Card — Obsidian & Champagne Sheen */}
-      <div className="glossy-card rounded-3xl p-6 sm:p-10 relative overflow-hidden flex flex-col lg:flex-row lg:items-center justify-between gap-8 border border-champagne-400/25">
+    <div className="space-y-8 text-slate-900 font-sans pb-12">
+      {/* Hero Profile Card — Clean White Light Theme */}
+      <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-8 relative overflow-hidden">
         
         {/* Left Focal Info */}
         <div className="space-y-4 max-w-2xl">
           <div className="flex items-center space-x-3">
-            <span className="px-3 py-1 rounded-full bg-champagne-400/10 border border-champagne-400/30 text-champagne-300 text-[10px] font-bold uppercase tracking-widest">
+            <span className="px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-[10px] font-extrabold uppercase tracking-widest">
               OFFICIAL READINESS PROFILE
             </span>
-            <span className="px-3 py-1 rounded-full bg-obsidian-800 border border-obsidian-700 text-slate-400 text-[10px] font-mono">
+            <span className="px-3 py-1 rounded-full bg-slate-50 border border-slate-200 text-slate-500 text-[10px] font-mono font-bold">
               ID: {user.studentId}
             </span>
           </div>
 
           <div>
-            <h1 className="font-serif text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+            <h1 className="font-serif text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
               {user.name}
             </h1>
-            <p className="text-sm text-slate-400 font-medium mt-1">
+            <p className="text-sm text-slate-600 font-medium mt-1">
               {user.institution} • {user.department} • Batch {user.passoutYear}
             </p>
           </div>
 
           {/* Key Attributes Strip */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-            <div className="p-3 rounded-xl bg-obsidian-950/80 border border-obsidian-700/80 text-xs">
-              <span className="text-[10px] font-bold uppercase text-slate-500 block">Status</span>
-              <span className="font-bold text-emerald-400">{user.status}</span>
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs">
+              <span className="text-[10px] font-extrabold uppercase text-slate-400 block">Status</span>
+              <span className="font-extrabold text-emerald-600">{user.status}</span>
             </div>
-            <div className="p-3 rounded-xl bg-obsidian-950/80 border border-obsidian-700/80 text-xs">
-              <span className="text-[10px] font-bold uppercase text-slate-500 block">Batch Group</span>
-              <span className="font-bold text-champagne-200 truncate block">{user.batch}</span>
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs">
+              <span className="text-[10px] font-extrabold uppercase text-slate-400 block">Batch Group</span>
+              <span className="font-bold text-slate-800 truncate block">{user.batch}</span>
             </div>
-            <div className="p-3 rounded-xl bg-obsidian-950/80 border border-obsidian-700/80 text-xs">
-              <span className="text-[10px] font-bold uppercase text-slate-500 block">Current Rank</span>
-              <span className="font-bold text-champagne-400 font-mono">#{user.points > 2000 ? '4' : '12'} in Batch</span>
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs">
+              <span className="text-[10px] font-extrabold uppercase text-slate-400 block">Current Rank</span>
+              <span className="font-extrabold text-slate-900 font-mono">#{user.points > 2000 ? '4' : '12'} in Batch</span>
             </div>
-            <div className="p-3 rounded-xl bg-obsidian-950/80 border border-obsidian-700/80 text-xs">
-              <span className="text-[10px] font-bold uppercase text-slate-500 block">LSRW Band</span>
-              <span className="font-bold text-white font-mono">7.5 / 9.0</span>
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs">
+              <span className="text-[10px] font-extrabold uppercase text-slate-400 block">LSRW Band</span>
+              <span className="font-bold text-slate-900 font-mono">7.5 / 9.0</span>
             </div>
           </div>
         </div>
 
-        {/* Right Foil Sheen Tier Badge & Action */}
+        {/* Right Tier Badge & Action */}
         <div className="flex flex-col items-center lg:items-end justify-center space-y-4">
-          <div className="foil-sheen rounded-3xl p-6 border-2 border-champagne-400/50 text-center space-y-2 min-w-[220px] shadow-foil">
-            <Shield className="w-10 h-10 text-champagne-400 mx-auto" />
+          <div className="bg-amber-50 rounded-3xl p-6 border-2 border-amber-300 text-center space-y-2 min-w-[220px] shadow-sm">
+            <Shield className="w-10 h-10 text-amber-600 mx-auto" />
             <div>
-              <span className="text-[10px] font-black uppercase text-champagne-300/80 tracking-widest block">PERFORMANCE TIER</span>
-              <h2 className="font-serif text-2xl font-black text-white">{user.tier?.name || 'Level 1'}</h2>
-              <span className="text-xs font-mono font-bold text-champagne-200">{user.tier?.level || 'Lv1'} Rank</span>
+              <span className="text-[10px] font-black uppercase text-amber-800 tracking-widest block">PERFORMANCE TIER</span>
+              <h2 className="font-serif text-2xl font-black text-slate-900">{user.tier?.name || 'Level 1'}</h2>
+              <span className="text-xs font-mono font-bold text-amber-700">{user.tier?.level || 'Lv1'} Rank</span>
             </div>
           </div>
 
           <button 
             onClick={() => addPoints(100, "Daily Platform Login Bonus")}
-            className="btn-metallic w-full sm:w-auto px-6 py-3 rounded-2xl text-xs font-bold uppercase tracking-wider flex items-center justify-center space-x-2"
+            className="w-full sm:w-auto px-6 py-3 bg-slate-900 hover:bg-slate-800 text-white rounded-2xl text-xs font-black uppercase tracking-wider flex items-center justify-center space-x-2 shadow-md transition"
           >
-            <Sparkles className="w-4 h-4 text-obsidian-950" />
+            <Sparkles className="w-4 h-4 text-amber-400" />
             <span>CLAIM DAILY BONUS (+100 PTS)</span>
           </button>
         </div>
       </div>
 
-      {/* Hero Numerals Stat Grid (Numerals as Design Objects per Spec §2) */}
+      {/* Hero Numerals Stat Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {quickStats.map((stat, idx) => {
           const Icon = stat.icon;
           return (
-            <div key={idx} className="glossy-card glossy-card-hover rounded-2xl p-6 space-y-3 relative overflow-hidden">
-              <div className="flex justify-between items-center text-slate-400">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">{stat.label}</span>
-                <Icon className={`w-5 h-5 ${stat.highlight ? 'text-champagne-400' : 'text-slate-500'}`} />
+            <div key={idx} className="bg-white rounded-2xl p-6 space-y-3 border border-slate-200 shadow-xs">
+              <div className="flex justify-between items-center text-slate-500">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-500">{stat.label}</span>
+                <Icon className={`w-5 h-5 ${stat.highlight ? 'text-amber-500' : 'text-slate-400'}`} />
               </div>
-              <p className="font-serif text-3xl font-black text-white font-mono">{stat.value}</p>
-              <p className="text-xs font-medium text-champagne-300/70">{stat.desc}</p>
+              <p className="font-serif text-3xl font-black text-slate-900 font-mono">{stat.value}</p>
+              <p className="text-xs font-medium text-slate-500">{stat.desc}</p>
             </div>
           );
         })}
@@ -118,8 +118,8 @@ export default function Dashboard() {
         
         {/* Quick Launch Cards */}
         <div className="lg:col-span-2 space-y-4">
-          <h2 className="font-serif text-xl font-bold text-white flex items-center gap-2">
-            <Zap className="w-5 h-5 text-champagne-400" /> AI Placement Super-App Modules
+          <h2 className="font-serif text-xl font-bold text-slate-900 flex items-center gap-2">
+            <Zap className="w-5 h-5 text-amber-500" /> AI Placement Super-App Modules
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -129,14 +129,14 @@ export default function Dashboard() {
                 <div 
                   key={mod.id}
                   onClick={() => setCurrentView(mod.id)}
-                  className="glossy-card glossy-card-hover rounded-2xl p-5 cursor-pointer flex items-center space-x-4 border border-obsidian-700/80 group"
+                  className="bg-white rounded-2xl p-5 cursor-pointer flex items-center space-x-4 border border-slate-200 hover:border-slate-400 shadow-xs transition group"
                 >
-                  <div className="p-3.5 rounded-xl bg-obsidian-950 border border-champagne-400/30 text-champagne-400 group-hover:scale-110 transition">
+                  <div className="p-3.5 rounded-xl bg-slate-100 border border-slate-200 text-slate-800 group-hover:bg-slate-900 group-hover:text-white transition">
                     <Icon className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-sm text-white group-hover:text-champagne-300 transition">{mod.title}</h3>
-                    <p className="text-xs text-slate-400">{mod.desc}</p>
+                    <h3 className="font-bold text-sm text-slate-900 transition">{mod.title}</h3>
+                    <p className="text-xs text-slate-500">{mod.desc}</p>
                   </div>
                 </div>
               );
@@ -145,17 +145,17 @@ export default function Dashboard() {
         </div>
 
         {/* Deadlines Section */}
-        <div className="glossy-card rounded-3xl p-6 space-y-4 border border-obsidian-700">
-          <h2 className="font-serif text-lg font-bold text-white flex items-center gap-2">
-            <Clock className="w-4 h-4 text-champagne-400" /> Upcoming Deadlines
+        <div className="bg-white rounded-3xl p-6 space-y-4 border border-slate-200 shadow-xs">
+          <h2 className="font-serif text-lg font-bold text-slate-900 flex items-center gap-2">
+            <Clock className="w-4 h-4 text-slate-700" /> Upcoming Deadlines
           </h2>
 
           <div className="space-y-3">
             {upcomingDeadlines.map((d, i) => (
-              <div key={i} className="p-3.5 rounded-xl bg-obsidian-950/80 border border-obsidian-800 space-y-1">
-                <span className="text-[10px] font-bold text-champagne-400 uppercase tracking-wider">{d.category} • {d.pts}</span>
-                <h4 className="font-bold text-xs text-white">{d.title}</h4>
-                <span className="text-[10px] text-slate-400 block">Due: {d.due}</span>
+              <div key={i} className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-[10px] font-extrabold text-amber-700 uppercase tracking-wider">{d.category} • {d.pts}</span>
+                <h4 className="font-bold text-xs text-slate-900">{d.title}</h4>
+                <span className="text-[10px] text-slate-500 block font-medium">Due: {d.due}</span>
               </div>
             ))}
           </div>
