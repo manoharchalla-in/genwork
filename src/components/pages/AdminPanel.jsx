@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useApp } from '../../context/AppContext';
 import { 
   ShieldCheck, Users, Upload, BarChart2, Plus, Download, FileSpreadsheet, 
@@ -10,11 +10,60 @@ import {
 } from 'lucide-react';
 
 export default function AdminPanel() {
-  const { user, setUser, addPoints, userRole, setUserRole } = useApp();
+  const { user, setUser, addPoints, userRole, setUserRole, currentView } = useApp();
   
   // Primary Navigation Clusters (Section 2 Spec)
   const [activeSection, setActiveSection] = useState('overview'); // overview, people, content, engagement, monitoring, reports, settings
   const [subTab, setSubTab] = useState('kpis'); // Subtab within activeSection
+
+  // Sync with sidebar currentView selection
+  useEffect(() => {
+    switch (currentView) {
+      case 'admin':
+      case 'admin-overview':
+        setActiveSection('overview');
+        setSubTab('kpis');
+        break;
+      case 'admin-people':
+        setActiveSection('people');
+        setSubTab('kpis');
+        break;
+      case 'admin-content':
+        setActiveSection('content');
+        setSubTab('kpis');
+        break;
+      case 'admin-engagement':
+        setActiveSection('engagement');
+        setSubTab('kpis');
+        break;
+      case 'admin-monitoring':
+        setActiveSection('monitoring');
+        setSubTab('kpis');
+        break;
+      case 'admin-reports':
+        setActiveSection('reports');
+        setSubTab('kpis');
+        break;
+      case 'admin-settings':
+        setActiveSection('settings');
+        setSubTab('kpis');
+        break;
+      case 'admin-dir':
+        setActiveSection('people');
+        setSubTab('kpis');
+        break;
+      case 'admin-rbac':
+        setActiveSection('people');
+        setSubTab('roles');
+        break;
+      case 'admin-csv':
+        setActiveSection('people');
+        setSubTab('batches');
+        break;
+      default:
+        break;
+    }
+  }, [currentView]);
   
   // Impersonation state
   const [impersonatingStudent, setImpersonatingStudent] = useState(null);
