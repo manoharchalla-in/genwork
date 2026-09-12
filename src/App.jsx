@@ -7,7 +7,6 @@ import Dashboard from './components/pages/Dashboard';
 import Leaderboard from './components/pages/Leaderboard';
 import Assessments from './components/pages/Assessments';
 import LSRW from './components/pages/LSRW';
-import Practice from './components/pages/Practice';
 import TypingTest from './components/pages/TypingTest';
 import Courses from './components/pages/Courses';
 import PairProgramming from './components/pages/PairProgramming';
