@@ -91,13 +91,6 @@ export default function Layout({ children }) {
             <span>Role: <strong className="capitalize">{userRole}</strong></span>
           </button>
 
-          {/* Gamification Points Badge */}
-          <div className="hidden md:flex items-center gap-2 px-4 py-1.5 rounded-full border border-amber-300/80 bg-amber-50 text-amber-900 font-bold text-xs shadow-xs">
-            <Trophy className="w-3.5 h-3.5 text-amber-600 fill-amber-500" />
-            <span className="font-mono text-slate-900 font-extrabold">{user.points || 0} PTS</span>
-            {user.tier && <span className="text-amber-800 font-serif italic text-[11px]">({user.tier.name} {user.tier.level})</span>}
-          </div>
-
           {/* Profile Dropdown */}
           <div className="relative">
             <button 
@@ -120,10 +113,6 @@ export default function Layout({ children }) {
                   <div className="flex items-center justify-between text-xs font-semibold text-slate-600">
                     <span>Batch:</span>
                     <span className="text-emerald-700 font-bold">{user.batch}</span>
-                  </div>
-                  <div className="flex items-center justify-between text-xs font-semibold text-slate-600 mt-1">
-                    <span>Points:</span>
-                    <span className="text-amber-600 font-bold font-mono">{user.points} pts</span>
                   </div>
                 </div>
                 <button 
@@ -192,24 +181,6 @@ export default function Layout({ children }) {
             })}
           </nav>
 
-          {/* User Sidebar Footer */}
-          {sidebarOpen && user.tier && (
-            <div className="p-3.5 border border-slate-200 bg-slate-50 m-2.5 rounded-2xl text-xs space-y-2">
-              <div className="flex justify-between font-bold text-slate-800">
-                <span className="text-[11px]">Tier Rank</span>
-                <span className="text-slate-900 font-serif italic text-xs font-bold">{user.tier.name} {user.tier.level}</span>
-              </div>
-              <div className="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
-                <div 
-                  className="bg-amber-500 h-full rounded-full transition-all"
-                  style={{ width: `${(user.points / user.tier.nextTierPoints) * 100}%` }}
-                />
-              </div>
-              <p className="text-[10px] text-slate-500 text-right font-mono font-bold">
-                {user.tier.nextTierPoints - user.points} pts to next tier
-              </p>
-            </div>
-          )}
         </aside>
 
         {/* Content Container (Clean Premium White Layout) */}

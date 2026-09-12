@@ -17,9 +17,9 @@ export default function Dashboard() {
   ];
 
   const upcomingDeadlines = [
-    { title: "Quantitative Aptitude Evaluation - Batch 2026", due: "Tomorrow, 6:00 PM", category: "Assessments", pts: "+150 pts" },
-    { title: "Logical Reasoning & Puzzle Challenge", due: "Sep 12, 11:59 PM", category: "Practice Bank", pts: "+120 pts" },
-    { title: "Versant English Speaking Practice Test 4", due: "Sep 15, 5:00 PM", category: "LSRW", pts: "+100 pts" },
+    { title: "Quantitative Aptitude Evaluation - Batch 2026", due: "Tomorrow, 6:00 PM", category: "Assessments" },
+    { title: "Logical Reasoning & Puzzle Challenge", due: "Sep 12, 11:59 PM", category: "Practice Bank" },
+    { title: "Versant English Speaking Practice Test 4", due: "Sep 15, 5:00 PM", category: "LSRW" },
   ];
 
   const quickLaunch = [
@@ -66,7 +66,7 @@ export default function Dashboard() {
             </div>
             <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs">
               <span className="text-[10px] font-extrabold uppercase text-slate-400 block">Current Rank</span>
-              <span className="font-extrabold text-slate-900 font-mono">#{user.points > 2000 ? '4' : '12'} in Batch</span>
+              <span className="font-extrabold text-slate-900 font-mono">#12 in Batch</span>
             </div>
             <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs">
               <span className="text-[10px] font-extrabold uppercase text-slate-400 block">LSRW Band</span>
@@ -74,37 +74,21 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-
-        {/* Right Tier Badge & Action */}
-        <div className="flex flex-col items-center lg:items-end justify-center space-y-4">
-          <div className="bg-amber-50 rounded-3xl p-6 border-2 border-amber-300 text-center space-y-2 min-w-[220px] shadow-sm">
-            <Shield className="w-10 h-10 text-amber-600 mx-auto" />
-            <div>
-              <span className="text-[10px] font-black uppercase text-amber-800 tracking-widest block">PERFORMANCE TIER</span>
-              <h2 className="font-serif text-2xl font-black text-slate-900">{user.tier?.name || 'Level 1'}</h2>
-              <span className="text-xs font-mono font-bold text-amber-700">{user.tier?.level || 'Lv1'} Rank</span>
-            </div>
-          </div>
-
-          <button 
-            onClick={() => addPoints(100, "Daily Platform Login Bonus")}
-            className="w-full sm:w-auto px-6 py-3 bg-slate-900 hover:bg-slate-800 text-white rounded-2xl text-xs font-black uppercase tracking-wider flex items-center justify-center space-x-2 shadow-md transition"
-          >
-            <Sparkles className="w-4 h-4 text-amber-400" />
-            <span>CLAIM DAILY BONUS (+100 PTS)</span>
-          </button>
-        </div>
       </div>
 
       {/* Hero Numerals Stat Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        {quickStats.map((stat, idx) => {
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        {[
+          { label: "Completed Evaluations", value: "8 Passed", desc: "100% Pass Rate", icon: CheckCircle2 },
+          { label: "Daily Practice Streak", value: "7 Days", desc: "Active Learner", icon: Flame },
+          { label: "Placement Readiness", value: "92.4%", desc: "Batch Top 10%", icon: Target },
+        ].map((stat, idx) => {
           const Icon = stat.icon;
           return (
             <div key={idx} className="bg-white rounded-2xl p-6 space-y-3 border border-slate-200 shadow-xs">
               <div className="flex justify-between items-center text-slate-500">
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-500">{stat.label}</span>
-                <Icon className={`w-5 h-5 ${stat.highlight ? 'text-amber-500' : 'text-slate-400'}`} />
+                <Icon className="w-5 h-5 text-emerald-600" />
               </div>
               <p className="font-serif text-3xl font-black text-slate-900 font-mono">{stat.value}</p>
               <p className="text-xs font-medium text-slate-500">{stat.desc}</p>
@@ -153,7 +137,7 @@ export default function Dashboard() {
           <div className="space-y-3">
             {upcomingDeadlines.map((d, i) => (
               <div key={i} className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
-                <span className="text-[10px] font-extrabold text-amber-700 uppercase tracking-wider">{d.category} • {d.pts}</span>
+                <span className="text-[10px] font-extrabold text-slate-500 uppercase tracking-wider">{d.category}</span>
                 <h4 className="font-bold text-xs text-slate-900">{d.title}</h4>
                 <span className="text-[10px] text-slate-500 block font-medium">Due: {d.due}</span>
               </div>
