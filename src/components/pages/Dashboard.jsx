@@ -3,7 +3,7 @@ import { useApp } from '../../context/AppContext';
 import { 
   Trophy, Lock, FileText, Mail, Building2, Layers, IdCard, Shield, 
   Sparkles, CheckCircle2, Clock, Zap, ArrowRight, ChevronRight, Award, 
-  Flame, Target, Keyboard, BookOpen, Headphones, Bot, Video, Briefcase, Heart
+  Flame, Target, Keyboard, BookOpen, Headphones, Bot, Video, Briefcase, Heart, FileSpreadsheet
 } from 'lucide-react';
 
 export default function Dashboard() {
