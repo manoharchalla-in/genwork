@@ -169,16 +169,19 @@ export default function AdminPanel() {
         </div>
       </div>
 
-      {/* Main Navigation Bar (7 Primary Clusters) */}
+      {/* Main Navigation Bar (10 Master & Patch v2 Clusters) */}
       <div className="flex overflow-x-auto p-1.5 bg-white border border-slate-200 rounded-2xl text-xs font-bold scrollbar-none shadow-sm gap-1">
         {[
-          { id: 'overview', label: '1. Overview', icon: Activity },
-          { id: 'people', label: '2. People & RBAC', icon: Users },
-          { id: 'content', label: '3. Content Pipeline', icon: Layers },
-          { id: 'engagement', label: '4. Gamification & Blogs', icon: Flame },
-          { id: 'monitoring', label: '5. Live Proctoring & Audit', icon: ShieldAlert },
-          { id: 'reports', label: '6. Custom Reports', icon: BarChart2 },
-          { id: 'settings', label: '7. Platform Settings', icon: Settings },
+          { id: 'overview', label: '1. Overview & At-Risk', icon: Activity },
+          { id: 'people', label: '2. People & ABAC Scoping', icon: Users },
+          { id: 'content', label: '3. Content & Practice Bank', icon: Layers },
+          { id: 'trainings', label: '4. Live Trainings & Flashcards', icon: Video },
+          { id: 'ai-gov', label: '5. AI Governance & QC Queues', icon: Sparkles },
+          { id: 'flagged', label: '6. Unified Flagged Inbox', icon: AlertTriangle },
+          { id: 'monitoring', label: '7. Live Proctor & Audit Log', icon: ShieldAlert },
+          { id: 'reports', label: '8. Custom Report Builder', icon: BarChart2 },
+          { id: 'data-control', label: '9. Data Control Center', icon: Database },
+          { id: 'settings', label: '10. Platform & Privacy', icon: Settings },
         ].map(nav => {
           const Icon = nav.icon;
           const isSelected = activeSection === nav.id;
@@ -186,7 +189,7 @@ export default function AdminPanel() {
             <button
               key={nav.id}
               onClick={() => { setActiveSection(nav.id); setSubTab('kpis'); }}
-              className={`flex-1 min-w-[130px] py-2.5 px-3 rounded-xl transition-all flex items-center justify-center space-x-2 ${
+              className={`flex-1 min-w-[140px] py-2.5 px-3 rounded-xl transition-all flex items-center justify-center space-x-2 ${
                 isSelected
                   ? 'bg-slate-900 text-white font-black shadow-xs'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
@@ -787,21 +790,260 @@ export default function AdminPanel() {
       )}
 
       {/* ========================================================================= */}
-      {/* SECTION 6 & 7: REPORTS & SETTINGS (Custom Report Builder & Tenant Branding) */}
+      {/* SECTION 4: TRAININGS & FLASHCARDS (Patch v2 §48 & §49) */}
       {/* ========================================================================= */}
-      {(activeSection === 'reports' || activeSection === 'settings') && (
-        <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4">
-          <h3 className="font-bold text-slate-900 text-base">Custom Analytics Report Builder & Platform Config</h3>
-          <p className="text-xs text-slate-500">Export composite Placement Readiness Summaries for institutional placement cells.</p>
-
-          <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl flex items-center justify-between">
-            <div>
-              <h4 className="font-extrabold text-slate-900 text-xs">Placement Readiness Summary (Composite Report)</h4>
-              <p className="text-xs text-slate-500">Includes assessment scores, coding problem count, and LSRW band scores for 2026 Batch.</p>
+      {activeSection === 'trainings' && (
+        <div className="space-y-6">
+          <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div>
+                <h3 className="font-bold text-slate-900 text-base flex items-center gap-2">
+                  <Video className="w-5 h-5 text-emerald-600" /> Live Trainings & Spaced Repetition Flashcards Engine
+                </h3>
+                <p className="text-xs text-slate-500">Schedule live sessions, record attendance, and configure SM-2 flashcard parameters.</p>
+              </div>
+              <button onClick={() => alert('Launching Training Session Creator...')} className="px-4 py-2 bg-slate-900 text-white font-bold text-xs rounded-xl shadow-xs">
+                + Create Live Training
+              </button>
             </div>
-            <button onClick={() => alert('Generating PDF Placement Summary for CITY Engineering College...')} className="px-4 py-2 bg-emerald-950 text-white rounded-xl text-xs font-bold flex items-center gap-2">
-              <Download className="w-4 h-4 text-amber-400" /> Export PDF Report
-            </button>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+                <h4 className="font-extrabold text-xs text-slate-900">Upcoming Live Training: Advanced System Design</h4>
+                <p className="text-[11px] text-slate-500">Target: ABAP - CITY 2026 • Speaker: Dr. Eleanor Vance • Tomorrow, 4:00 PM</p>
+                <div className="flex gap-2 pt-1">
+                  <button onClick={() => alert('Copying Zoom link...')} className="px-3 py-1 bg-emerald-100 text-emerald-800 text-[10px] font-bold rounded-lg">Copy Zoom Link</button>
+                  <button onClick={() => alert('Sending notification to batch...')} className="px-3 py-1 bg-slate-200 text-slate-700 text-[10px] font-bold rounded-lg">Send Reminder</button>
+                </div>
+              </div>
+
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+                <h4 className="font-extrabold text-xs text-slate-900">SM-2 Spaced Repetition Parameters</h4>
+                <p className="text-[11px] text-slate-500">Initial Interval: 1 Day • Ease Factor Step: 0.15 • Batch Recall Average: 82%</p>
+                <span className="inline-block px-2.5 py-1 bg-emerald-100 text-emerald-800 text-[10px] font-bold rounded-lg">Active Calibration</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* SECTION 5: AI GOVERNANCE & QC QUEUES (Patch v2 §50) */}
+      {/* ========================================================================= */}
+      {activeSection === 'ai-gov' && (
+        <div className="space-y-6">
+          <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4">
+            <h3 className="font-bold text-slate-900 text-base flex items-center gap-2">
+              <Sparkles className="w-5 h-5 text-emerald-600" /> Human-in-the-Loop AI Governance & Review Queues
+            </h3>
+            <p className="text-xs text-slate-500">No high-stakes student score runs unreviewed. Override AI evaluations with mandatory audit logs.</p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+                <h4 className="font-extrabold text-xs text-slate-900">1. LSRW Speech Review Queue</h4>
+                <p className="text-[11px] text-slate-500">2 attempts flagged (low confidence & 10% QC sample).</p>
+                <button onClick={() => setSubTab('lsrw')} className="px-3 py-1 bg-slate-900 text-white text-[10px] font-bold rounded-lg">Open LSRW Queue →</button>
+              </div>
+
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+                <h4 className="font-extrabold text-xs text-slate-900">2. AI Mock Interview Review</h4>
+                <p className="text-[11px] text-slate-500">Review video/audio delivery metrics before campus drives.</p>
+                <button onClick={() => alert('Opening AI Interview Review Console...')} className="px-3 py-1 bg-slate-900 text-white text-[10px] font-bold rounded-lg">Open Interview Queue →</button>
+              </div>
+
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+                <h4 className="font-extrabold text-xs text-slate-900">3. AI Resume Keyword Packs</h4>
+                <p className="text-[11px] text-slate-500">Manage synonym aliases and company pattern packs (TCS, Infosys).</p>
+                <button onClick={() => alert('Opening Keyword Synonym Manager...')} className="px-3 py-1 bg-slate-900 text-white text-[10px] font-bold rounded-lg">Manage Keyword Packs →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* SECTION 6: UNIFIED FLAGGED CONTENT INBOX (Patch v2 §56) */}
+      {/* ========================================================================= */}
+      {activeSection === 'flagged' && (
+        <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4">
+          <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+            <h3 className="font-bold text-slate-900 text-base flex items-center gap-2">
+              <AlertTriangle className="w-5 h-5 text-rose-500" /> Unified Flagged Content Triage Inbox
+            </h3>
+            <span className="px-3 py-1 bg-rose-100 text-rose-800 font-extrabold text-xs rounded-full">3 Items Flagged</span>
+          </div>
+
+          <div className="space-y-3">
+            {[
+              { source: 'Proctoring Monitor', item: 'VIKRAM SHARMA — 3 Tab Switches in Quant Evaluation', severity: 'High', status: 'Open' },
+              { source: 'Doubt Forum', item: 'Reported response on Question #881 (Inappropriate Language)', severity: 'Medium', status: 'Open' },
+              { source: 'AI Writing Checker', item: 'Plagiarism hit (84% similarity) on Essay Submission #89', severity: 'High', status: 'In Review' },
+            ].map((flag, idx) => (
+              <div key={idx} className="p-4 bg-slate-50 border border-slate-200 rounded-2xl flex items-center justify-between text-xs">
+                <div>
+                  <span className="text-[9px] font-mono uppercase text-slate-400 block">{flag.source}</span>
+                  <h4 className="font-extrabold text-slate-900">{flag.item}</h4>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <span className="px-2 py-0.5 bg-rose-100 text-rose-700 font-bold text-[9px] rounded-full">{flag.severity} Severity</span>
+                  <button onClick={() => alert(`Reviewing flagged item from ${flag.source}...`)} className="px-3 py-1 bg-slate-900 text-white font-bold text-[10px] rounded-lg">Resolve Item</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* SECTION 7: LIVE PROCTORING & AUDIT LOG */}
+      {/* ========================================================================= */}
+      {activeSection === 'monitoring' && (
+        <div className="space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Live Proctoring Monitor */}
+            <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4">
+              <div className="flex items-center justify-between">
+                <h3 className="font-bold text-slate-900 text-sm flex items-center gap-2">
+                  <ShieldAlert className="w-4 h-4 text-rose-500" /> Live Assessment Invigilator Grid
+                </h3>
+                <span className="px-2 py-0.5 bg-rose-100 text-rose-700 font-bold text-[10px] rounded-full animate-pulse">Live Feed Active</span>
+              </div>
+
+              <div className="space-y-3">
+                {liveProctorSessions.map(proc => (
+                  <div key={proc.id} className="p-3.5 bg-slate-50 border border-slate-200 rounded-2xl flex items-center justify-between text-xs">
+                    <div>
+                      <h4 className="font-extrabold text-slate-900">{proc.student}</h4>
+                      <span className="text-[10px] text-slate-500">Violations: {proc.warnings} tab switches</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <span className={`px-2 py-0.5 rounded-full text-[9px] font-bold ${
+                        proc.status === 'Red Flag' ? 'bg-rose-100 text-rose-700' : 'bg-emerald-100 text-emerald-700'
+                      }`}>
+                        {proc.status}
+                      </span>
+                      <button onClick={() => alert(`Warning message sent to ${proc.student}'s active session browser.`)} className="px-2.5 py-1 bg-slate-900 text-white font-bold text-[10px] rounded-lg">
+                        Warn Student
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Audit Log Table */}
+            <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4">
+              <h3 className="font-bold text-slate-900 text-sm flex items-center gap-2">
+                <FileText className="w-4 h-4 text-emerald-600" /> Immutable Platform Audit Log
+              </h3>
+
+              <div className="space-y-3">
+                {auditLogs.map(log => (
+                  <div key={log.id} className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs space-y-1 font-mono">
+                    <div className="flex justify-between text-[10px] text-slate-400">
+                      <span>{log.actor} ({log.ip})</span>
+                      <span>{log.time}</span>
+                    </div>
+                    <p className="font-bold text-slate-900">{log.action}: {log.entity}</p>
+                    <p className="text-[10px] text-slate-600">Change: {log.before} → {log.after}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* SECTION 8: CUSTOM REPORT BUILDER (Patch v2 §57) */}
+      {/* ========================================================================= */}
+      {activeSection === 'reports' && (
+        <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4">
+          <h3 className="font-bold text-slate-900 text-base flex items-center gap-2">
+            <BarChart2 className="w-5 h-5 text-emerald-600" /> Custom Analytics Report Builder & Scheduled Exports
+          </h3>
+          <p className="text-xs text-slate-500">Pick custom metric x dimension combinations to generate Placement Cell export bundles.</p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+            <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+              <h4 className="font-extrabold text-xs text-slate-900">Placement Readiness Summary</h4>
+              <p className="text-[11px] text-slate-500">Composite PDF report for campus recruiters.</p>
+              <button onClick={() => alert('Exporting Placement Readiness Summary PDF...')} className="px-3 py-1 bg-slate-900 text-white text-[10px] font-bold rounded-lg">Export PDF</button>
+            </div>
+
+            <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+              <h4 className="font-extrabold text-xs text-slate-900">Cohort Skill Gap Matrix</h4>
+              <p className="text-[11px] text-slate-500">CSV analysis of low-scoring topics across batches.</p>
+              <button onClick={() => alert('Exporting CSV Skill Gap Matrix...')} className="px-3 py-1 bg-slate-900 text-white text-[10px] font-bold rounded-lg">Export CSV</button>
+            </div>
+
+            <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+              <h4 className="font-extrabold text-xs text-slate-900">Weekly Scheduled Email Digest</h4>
+              <p className="text-[11px] text-slate-500">Auto-sent to Institution Admins every Monday 8:00 AM.</p>
+              <span className="inline-block px-2.5 py-1 bg-emerald-100 text-emerald-800 text-[10px] font-bold rounded-lg">Scheduled</span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* SECTION 9: DATA CONTROL CENTER (Patch v2 §46) */}
+      {/* ========================================================================= */}
+      {activeSection === 'data-control' && (
+        <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4">
+          <div className="border-b border-slate-100 pb-3">
+            <h3 className="font-bold text-slate-900 text-base flex items-center gap-2">
+              <Database className="w-5 h-5 text-emerald-600" /> Admin Data Control Center (Single Source of Truth Mapping)
+            </h3>
+            <p className="text-xs text-slate-500">Shows exact database API mappings between Admin operations and Student Panel displays.</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
+            {[
+              { studentField: 'Student Name / ID', adminSource: 'Student Management (Section 2)' },
+              { studentField: 'Batch & Department', adminSource: 'Batch Management (Section 3)' },
+              { studentField: 'LSRW Band Score', adminSource: 'LSRW Review Queue (Section 50.1)' },
+              { studentField: 'Passed Evaluations', adminSource: 'Assessment Engine (Section 4)' },
+              { studentField: 'Placement Readiness %', adminSource: 'Readiness Engine (Section 18)' },
+              { studentField: 'ATS Resume Match', adminSource: 'AI Resume Builder (Section 10 & 50.3)' },
+              { studentField: 'Job Drive Postings', adminSource: 'Placement Board (Section 13)' },
+              { studentField: 'Verified Certificates', adminSource: 'Certification Manager (Section 14)' },
+              { studentField: 'Live Training Sessions', adminSource: 'Trainings Management (Section 48)' },
+            ].map((map, idx) => (
+              <div key={idx} className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                <span className="text-[10px] font-mono text-slate-400 block uppercase">Student Field</span>
+                <p className="font-extrabold text-slate-900">{map.studentField}</p>
+                <span className="text-[10px] font-bold text-emerald-700 block pt-1">Source: {map.adminSource}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* SECTION 10: PLATFORM & PRIVACY SETTINGS (Patch v2 §58) */}
+      {/* ========================================================================= */}
+      {activeSection === 'settings' && (
+        <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-6">
+          <div className="border-b border-slate-100 pb-3">
+            <h3 className="font-bold text-slate-900 text-base flex items-center gap-2">
+              <Settings className="w-5 h-5 text-slate-700" /> Platform System Settings & Privacy / Consent Log
+            </h3>
+            <p className="text-xs text-slate-500">Configure global platform defaults, data retention limits, and student privacy consent records.</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+              <h4 className="font-extrabold text-xs text-slate-900">Proctoring Data Retention Policy</h4>
+              <p className="text-[11px] text-slate-500">Raw webcam snapshots & audio recordings deleted after 30 days.</p>
+              <span className="inline-block px-2.5 py-1 bg-emerald-100 text-emerald-800 text-[10px] font-bold rounded-lg">Policy Active</span>
+            </div>
+
+            <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+              <h4 className="font-extrabold text-xs text-slate-900">Student GDPR Consent Logs</h4>
+              <p className="text-[11px] text-slate-500">1,420 students consented to AI audio processing and webcam proctoring.</p>
+              <button onClick={() => alert('Exporting GDPR consent audit logs...')} className="px-3 py-1 bg-slate-900 text-white text-[10px] font-bold rounded-lg">Export Consent Log</button>
+            </div>
           </div>
         </div>
       )}
