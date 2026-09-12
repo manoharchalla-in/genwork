@@ -10,13 +10,11 @@ import LSRW from './components/pages/LSRW';
 import Practice from './components/pages/Practice';
 import TypingTest from './components/pages/TypingTest';
 import Courses from './components/pages/Courses';
-import Trainings from './components/pages/Trainings';
 import PairProgramming from './components/pages/PairProgramming';
 import Blogs from './components/pages/Blogs';
 import AdminPanel from './components/pages/AdminPanel';
 
 // v3 AI Super-App Modules
-import AITutor from './components/pages/AITutor';
 import SmartNotes from './components/pages/SmartNotes';
 import StudyPlanner from './components/pages/StudyPlanner';
 import ResumeBuilder from './components/pages/ResumeBuilder';
@@ -24,7 +22,6 @@ import MockInterview from './components/pages/MockInterview';
 import DoubtForum from './components/pages/DoubtForum';
 import JobBoard from './components/pages/JobBoard';
 import Certifications from './components/pages/Certifications';
-import Wellbeing from './components/pages/Wellbeing';
 
 function MainContent() {
   const { currentView } = useApp();
@@ -32,8 +29,6 @@ function MainContent() {
   switch (currentView) {
     case 'dashboard':
       return <Dashboard />;
-    case 'ai-tutor':
-      return <AITutor />;
     case 'smart-notes':
       return <SmartNotes />;
     case 'study-planner':
@@ -48,22 +43,16 @@ function MainContent() {
       return <JobBoard />;
     case 'certifications':
       return <Certifications />;
-    case 'wellbeing':
-      return <Wellbeing />;
     case 'leaderboard':
       return <Leaderboard />;
     case 'assessments':
       return <Assessments />;
     case 'lsrw':
       return <LSRW />;
-    case 'practice':
-      return <Practice />;
     case 'typing-test':
       return <TypingTest />;
     case 'courses':
       return <Courses />;
-    case 'trainings':
-      return <Trainings />;
     case 'pair-programming':
       return <PairProgramming />;
     case 'blogs':

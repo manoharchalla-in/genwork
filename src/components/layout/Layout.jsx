@@ -8,22 +8,18 @@ import {
 
 export const NAV_ITEMS = [
   { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { id: 'ai-tutor', label: 'AI Study Tutor', icon: Bot },
   { id: 'smart-notes', label: 'Smart Notes', icon: FileText },
   { id: 'study-planner', label: 'Study Planner', icon: Clock },
   { id: 'resume-builder', label: 'AI Resume Builder', icon: FileSpreadsheet },
-  { id: 'mock-interview', label: 'AI Mock Interview', icon: Video },
+  { id: 'mock-interview', label: 'AI Mock Interview (Under Working)', icon: Video },
   { id: 'doubt-forum', label: 'Doubt Forum', icon: MessageSquare },
   { id: 'job-board', label: 'Job Placement Board', icon: Briefcase },
   { id: 'certifications', label: 'Certifications & Portfolio', icon: Award },
-  { id: 'wellbeing', label: 'Wellbeing Check-in', icon: Heart },
   { id: 'leaderboard', label: 'Leaderboard', icon: Trophy },
   { id: 'assessments', label: 'Assessments', icon: FileSpreadsheet },
   { id: 'lsrw', label: 'LSRW Practice', icon: Headphones },
-  { id: 'practice', label: 'Practice Bank', icon: Target },
   { id: 'typing-test', label: 'Typing Test', icon: Keyboard },
   { id: 'courses', label: 'Courses', icon: BookOpen },
-  { id: 'trainings', label: 'Trainings', icon: Video },
   { id: 'pair-programming', label: 'Pair Programming', icon: Users },
   { id: 'blogs', label: 'Blogs', icon: FileText },
 ];
