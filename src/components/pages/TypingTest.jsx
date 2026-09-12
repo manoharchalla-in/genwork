@@ -399,7 +399,7 @@ export default function TypingTest() {
     <div 
       ref={containerRef} 
       className={`space-y-6 font-sans text-slate-900 selection:bg-slate-900 selection:text-white transition-all ${
-        isFullscreen ? 'fixed inset-0 z-50 bg-slate-50 p-6 sm:p-10 overflow-hidden w-screen h-screen flex flex-col justify-between' : 'pb-12'
+        isFullscreen ? 'fixed inset-0 z-50 bg-slate-50 p-6 sm:p-10 overflow-y-auto w-screen h-screen flex flex-col justify-between' : 'pb-12'
       }`}
     >
       
@@ -414,14 +414,23 @@ export default function TypingTest() {
           </h1>
         </div>
 
-        {/* Top Controls: Sound, Fullscreen, Attempt Counter */}
+        {/* Top Controls: Sound, Fullscreen, Attempt Counter, Quick Launch */}
         <div className="flex items-center gap-3">
           <button
+            onClick={handleStartTest}
+            disabled={isCustomInvalid}
+            className="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 disabled:opacity-50 text-white font-black text-xs rounded-xl shadow-sm transition flex items-center gap-2 uppercase tracking-wider"
+          >
+            <Play className="w-4 h-4 fill-white" />
+            <span>Start Test</span>
+          </button>
+
+          <button
             onClick={toggleFullscreen}
-            className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition flex items-center gap-2 shadow-sm"
+            className="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-900 text-xs font-bold transition flex items-center gap-2 border border-slate-200"
           >
             <Maximize2 className="w-4 h-4" />
-            <span>{isFullscreen ? 'Exit Full Screen' : 'Full Screen Mode'}</span>
+            <span>{isFullscreen ? 'Exit Full Screen' : 'Full Screen'}</span>
           </button>
 
           <button
@@ -435,7 +444,7 @@ export default function TypingTest() {
             <span className="hidden sm:inline">{soundEnabled ? 'Audio On' : 'Mute'}</span>
           </button>
 
-          <div className="px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-xs font-mono font-extrabold text-slate-800">
+          <div className="hidden md:block px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-xs font-mono font-extrabold text-slate-800">
             {attemptsCount} Attempts
           </div>
         </div>
