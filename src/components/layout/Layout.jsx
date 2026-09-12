@@ -8,6 +8,11 @@ import {
 
 export const NAV_ITEMS = [
   { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
+  { id: 'leaderboard', label: 'Leaderboard', icon: Trophy },
+  { id: 'assessments', label: 'Assessments', icon: FileSpreadsheet },
+  { id: 'lsrw', label: 'LSRW Practice', icon: Headphones },
+  { id: 'typing-test', label: 'Typing Test', icon: Keyboard },
+  { id: 'courses', label: 'Courses', icon: BookOpen },
   { id: 'smart-notes', label: 'Smart Notes', icon: FileText },
   { id: 'study-planner', label: 'Study Planner', icon: Clock },
   { id: 'resume-builder', label: 'AI Resume Builder', icon: FileSpreadsheet },
@@ -15,11 +20,6 @@ export const NAV_ITEMS = [
   { id: 'doubt-forum', label: 'Doubt Forum', icon: MessageSquare },
   { id: 'job-board', label: 'Job Placement Board', icon: Briefcase },
   { id: 'certifications', label: 'Certifications & Portfolio', icon: Award },
-  { id: 'leaderboard', label: 'Leaderboard', icon: Trophy },
-  { id: 'assessments', label: 'Assessments', icon: FileSpreadsheet },
-  { id: 'lsrw', label: 'LSRW Practice', icon: Headphones },
-  { id: 'typing-test', label: 'Typing Test', icon: Keyboard },
-  { id: 'courses', label: 'Courses', icon: BookOpen },
   { id: 'pair-programming', label: 'Pair Programming', icon: Users },
   { id: 'blogs', label: 'Blogs', icon: FileText },
 ];
