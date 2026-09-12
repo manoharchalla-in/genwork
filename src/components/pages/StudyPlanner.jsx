@@ -27,20 +27,20 @@ export default function StudyPlanner() {
 
   return (
     <div className="space-y-6 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 pb-12">
-      {/* Banner */}
-      <div className="bg-gradient-to-r from-emerald-950 via-teal-900 to-slate-900 p-6 rounded-3xl border border-emerald-500/30 text-white shadow-2xl flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div className="flex items-center space-x-3">
-          <div className="p-3 rounded-2xl bg-emerald-900/70 border border-emerald-400/40 text-amber-400 shadow-inner">
+      {/* Banner - Clean White Premium */}
+      <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 text-slate-900 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="flex items-center space-x-4">
+          <div className="p-3 rounded-2xl bg-slate-100 border border-slate-200 text-slate-900 shadow-xs">
             <Clock className="w-8 h-8" />
           </div>
           <div>
-            <h1 className="text-2xl font-black text-white flex items-center gap-2">
+            <h1 className="font-serif text-2xl sm:text-3xl font-extrabold text-slate-900 flex items-center gap-2">
               Adaptive Study Planner & Focus Engine
-              <span className="text-[10px] px-2.5 py-0.5 rounded-full uppercase bg-amber-400 text-slate-950 font-bold tracking-widest">
+              <span className="text-[10px] px-2.5 py-0.5 rounded-full uppercase bg-amber-400 text-slate-950 font-black tracking-widest">
                 Pomodoro + Reclaim.ai
               </span>
             </h1>
-            <p className="text-xs text-emerald-200/80 mt-0.5">
+            <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">
               Automated timetable rebalancing, focus timer & exam deadline tracker.
             </p>
           </div>
@@ -52,7 +52,7 @@ export default function StudyPlanner() {
         <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm flex flex-col items-center justify-center text-center space-y-6">
           <span className="text-xs font-black uppercase text-slate-400 tracking-wider">FOCUS TIMER (25m WORK / 5m BREAK)</span>
           
-          <div className="w-56 h-56 rounded-full bg-gradient-to-br from-emerald-950 via-teal-900 to-slate-900 border-4 border-emerald-500/40 flex items-center justify-center shadow-2xl">
+          <div className="w-56 h-56 rounded-full bg-slate-900 border-4 border-slate-700 flex items-center justify-center shadow-xl">
             <span className="text-4xl font-black text-white font-mono">{formatTime(secondsLeft)}</span>
           </div>
 

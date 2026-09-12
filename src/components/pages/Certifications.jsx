@@ -26,20 +26,20 @@ export default function Certifications() {
 
   return (
     <div className="space-y-6 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 pb-12">
-      {/* Banner */}
-      <div className="bg-gradient-to-r from-emerald-950 via-teal-900 to-slate-900 p-6 rounded-3xl border border-emerald-500/30 text-white shadow-2xl flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div className="flex items-center space-x-3">
-          <div className="p-3 rounded-2xl bg-emerald-900/70 border border-emerald-400/40 text-amber-400 shadow-inner">
+      {/* Banner - Clean White Premium */}
+      <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 text-slate-900 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="flex items-center space-x-4">
+          <div className="p-3 rounded-2xl bg-slate-100 border border-slate-200 text-slate-900 shadow-xs">
             <Award className="w-8 h-8" />
           </div>
           <div>
-            <h1 className="text-2xl font-black text-white flex items-center gap-2">
+            <h1 className="font-serif text-2xl sm:text-3xl font-extrabold text-slate-900 flex items-center gap-2">
               Verifiable Skill Certifications & Portfolio
-              <span className="text-[10px] px-2.5 py-0.5 rounded-full uppercase bg-amber-400 text-slate-950 font-bold tracking-widest">
+              <span className="text-[10px] px-2.5 py-0.5 rounded-full uppercase bg-amber-400 text-slate-950 font-black tracking-widest">
                 Public Portfolio Link
               </span>
             </h1>
-            <p className="text-xs text-emerald-200/80 mt-0.5">
+            <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">
               Blockchain-backed certificate verification registry & shareable recruiter portfolio.
             </p>
           </div>
@@ -47,9 +47,9 @@ export default function Certifications() {
 
         <button 
           onClick={() => alert(`Public Portfolio URL copied: https://genwork.edu/portfolio/${user.studentId}`)}
-          className="px-4 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs rounded-xl shadow-md flex items-center gap-2 transition"
+          className="px-5 py-3 bg-slate-900 hover:bg-slate-800 text-white font-black text-xs rounded-xl shadow-md flex items-center gap-2 transition uppercase tracking-wider"
         >
-          <Share2 className="w-4 h-4 text-slate-950" /> Copy Public Recruiter Portfolio Link
+          <Share2 className="w-4 h-4 text-amber-400" /> Copy Public Recruiter Portfolio Link
         </button>
       </div>
 

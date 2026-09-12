@@ -69,29 +69,29 @@ export default function AITutor() {
 
   return (
     <div className="space-y-6 text-slate-900 font-sans selection:bg-amber-400 selection:text-slate-950 pb-12">
-      {/* Header Banner */}
-      <div className="bg-gradient-to-r from-emerald-950 via-teal-900 to-slate-900 p-6 rounded-3xl border border-emerald-500/30 text-white shadow-2xl flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div className="flex items-center space-x-3">
-          <div className="p-3 rounded-2xl bg-emerald-900/70 border border-emerald-400/40 text-amber-400 shadow-inner">
+      {/* Header Banner - Clean White Premium */}
+      <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 text-slate-900 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="flex items-center space-x-4">
+          <div className="p-3 rounded-2xl bg-slate-100 border border-slate-200 text-slate-900 shadow-xs">
             <Bot className="w-8 h-8" />
           </div>
           <div>
-            <h1 className="text-2xl font-black text-white flex items-center gap-2">
+            <h1 className="font-serif text-2xl sm:text-3xl font-extrabold text-slate-900 flex items-center gap-2">
               Socratic AI Study Tutor
-              <span className="text-[10px] px-2.5 py-0.5 rounded-full uppercase bg-amber-400 text-slate-950 font-bold tracking-widest">
+              <span className="text-[10px] px-2.5 py-0.5 rounded-full uppercase bg-amber-400 text-slate-950 font-black tracking-widest">
                 Grounded Mode
               </span>
             </h1>
-            <p className="text-xs text-emerald-200/80 mt-0.5">
+            <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">
               OCR Camera Doubt Solving, Socratic Hint Ladder & Grounded Syllabus Guidance.
             </p>
           </div>
         </div>
 
-        <div className="flex items-center space-x-2 text-xs bg-slate-900/80 px-3.5 py-2 rounded-xl border border-emerald-500/30">
-          <FileText className="w-4 h-4 text-emerald-400" />
-          <span className="text-slate-400">Grounded to:</span>
-          <span className="font-bold text-white truncate max-w-[200px]">{groundedDoc}</span>
+        <div className="flex items-center space-x-2 text-xs bg-slate-50 px-4 py-2.5 rounded-xl border border-slate-200">
+          <FileText className="w-4 h-4 text-slate-700" />
+          <span className="text-slate-500 font-bold">Grounded to:</span>
+          <span className="font-extrabold text-slate-900 truncate max-w-[200px]">{groundedDoc}</span>
         </div>
       </div>
 

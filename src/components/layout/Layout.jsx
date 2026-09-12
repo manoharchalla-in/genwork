@@ -202,11 +202,11 @@ export default function Layout({ children }) {
             <div className="p-3.5 border border-slate-200 bg-slate-50 m-2.5 rounded-2xl text-xs space-y-2">
               <div className="flex justify-between font-bold text-slate-800">
                 <span className="text-[11px]">Tier Rank</span>
-                <span className="text-emerald-800 font-serif italic text-xs">{user.tier.name} {user.tier.level}</span>
+                <span className="text-slate-900 font-serif italic text-xs font-bold">{user.tier.name} {user.tier.level}</span>
               </div>
               <div className="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
                 <div 
-                  className="bg-emerald-600 h-full rounded-full transition-all"
+                  className="bg-amber-500 h-full rounded-full transition-all"
                   style={{ width: `${(user.points / user.tier.nextTierPoints) * 100}%` }}
                 />
               </div>
@@ -217,9 +217,9 @@ export default function Layout({ children }) {
           )}
         </aside>
 
-        {/* Content Container (100% Width & Smooth Scrolling) */}
-        <main className="flex-1 overflow-y-auto bg-slate-50 p-4 sm:p-6 lg:p-8 relative min-h-screen">
-          <div className="w-full space-y-6">
+        {/* Content Container (Clean Premium White Layout) */}
+        <main className="flex-1 overflow-y-auto bg-slate-50 p-6 sm:p-8 lg:p-10 relative min-h-screen">
+          <div className="max-w-7xl mx-auto space-y-8">
             {children}
           </div>
         </main>
