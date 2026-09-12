@@ -527,56 +527,110 @@ export default function AdminPanel() {
             ))}
           </div>
 
-          {/* Subtab 1: Assessments */}
+          {/* Subtab 1: Assessments & All Feature Modules Pipeline */}
           {subTab === 'kpis' && (
-            <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h3 className="font-bold text-slate-900 text-base">Assessment Builder & Category Manager</h3>
-                  <p className="text-xs text-slate-500">Configure proctoring rules, tab-switch limits & category tags.</p>
+            <div className="space-y-6">
+              {/* Feature Modules Quick Management Grid (All 15 Connected) */}
+              <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base flex items-center gap-2">
+                      <Layers className="w-5 h-5 text-emerald-600" />
+                      Platform Modules Admin Manager (All 15 Connected Features)
+                    </h3>
+                    <p className="text-xs text-slate-500">Directly control, configure, and monitor live status across every platform module.</p>
+                  </div>
+                  <span className="px-3 py-1 bg-emerald-100 text-emerald-800 font-extrabold text-xs rounded-full">15/15 Active</span>
                 </div>
-                <button className="px-4 py-2 bg-gradient-to-r from-emerald-950 via-teal-900 to-slate-900 text-white font-bold text-xs rounded-xl shadow-md">
-                  + Launch Assessment Wizard
-                </button>
+
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+                  {[
+                    { name: 'Dashboard', route: 'dashboard', status: 'Live', count: '1,420 Users' },
+                    { name: 'Leaderboard', route: 'leaderboard', status: 'Active', count: 'Weekly Reset' },
+                    { name: 'Assessments', route: 'assessments', status: 'Live', count: '25 Active' },
+                    { name: 'LSRW Practice', route: 'lsrw', status: 'Grading Queue', count: '2 Pending' },
+                    { name: 'Typing Test', route: 'typing-test', status: 'Live Engine', count: '50+ Specs' },
+                    { name: 'Courses', route: 'courses', status: 'Published', count: '12 Tracks' },
+                    { name: 'Smart Notes', route: 'smart-notes', status: 'AI Synced', count: '480 Saved' },
+                    { name: 'Study Planner', route: 'study-planner', status: 'Active', count: '890 Plans' },
+                    { name: 'AI Resume Builder', route: 'resume-builder', status: 'Live', count: '310 Exports' },
+                    { name: 'AI Mock Interview', route: 'mock-interview', status: 'Beta (Under Working)', count: 'v1.4' },
+                    { name: 'Doubt Forum', route: 'doubt-forum', status: 'Active', count: '42 Open' },
+                    { name: 'Job Placement Board', route: 'job-board', status: 'Live', count: '18 Drives' },
+                    { name: 'Certifications', route: 'certifications', status: 'Auto-Issue', count: '150 Verifications' },
+                    { name: 'Pair Programming', route: 'pair-programming', status: 'Live IDE', count: '5 Sessions' },
+                    { name: 'Blogs', route: 'blogs', status: 'Moderation Queue', count: '4 Published' },
+                  ].map((mod, i) => (
+                    <div key={i} className="p-3 bg-slate-50 border border-slate-200 rounded-2xl space-y-1 hover:border-slate-400 transition">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-black text-slate-900 truncate">{mod.name}</span>
+                        <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
+                      </div>
+                      <p className="text-[10px] text-slate-500 font-semibold">{mod.count}</p>
+                      <div className="pt-1 flex items-center justify-between">
+                        <span className="text-[9px] px-1.5 py-0.5 rounded bg-slate-200 text-slate-700 font-bold">{mod.status}</span>
+                        <button 
+                          onClick={() => alert(`Configuring ${mod.name} admin parameters...`)}
+                          className="text-[9px] font-bold text-emerald-700 hover:underline"
+                        >
+                          Manage →
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs">
-                  <thead className="bg-slate-50 text-slate-600 uppercase font-bold text-[10px] border-b border-slate-200">
-                    <tr>
-                      <th className="py-3 px-3">Assessment ID</th>
-                      <th className="py-3 px-3">Title</th>
-                      <th className="py-3 px-3">Category</th>
-                      <th className="py-3 px-3">Questions & Duration</th>
-                      <th className="py-3 px-3">Proctored</th>
-                      <th className="py-3 px-3 text-right">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-100 font-medium">
-                    {assessments.map(a => (
-                      <tr key={a.id} className="hover:bg-slate-50/80">
-                        <td className="py-3 px-3 font-mono font-bold text-slate-900">{a.id}</td>
-                        <td className="py-3 px-3 font-extrabold text-slate-900">{a.title}</td>
-                        <td className="py-3 px-3 text-slate-600">{a.category}</td>
-                        <td className="py-3 px-3 text-slate-600">{a.questions} Qs / {a.duration} mins</td>
-                        <td className="py-3 px-3">
-                          {a.proctored ? (
-                            <span className="px-2 py-0.5 rounded-full text-[9px] font-bold bg-rose-100 text-rose-700">Webcam + Tab-Lock</span>
-                          ) : (
-                            <span className="px-2 py-0.5 rounded-full text-[9px] font-bold bg-slate-100 text-slate-600">Standard</span>
-                          )}
-                        </td>
-                        <td className="py-3 px-3 text-right">
-                          <span className={`px-2.5 py-1 rounded-lg text-[10px] font-bold ${
-                            a.status === 'Published' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'
-                          }`}>
-                            {a.status}
-                          </span>
-                        </td>
+              {/* Assessment Manager Table */}
+              <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base">Assessment & Exam Category Manager</h3>
+                    <p className="text-xs text-slate-500">Configure proctoring rules, tab-switch limits & category tags.</p>
+                  </div>
+                  <button className="px-4 py-2 bg-gradient-to-r from-emerald-950 via-teal-900 to-slate-900 text-white font-bold text-xs rounded-xl shadow-md">
+                    + Launch Assessment Wizard
+                  </button>
+                </div>
+
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left text-xs">
+                    <thead className="bg-slate-50 text-slate-600 uppercase font-bold text-[10px] border-b border-slate-200">
+                      <tr>
+                        <th className="py-3 px-3">Assessment ID</th>
+                        <th className="py-3 px-3">Title</th>
+                        <th className="py-3 px-3">Category</th>
+                        <th className="py-3 px-3">Questions & Duration</th>
+                        <th className="py-3 px-3">Proctored</th>
+                        <th className="py-3 px-3 text-right">Status</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100 font-medium">
+                      {assessments.map(a => (
+                        <tr key={a.id} className="hover:bg-slate-50/80">
+                          <td className="py-3 px-3 font-mono font-bold text-slate-900">{a.id}</td>
+                          <td className="py-3 px-3 font-extrabold text-slate-900">{a.title}</td>
+                          <td className="py-3 px-3 text-slate-600">{a.category}</td>
+                          <td className="py-3 px-3 text-slate-600">{a.questions} Qs / {a.duration} mins</td>
+                          <td className="py-3 px-3">
+                            {a.proctored ? (
+                              <span className="px-2 py-0.5 rounded-full text-[9px] font-bold bg-rose-100 text-rose-700">Webcam + Tab-Lock</span>
+                            ) : (
+                              <span className="px-2 py-0.5 rounded-full text-[9px] font-bold bg-slate-100 text-slate-600">Standard</span>
+                            )}
+                          </td>
+                          <td className="py-3 px-3 text-right">
+                            <span className={`px-2.5 py-1 rounded-lg text-[10px] font-bold ${
+                              a.status === 'Published' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'
+                            }`}>
+                              {a.status}
+                            </span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           )}
