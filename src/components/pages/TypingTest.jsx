@@ -4,7 +4,7 @@ import {
   Keyboard, RotateCcw, Trophy, CheckCircle, Zap, Award, Play, 
   Pause, RefreshCw, BarChart2, AlertCircle, ArrowRight, Sparkles,
   Volume2, VolumeX, Eye, Flame, Code, BookOpen, Clock, Activity,
-  Sliders, Share2, Download, Check, Shield, User, HelpCircle
+  Sliders, Share2, Download, Check, Shield, User, HelpCircle, Maximize2
 } from 'lucide-react';
 
 // --- QUOTES & CODE CORPUS ---
@@ -371,50 +371,59 @@ export default function TypingTest() {
   const nextChar = targetText[typedInput.length] ? targetText[typedInput.length].toUpperCase() : '';
   const recommendedFinger = FINGER_MAP[nextChar] || 'Thumbs / Index';
 
+  // Fullscreen Mode Toggle Handler
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(() => {});
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen().catch(() => {});
+      }
+    }
+  };
+
   return (
-    <div className={`space-y-6 font-sans selection:bg-cyan-500 selection:text-slate-950 min-h-screen p-4 sm:p-6 md:p-8 transition-colors rounded-3xl ${
-      themeStyle === 'neon' ? 'bg-[#06070C] text-slate-100' : 'bg-slate-50 text-slate-900'
-    }`}>
+    <div className="space-y-6 font-sans text-slate-900 selection:bg-slate-900 selection:text-white pb-12">
       
       {/* Top Header & Mode Bar */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800/60 pb-5">
+      <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-black tracking-tight flex items-center gap-3">
-            <div className="p-2 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400">
+          <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-3">
+            <div className="p-2.5 rounded-2xl bg-slate-100 border border-slate-200 text-slate-900">
               <Keyboard className="w-6 h-6" />
             </div>
-            <span>Cinematic Typing Test</span>
-            <span className="text-[10px] px-2.5 py-0.5 rounded-full uppercase font-mono font-extrabold bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 tracking-widest">
-              Neon Studio Pro Max
+            <span>TYPING TEST</span>
+            <span className="text-[10px] px-3 py-1 rounded-full uppercase font-mono font-extrabold bg-slate-900 text-white tracking-widest">
+              OFFICIAL READINESS
             </span>
           </h1>
-          <p className="text-xs text-slate-400 font-medium mt-1">
-            50+ Feature Speed & Rhythm Engine with Live Ghost Racer, Finger-Guide & Keystroke Heatmaps.
+          <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">
+            Measure your typing speed, accuracy, and rhythm in full-screen arena.
           </p>
         </div>
 
-        {/* Top Controls: Sound, Theme, Attempt Counter */}
+        {/* Top Controls: Sound, Fullscreen, Attempt Counter */}
         <div className="flex items-center gap-3">
           <button
+            onClick={toggleFullscreen}
+            className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition flex items-center gap-2 shadow-sm"
+          >
+            <Maximize2 className="w-4 h-4" />
+            <span>Full Screen Mode</span>
+          </button>
+
+          <button
             onClick={() => setSoundEnabled(!soundEnabled)}
-            className={`p-2 rounded-xl border text-xs font-bold transition flex items-center gap-1.5 ${
-              soundEnabled ? 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40' : 'bg-slate-800/60 text-slate-400 border-slate-700'
+            className={`p-2.5 rounded-xl border text-xs font-bold transition flex items-center gap-1.5 ${
+              soundEnabled ? 'bg-slate-900 text-white border-slate-900' : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
             }`}
-            title="Toggle Keystroke Audio Synth"
+            title="Toggle Keystroke Audio"
           >
             {soundEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
             <span className="hidden sm:inline">{soundEnabled ? 'Audio On' : 'Mute'}</span>
           </button>
 
-          <button
-            onClick={() => setThemeStyle(themeStyle === 'neon' ? 'light' : 'neon')}
-            className="p-2 rounded-xl bg-slate-800/60 border border-slate-700 text-slate-300 hover:text-white text-xs font-bold transition flex items-center gap-1.5"
-          >
-            <Sliders className="w-4 h-4" />
-            <span className="hidden sm:inline">{themeStyle === 'neon' ? 'Neon Theme' : 'Light Theme'}</span>
-          </button>
-
-          <div className="px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 text-xs font-mono font-bold text-slate-300">
+          <div className="px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-xs font-mono font-extrabold text-slate-800">
             {attemptsCount} Attempts
           </div>
         </div>
@@ -425,7 +434,7 @@ export default function TypingTest() {
         <div className="space-y-6 max-w-5xl mx-auto">
           
           {/* Mode Selector Tabs */}
-          <div className="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-slate-900/90 border border-slate-800">
+          <div className="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-slate-100 border border-slate-200">
             {[
               { id: 'time', label: 'Timed Mode', icon: Clock },
               { id: 'words', label: 'Words Mode', icon: BookOpen },
@@ -441,8 +450,8 @@ export default function TypingTest() {
                   onClick={() => setMode(m.id)}
                   className={`flex-1 min-w-[120px] py-2.5 px-4 rounded-xl text-xs font-black transition flex items-center justify-center gap-2 ${
                     isSelected 
-                      ? 'bg-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/20 font-bold' 
-                      : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+                      ? 'bg-slate-900 text-white shadow-sm font-bold' 
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -455,16 +464,16 @@ export default function TypingTest() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             {/* Left Box: Parameters (Duration / Word Count) */}
-            <div className="p-6 rounded-3xl bg-slate-900/60 border border-slate-800 space-y-5">
-              <h2 className="text-xs font-mono font-extrabold uppercase tracking-wider text-cyan-400 flex items-center gap-2">
-                <Sliders className="w-4 h-4" /> Test Target Setup
+            <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-5">
+              <h2 className="text-xs font-mono font-extrabold uppercase tracking-wider text-slate-900 flex items-center gap-2">
+                <Sliders className="w-4 h-4 text-slate-700" /> Test Target Setup
               </h2>
 
               {mode === 'time' && (
                 <div className="space-y-3">
                   <div className="flex justify-between items-center text-xs font-bold">
-                    <span className="text-slate-400">Duration Preset</span>
-                    <span className="text-cyan-400">{activeDurationSec} Seconds</span>
+                    <span className="text-slate-600">Duration Preset</span>
+                    <span className="text-slate-900">{activeDurationSec} Seconds</span>
                   </div>
                   <div className="grid grid-cols-5 gap-2">
                     {[30, 60, 120, 180, 300].map(sec => (
@@ -473,8 +482,8 @@ export default function TypingTest() {
                         onClick={() => { setDurationPreset(sec); setCustomDuration(''); }}
                         className={`py-2.5 rounded-xl border text-xs font-mono font-extrabold transition ${
                           durationPreset === sec && !customDuration
-                            ? 'bg-cyan-500/20 border-cyan-500 text-cyan-300'
-                            : 'bg-slate-800/40 border-slate-800 text-slate-400 hover:bg-slate-800'
+                            ? 'bg-slate-900 border-slate-900 text-white shadow-xs'
+                            : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50'
                         }`}
                       >
                         {sec >= 60 ? `${sec / 60}m` : `${sec}s`}
@@ -489,7 +498,7 @@ export default function TypingTest() {
                       placeholder="e.g. 120"
                       value={customDuration}
                       onChange={e => setCustomDuration(e.target.value)}
-                      className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-xs font-mono font-bold text-slate-100 outline-none focus:border-cyan-500"
+                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-mono font-bold text-slate-900 outline-none focus:border-slate-900"
                     />
                   </div>
                 </div>
@@ -498,8 +507,8 @@ export default function TypingTest() {
               {mode === 'words' && (
                 <div className="space-y-3">
                   <div className="flex justify-between items-center text-xs font-bold">
-                    <span className="text-slate-400">Word Goal Preset</span>
-                    <span className="text-cyan-400">{wordCountPreset} Words</span>
+                    <span className="text-slate-600">Word Goal Preset</span>
+                    <span className="text-slate-900">{wordCountPreset} Words</span>
                   </div>
                   <div className="grid grid-cols-5 gap-2">
                     {[10, 25, 50, 100, 200].map(count => (
@@ -508,8 +517,8 @@ export default function TypingTest() {
                         onClick={() => setWordCountPreset(count)}
                         className={`py-2.5 rounded-xl border text-xs font-mono font-extrabold transition ${
                           wordCountPreset === count
-                            ? 'bg-cyan-500/20 border-cyan-500 text-cyan-300'
-                            : 'bg-slate-800/40 border-slate-800 text-slate-400 hover:bg-slate-800'
+                            ? 'bg-slate-900 border-slate-900 text-white shadow-xs'
+                            : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50'
                         }`}
                       >
                         {count} W
@@ -520,47 +529,47 @@ export default function TypingTest() {
               )}
 
               {/* Toggles & Options */}
-              <div className="space-y-3 pt-2 border-t border-slate-800">
+              <div className="space-y-3 pt-2 border-t border-slate-100">
                 <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500">Feature Toggles</span>
                 
                 <div className="grid grid-cols-2 gap-3">
-                  <label className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between cursor-pointer text-xs font-bold text-slate-300">
+                  <label className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between cursor-pointer text-xs font-bold text-slate-800">
                     <span>Ghost Racer</span>
                     <input
                       type="checkbox"
                       checked={ghostRacerEnabled}
                       onChange={e => setGhostRacerEnabled(e.target.checked)}
-                      className="accent-cyan-500"
+                      className="accent-slate-900"
                     />
                   </label>
 
-                  <label className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between cursor-pointer text-xs font-bold text-slate-300">
+                  <label className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between cursor-pointer text-xs font-bold text-slate-800">
                     <span>Finger Guide</span>
                     <input
                       type="checkbox"
                       checked={fingerGuideEnabled}
                       onChange={e => setFingerGuideEnabled(e.target.checked)}
-                      className="accent-cyan-500"
+                      className="accent-slate-900"
                     />
                   </label>
 
-                  <label className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between cursor-pointer text-xs font-bold text-slate-300">
+                  <label className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between cursor-pointer text-xs font-bold text-slate-800">
                     <span>Punctuation</span>
                     <input
                       type="checkbox"
                       checked={includePunctuation}
                       onChange={e => setIncludePunctuation(e.target.checked)}
-                      className="accent-cyan-500"
+                      className="accent-slate-900"
                     />
                   </label>
 
-                  <label className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between cursor-pointer text-xs font-bold text-slate-300">
+                  <label className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between cursor-pointer text-xs font-bold text-slate-800">
                     <span>Numbers</span>
                     <input
                       type="checkbox"
                       checked={includeNumbers}
                       onChange={e => setIncludeNumbers(e.target.checked)}
-                      className="accent-cyan-500"
+                      className="accent-slate-900"
                     />
                   </label>
                 </div>
@@ -568,9 +577,9 @@ export default function TypingTest() {
             </div>
 
             {/* Right Box: Difficulty Tiers & Goal Tracker */}
-            <div className="p-6 rounded-3xl bg-slate-900/60 border border-slate-800 space-y-5">
-              <h2 className="text-xs font-mono font-extrabold uppercase tracking-wider text-purple-400 flex items-center gap-2">
-                <Trophy className="w-4 h-4" /> Difficulty & Personal Goal
+            <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-5">
+              <h2 className="text-xs font-mono font-extrabold uppercase tracking-wider text-slate-900 flex items-center gap-2">
+                <Trophy className="w-4 h-4 text-amber-500" /> Difficulty & Personal Goal
               </h2>
 
               <div className="space-y-2.5">
@@ -585,33 +594,33 @@ export default function TypingTest() {
                     onClick={() => setDifficulty(d.id)}
                     className={`w-full p-3.5 rounded-2xl border text-left transition flex items-center justify-between ${
                       difficulty === d.id
-                        ? 'bg-purple-500/15 border-purple-500 text-purple-200 shadow-md shadow-purple-500/10'
-                        : 'bg-slate-950 border-slate-800/80 text-slate-400 hover:bg-slate-800/50'
+                        ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
+                        : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50'
                     }`}
                   >
                     <div>
                       <span className="text-xs font-extrabold block">{d.label}</span>
-                      <span className="text-[10px] font-medium text-slate-500">{d.desc}</span>
+                      <span className={`text-[10px] font-medium ${difficulty === d.id ? 'text-slate-300' : 'text-slate-500'}`}>{d.desc}</span>
                     </div>
-                    {difficulty === d.id && <Check className="w-4 h-4 text-purple-400" />}
+                    {difficulty === d.id && <Check className="w-4 h-4 text-white" />}
                   </button>
                 ))}
               </div>
 
               {/* Goal Setter Widget */}
-              <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2">
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
                 <div className="flex justify-between items-center text-xs">
-                  <span className="font-bold text-slate-400">Weekly Target Goal</span>
-                  <span className="font-mono font-extrabold text-amber-400">{weeklyGoal} WPM</span>
+                  <span className="font-bold text-slate-600">Weekly Target Goal</span>
+                  <span className="font-mono font-extrabold text-slate-900">{weeklyGoal} WPM</span>
                 </div>
-                <div className="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                <div className="w-full bg-slate-200 rounded-full h-2 overflow-hidden">
                   <div 
-                    className="bg-gradient-to-r from-cyan-500 to-purple-500 h-full rounded-full transition-all duration-500" 
+                    className="bg-slate-900 h-full rounded-full transition-all duration-500" 
                     style={{ width: `${Math.min(100, Math.round((bestWpm / weeklyGoal) * 100))}%` }}
                   />
                 </div>
                 <p className="text-[10px] text-slate-500 font-medium">
-                  Current Best: <strong className="text-slate-300">{bestWpm} WPM</strong> ({Math.round((bestWpm / weeklyGoal) * 100)}% achieved)
+                  Current Best: <strong className="text-slate-900">{bestWpm} WPM</strong> ({Math.round((bestWpm / weeklyGoal) * 100)}% achieved)
                 </p>
               </div>
             </div>
@@ -619,17 +628,17 @@ export default function TypingTest() {
           </div>
 
           {/* Start Button */}
-          <div className="flex items-center justify-between pt-4 border-t border-slate-800">
-            <div className="text-xs text-slate-400 font-medium">
-              Mode: <strong className="text-slate-200 uppercase">{mode}</strong> | Difficulty: <strong className="text-slate-200">{difficulty}</strong>
+          <div className="flex items-center justify-between pt-4 border-t border-slate-200">
+            <div className="text-xs text-slate-500 font-medium">
+              Mode: <strong className="text-slate-900 uppercase">{mode}</strong> | Difficulty: <strong className="text-slate-900">{difficulty}</strong>
             </div>
 
             <button
               onClick={handleStartTest}
               disabled={isCustomInvalid}
-              className="px-8 py-4 bg-gradient-to-r from-cyan-400 to-blue-500 text-slate-950 font-black text-sm rounded-2xl shadow-xl shadow-cyan-500/25 hover:brightness-110 active:scale-95 transition flex items-center gap-3 uppercase tracking-wider"
+              className="px-8 py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-black text-xs rounded-2xl shadow-md transition flex items-center gap-3 uppercase tracking-wider"
             >
-              <Play className="w-5 h-5 fill-slate-950" />
+              <Play className="w-4 h-4 fill-white" />
               <span>Launch Test Arena</span>
             </button>
           </div>
@@ -643,12 +652,12 @@ export default function TypingTest() {
           
           {/* Paused Overlay */}
           {isPaused && (
-            <div className="absolute inset-0 bg-slate-950/90 backdrop-blur-md z-40 rounded-3xl flex flex-col items-center justify-center space-y-4">
-              <h3 className="text-2xl font-black text-white">TEST PAUSED</h3>
-              <p className="text-xs text-slate-400 font-medium">Click button below or focus input to resume test.</p>
+            <div className="absolute inset-0 bg-white/90 backdrop-blur-xs z-40 rounded-3xl flex flex-col items-center justify-center space-y-4">
+              <h3 className="text-2xl font-black text-slate-900">TEST PAUSED</h3>
+              <p className="text-xs text-slate-500 font-medium">Click button below or focus input to resume test.</p>
               <button
                 onClick={() => { setIsPaused(false); inputRef.current?.focus(); }}
-                className="px-6 py-3 bg-cyan-400 text-slate-950 font-black text-xs rounded-xl shadow-lg"
+                className="px-6 py-3 bg-slate-900 text-white font-black text-xs rounded-xl shadow-lg"
               >
                 Resume Typing
               </button>
@@ -656,56 +665,56 @@ export default function TypingTest() {
           )}
 
           {/* Live Telemetry Bar */}
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 p-4 rounded-3xl bg-slate-900/80 border border-slate-800 backdrop-blur-md text-center">
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 p-4 rounded-3xl bg-white border border-slate-200 shadow-sm text-center">
             <div className="p-2">
               <span className="text-[10px] font-mono font-bold uppercase text-slate-500">Timer</span>
-              <p className="text-2xl sm:text-3xl font-black font-mono text-cyan-400">
+              <p className="text-2xl sm:text-3xl font-black font-mono text-slate-900">
                 {mode === 'time' ? `${timeLeft}s` : '∞'}
               </p>
             </div>
 
             <div className="p-2">
               <span className="text-[10px] font-mono font-bold uppercase text-slate-500">Net WPM</span>
-              <p className="text-2xl sm:text-3xl font-black font-mono text-white">{liveWpm}</p>
+              <p className="text-2xl sm:text-3xl font-black font-mono text-slate-900">{liveWpm}</p>
             </div>
 
             <div className="p-2">
               <span className="text-[10px] font-mono font-bold uppercase text-slate-500">Accuracy</span>
-              <p className="text-2xl sm:text-3xl font-black font-mono text-emerald-400">{liveAccuracy}%</p>
+              <p className="text-2xl sm:text-3xl font-black font-mono text-emerald-600">{liveAccuracy}%</p>
             </div>
 
             <div className="p-2">
               <span className="text-[10px] font-mono font-bold uppercase text-slate-500">Streak Combo</span>
-              <p className="text-2xl sm:text-3xl font-black font-mono text-amber-400">{combo}x</p>
+              <p className="text-2xl sm:text-3xl font-black font-mono text-amber-600">{combo}x</p>
             </div>
 
             <div className="p-2 col-span-2 sm:col-span-1">
               <span className="text-[10px] font-mono font-bold uppercase text-slate-500">Gross Errors</span>
-              <p className="text-2xl sm:text-3xl font-black font-mono text-rose-500">{grossErrors}</p>
+              <p className="text-2xl sm:text-3xl font-black font-mono text-rose-600">{grossErrors}</p>
             </div>
           </div>
 
           {/* Ghost Racer Track */}
           {ghostRacerEnabled && (
-            <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-2">
+            <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs space-y-2">
               <div className="flex justify-between items-center text-xs font-mono font-bold">
-                <span className="text-cyan-400 flex items-center gap-1.5">
+                <span className="text-slate-900 flex items-center gap-1.5">
                   <User className="w-3.5 h-3.5" /> You ({typedInput.length} chars)
                 </span>
-                <span className="text-purple-400 flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5" /> Ghost Best ({ghostPosition} chars @ {bestWpm} WPM)
+                <span className="text-slate-500 flex items-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-500" /> Ghost Best ({ghostPosition} chars @ {bestWpm} WPM)
                 </span>
               </div>
 
-              <div className="relative w-full bg-slate-950 h-3 rounded-full overflow-hidden border border-slate-800">
+              <div className="relative w-full bg-slate-100 h-3 rounded-full overflow-hidden border border-slate-200">
                 {/* Live Position Bar */}
                 <div 
-                  className="absolute top-0 bottom-0 left-0 bg-cyan-400 rounded-full transition-all duration-200" 
+                  className="absolute top-0 bottom-0 left-0 bg-slate-900 rounded-full transition-all duration-200" 
                   style={{ width: `${Math.min(100, (typedInput.length / targetText.length) * 100)}%` }}
                 />
                 {/* Ghost Marker Pin */}
                 <div 
-                  className="absolute top-0 bottom-0 w-2 bg-purple-400 rounded-full blur-[1px] transition-all duration-300"
+                  className="absolute top-0 bottom-0 w-2 bg-amber-400 rounded-full transition-all duration-300"
                   style={{ left: `${Math.min(99, (ghostPosition / targetText.length) * 100)}%` }}
                 />
               </div>
@@ -715,22 +724,22 @@ export default function TypingTest() {
           {/* Main Monospace Typing Passage Display */}
           <div 
             onClick={() => inputRef.current?.focus()}
-            className="p-8 rounded-3xl bg-slate-950/90 border-2 border-slate-800 text-lg font-mono leading-relaxed select-none min-h-[200px] cursor-text tracking-wide relative overflow-hidden shadow-2xl"
+            className="p-8 rounded-3xl bg-white border border-slate-200 text-lg font-mono leading-relaxed select-none min-h-[200px] cursor-text tracking-wide relative overflow-hidden shadow-sm text-slate-800"
           >
             {!hasStarted && (
-              <div className="absolute top-4 right-4 text-xs font-mono font-extrabold text-cyan-400 animate-pulse uppercase tracking-widest flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
+              <div className="absolute top-4 right-4 text-xs font-mono font-extrabold text-slate-900 animate-pulse uppercase tracking-widest flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-slate-900 animate-ping" />
                 Press Any Key to Start Test
               </div>
             )}
 
             {targetText.split('').map((char, idx) => {
-              let charStyle = 'text-slate-600';
+              let charStyle = 'text-slate-400';
               if (idx < typedInput.length) {
                 if (typedInput[idx] === char) {
-                  charStyle = 'text-emerald-400 font-bold';
+                  charStyle = 'text-slate-900 font-bold';
                 } else {
-                  charStyle = 'text-white bg-rose-600 font-bold px-1 rounded-xs shadow-xs';
+                  charStyle = 'text-white bg-slate-900 font-bold px-1 rounded-xs shadow-xs';
                 }
               }
 
@@ -739,7 +748,7 @@ export default function TypingTest() {
               return (
                 <span key={idx} className={`relative ${charStyle}`}>
                   {isCaretPosition && (
-                    <span className="absolute -left-0.5 top-0 bottom-0 w-0.5 bg-cyan-400 shadow-[0_0_12px_#3ddcff] animate-pulse" />
+                    <span className="absolute -left-0.5 top-0 bottom-0 w-0.5 bg-slate-900 animate-pulse" />
                   )}
                   {char}
                 </span>
@@ -760,10 +769,10 @@ export default function TypingTest() {
 
           {/* Finger Guide & Keyboard Highlight */}
           {fingerGuideEnabled && (
-            <div className="p-5 rounded-3xl bg-slate-900/60 border border-slate-800 space-y-4">
+            <div className="p-5 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
               <div className="flex justify-between items-center text-xs font-mono">
-                <span className="text-slate-400 font-bold">NEXT KEY FINGER GUIDE:</span>
-                <span className="text-cyan-400 font-extrabold bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/30">
+                <span className="text-slate-500 font-bold">NEXT KEY FINGER GUIDE:</span>
+                <span className="text-slate-900 font-extrabold bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
                   Target '{nextChar || 'END'}' → Use <strong className="underline">{recommendedFinger}</strong>
                 </span>
               </div>
@@ -779,8 +788,8 @@ export default function TypingTest() {
                           key={k}
                           className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center font-mono font-bold text-xs border transition ${
                             isNextKey 
-                              ? 'bg-cyan-500 text-slate-950 border-cyan-300 shadow-md shadow-cyan-500/50 scale-105' 
-                              : 'bg-slate-950 text-slate-400 border-slate-800'
+                              ? 'bg-slate-900 text-white border-slate-900 shadow-sm scale-105' 
+                              : 'bg-slate-50 text-slate-600 border-slate-200'
                           }`}
                         >
                           {k}
@@ -798,7 +807,7 @@ export default function TypingTest() {
             <span className="text-slate-500">Click passage text if focus is lost.</span>
             <button
               onClick={() => setScreen('config')}
-              className="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white font-bold transition flex items-center gap-2"
+              className="px-4 py-2 rounded-xl bg-white border border-slate-300 text-slate-900 hover:bg-slate-50 font-bold transition flex items-center gap-2 shadow-xs"
             >
               <RotateCcw className="w-3.5 h-3.5" /> Restart Test
             </button>
@@ -812,20 +821,18 @@ export default function TypingTest() {
         <div className="max-w-5xl mx-auto space-y-8 animate-in fade-in duration-300">
           
           {/* Hero WPM Highlight Card */}
-          <div className="p-8 rounded-3xl bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 shadow-2xl text-center relative overflow-hidden">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/10 blur-3xl rounded-full pointer-events-none" />
-
-            <span className="text-xs font-mono font-black uppercase text-cyan-400 tracking-widest block mb-2">
+          <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm text-center relative overflow-hidden">
+            <span className="text-xs font-mono font-black uppercase text-slate-500 tracking-widest block mb-2">
               NET TYPING SPEED
             </span>
 
-            <div className="text-6xl sm:text-8xl font-black font-mono text-white tracking-tight drop-shadow-[0_0_25px_rgba(61,220,255,0.4)]">
+            <div className="text-6xl sm:text-8xl font-black font-mono text-slate-900 tracking-tight">
               {animatedWpm} <span className="text-2xl text-slate-400">WPM</span>
             </div>
 
             {testResults.isNewBest && (
-              <div className="mt-4 inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/40 text-xs font-black uppercase tracking-wider animate-bounce">
-                <Sparkles className="w-4 h-4" />
+              <div className="mt-4 inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-amber-50 text-amber-900 border border-amber-200 text-xs font-black uppercase tracking-wider animate-bounce">
+                <Sparkles className="w-4 h-4 text-amber-500" />
                 <span>NEW PERSONAL RECORD ACHIEVED!</span>
               </div>
             )}
@@ -833,45 +840,45 @@ export default function TypingTest() {
 
           {/* Headline Analytics Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-            <div className="p-5 rounded-3xl bg-slate-900/60 border border-slate-800">
+            <div className="p-5 rounded-3xl bg-white border border-slate-200 shadow-xs">
               <span className="text-[10px] font-mono uppercase text-slate-500 font-bold">Raw Speed</span>
-              <p className="text-3xl font-black font-mono text-slate-100 mt-1">{testResults.rawWpm} WPM</p>
+              <p className="text-3xl font-black font-mono text-slate-900 mt-1">{testResults.rawWpm} WPM</p>
             </div>
 
-            <div className="p-5 rounded-3xl bg-slate-900/60 border border-slate-800">
+            <div className="p-5 rounded-3xl bg-white border border-slate-200 shadow-xs">
               <span className="text-[10px] font-mono uppercase text-slate-500 font-bold">Accuracy</span>
-              <p className="text-3xl font-black font-mono text-emerald-400 mt-1">{testResults.accuracy}%</p>
+              <p className="text-3xl font-black font-mono text-emerald-600 mt-1">{testResults.accuracy}%</p>
             </div>
 
-            <div className="p-5 rounded-3xl bg-slate-900/60 border border-slate-800">
+            <div className="p-5 rounded-3xl bg-white border border-slate-200 shadow-xs">
               <span className="text-[10px] font-mono uppercase text-slate-500 font-bold">Consistency</span>
-              <p className="text-3xl font-black font-mono text-purple-400 mt-1">{testResults.consistency}%</p>
+              <p className="text-3xl font-black font-mono text-slate-900 mt-1">{testResults.consistency}%</p>
             </div>
 
-            <div className="p-5 rounded-3xl bg-slate-900/60 border border-slate-800">
+            <div className="p-5 rounded-3xl bg-white border border-slate-200 shadow-xs">
               <span className="text-[10px] font-mono uppercase text-slate-500 font-bold">Max Streak</span>
-              <p className="text-3xl font-black font-mono text-amber-400 mt-1">{testResults.maxCombo}x</p>
+              <p className="text-3xl font-black font-mono text-amber-600 mt-1">{testResults.maxCombo}x</p>
             </div>
           </div>
 
           {/* WPM Speed Graph Over Time */}
-          <div className="p-6 rounded-3xl bg-slate-900/60 border border-slate-800 space-y-4">
-            <h3 className="text-xs font-mono font-extrabold uppercase text-slate-300 tracking-wider flex items-center gap-2">
-              <BarChart2 className="w-4 h-4 text-cyan-400" /> WPM Speed Timeline Graph
+          <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-xs space-y-4">
+            <h3 className="text-xs font-mono font-extrabold uppercase text-slate-900 tracking-wider flex items-center gap-2">
+              <BarChart2 className="w-4 h-4 text-slate-700" /> WPM Speed Timeline Graph
             </h3>
 
             {wpmTimeseries.length > 0 ? (
-              <div className="h-44 flex items-end justify-between gap-1 pt-6 px-2 border-b border-slate-800">
+              <div className="h-44 flex items-end justify-between gap-1 pt-6 px-2 border-b border-slate-200">
                 {wpmTimeseries.map((item, idx) => {
                   const maxWpm = Math.max(...wpmTimeseries.map(i => i.wpm), 100);
                   const heightPct = Math.max(10, Math.round((item.wpm / maxWpm) * 100));
                   return (
                     <div key={idx} className="flex-1 flex flex-col items-center gap-1 group">
-                      <span className="text-[9px] font-mono font-bold text-cyan-400 opacity-0 group-hover:opacity-100 transition">
+                      <span className="text-[9px] font-mono font-bold text-slate-900 opacity-0 group-hover:opacity-100 transition">
                         {item.wpm}
                       </span>
                       <div 
-                        className="w-full bg-cyan-500/60 group-hover:bg-cyan-400 rounded-t-sm transition-all" 
+                        className="w-full bg-slate-900 group-hover:bg-slate-700 rounded-t-sm transition-all" 
                         style={{ height: `${heightPct}%` }}
                       />
                       <span className="text-[8px] font-mono text-slate-500">{item.t}s</span>
@@ -887,8 +894,8 @@ export default function TypingTest() {
           </div>
 
           {/* Keystroke Heatmap Breakdown */}
-          <div className="p-6 rounded-3xl bg-slate-900/60 border border-slate-800 space-y-4">
-            <h3 className="text-xs font-mono font-extrabold uppercase text-slate-300 tracking-wider">
+          <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-xs space-y-4">
+            <h3 className="text-xs font-mono font-extrabold uppercase text-slate-900 tracking-wider">
               Keyboard Error Heatmap (Most Missed Keys)
             </h3>
 
@@ -897,9 +904,9 @@ export default function TypingTest() {
                 <div key={rIdx} className="flex justify-center gap-1">
                   {row.map(k => {
                     const errCount = errorKeysCount[k] || 0;
-                    let bg = 'bg-slate-950 text-slate-400 border-slate-800';
-                    if (errCount > 0 && errCount < 3) bg = 'bg-amber-500/20 text-amber-300 border-amber-500/40';
-                    if (errCount >= 3) bg = 'bg-rose-500/30 text-rose-300 border-rose-500/60 font-bold';
+                    let bg = 'bg-slate-50 text-slate-600 border-slate-200';
+                    if (errCount > 0 && errCount < 3) bg = 'bg-amber-50 text-amber-900 border-amber-300 font-bold';
+                    if (errCount >= 3) bg = 'bg-rose-50 text-rose-900 border-rose-300 font-bold';
                     return (
                       <div
                         key={k}
@@ -916,10 +923,10 @@ export default function TypingTest() {
           </div>
 
           {/* Action Control Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-800">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-200">
             <button
               onClick={handleStartTest}
-              className="w-full sm:w-auto px-8 py-4 bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-black text-xs rounded-2xl shadow-lg shadow-cyan-500/20 transition flex items-center justify-center gap-2 uppercase tracking-wider"
+              className="w-full sm:w-auto px-8 py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-black text-xs rounded-2xl shadow-md transition flex items-center justify-center gap-2 uppercase tracking-wider"
             >
               <RotateCcw className="w-4 h-4" />
               <span>Retry Same Settings</span>
@@ -927,7 +934,7 @@ export default function TypingTest() {
 
             <button
               onClick={() => setScreen('config')}
-              className="w-full sm:w-auto px-8 py-4 bg-slate-900 border border-slate-800 text-slate-200 font-black text-xs rounded-2xl hover:bg-slate-800 transition flex items-center justify-center gap-2 uppercase tracking-wider"
+              className="w-full sm:w-auto px-8 py-3.5 bg-white border border-slate-300 text-slate-900 font-black text-xs rounded-2xl hover:bg-slate-50 transition flex items-center justify-center gap-2 uppercase tracking-wider shadow-xs"
             >
               <span>Reconfigure Parameters</span>
             </button>
