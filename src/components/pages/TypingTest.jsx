@@ -399,7 +399,7 @@ export default function TypingTest() {
     <div 
       ref={containerRef} 
       className={`space-y-6 font-sans text-slate-900 selection:bg-slate-900 selection:text-white transition-all ${
-        isFullscreen ? 'fixed inset-0 z-50 bg-slate-50 p-6 sm:p-10 overflow-y-auto w-screen h-screen' : 'pb-12'
+        isFullscreen ? 'fixed inset-0 z-50 bg-slate-50 p-6 sm:p-10 overflow-hidden w-screen h-screen flex flex-col justify-between' : 'pb-12'
       }`}
     >
       
@@ -411,13 +411,7 @@ export default function TypingTest() {
               <Keyboard className="w-6 h-6" />
             </div>
             <span>TYPING TEST</span>
-            <span className="text-[10px] px-3 py-1 rounded-full uppercase font-mono font-extrabold bg-slate-900 text-white tracking-widest">
-              OFFICIAL READINESS
-            </span>
           </h1>
-          <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">
-            Measure your typing speed, accuracy, and rhythm in full-screen arena.
-          </p>
         </div>
 
         {/* Top Controls: Sound, Fullscreen, Attempt Counter */}
