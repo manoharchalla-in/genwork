@@ -62,10 +62,10 @@ export default function Layout({ children }) {
           {/* Brand Logo */}
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => setCurrentView('dashboard')}>
             <div className="h-10 px-2.5 bg-white rounded-xl flex items-center justify-center border border-slate-200 shadow-xs">
-              <img src="/genwork-logo.jpg" alt="GENWORK Logo" className="h-7 object-contain rounded" />
+              <img src="/genwork-logo.jpg" alt="GEN-VNXV Logo" className="h-7 object-contain rounded" />
             </div>
             <div>
-              <span className="font-serif font-black text-xl tracking-wider text-slate-900">GEN<span className="text-amber-500">WORK</span></span>
+              <span className="font-serif font-black text-xl tracking-wider text-slate-900">GEN-<span className="text-red-600">VNXV</span></span>
               <span className="block text-[9px] uppercase font-bold tracking-widest text-slate-500">Skill & Placement Readiness</span>
             </div>
           </div>

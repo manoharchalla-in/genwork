@@ -40,7 +40,7 @@ export default function LoginPage() {
             <ShieldCheck className="w-5 h-5 text-white" />
           </div>
           <div>
-            <span className="text-xl font-black tracking-wider text-slate-900">GEN<span className="text-slate-500">WORK</span></span>
+            <span className="text-xl font-black tracking-wider text-slate-900">GEN-<span className="text-red-600">VNXV</span></span>
             <span className="block text-[10px] uppercase font-bold tracking-widest text-slate-500">Skill & Placement Portal</span>
           </div>
         </div>
@@ -242,7 +242,7 @@ export default function LoginPage() {
 
       {/* Footer */}
       <footer className="relative z-10 w-full max-w-7xl mx-auto px-6 py-4 text-center text-xs text-slate-500 font-medium">
-        © 2026 GENWORK Placement & Readiness Platform. All rights reserved.
+        © 2026 GEN-VNXV Placement & Readiness Platform. All rights reserved.
       </footer>
     </div>
   );
