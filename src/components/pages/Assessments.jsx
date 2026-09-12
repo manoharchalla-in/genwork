@@ -180,18 +180,18 @@ export default function Assessments() {
         </div>
       </div>
 
-      {/* Test Taking Modal View */}
+      {/* Test Taking Modal View (Ivory Light Surface for High Comprehension Reading per Spec §3) */}
       {activeTest ? (
-        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-lg space-y-6">
-          <div className="flex items-center justify-between border-b border-slate-200/80 pb-4">
+        <div className="bg-ivory-50 rounded-3xl p-6 sm:p-8 border-2 border-champagne-400/30 shadow-glossy space-y-6 text-ink-900">
+          <div className="flex items-center justify-between border-b border-ivory-100 pb-4">
             <button
               onClick={() => setActiveTest(null)}
-              className="flex items-center gap-1.5 text-xs font-bold text-slate-800 hover:text-emerald-700 hover:underline transition"
+              className="flex items-center gap-1.5 text-xs font-bold text-ink-900 hover:text-emerald-600 transition"
             >
               <ChevronLeft className="w-4 h-4 text-emerald-600" />
               Back to Assessments
             </button>
-            <span className="text-xs font-bold px-3 py-1 bg-emerald-50 text-emerald-800 rounded-full border border-emerald-200">
+            <span className="text-xs font-mono font-bold px-3 py-1 bg-obsidian-950 text-champagne-300 rounded-full border border-champagne-400/30">
               {activeTest.duration} Timer
             </span>
           </div>
@@ -199,10 +199,10 @@ export default function Assessments() {
           {!testResult ? (
             <div className="space-y-6 max-w-3xl mx-auto">
               <div>
-                <span className="text-[10px] uppercase font-extrabold tracking-widest text-emerald-600">
+                <span className="text-[10px] uppercase font-bold tracking-widest text-emerald-600">
                   Question {currentQuestionIdx + 1} of {activeTest.questions.length}
                 </span>
-                <h3 className="text-base font-extrabold text-slate-900 mt-1">
+                <h3 className="font-serif text-lg font-bold text-ink-900 mt-1">
                   {activeTest.questions[currentQuestionIdx].q}
                 </h3>
               </div>
@@ -217,13 +217,13 @@ export default function Assessments() {
                       onClick={() => handleOptionSelect(currentQuestionIdx, optIdx)}
                       className={`w-full p-4 text-left text-xs font-bold rounded-2xl border transition flex items-center justify-between ${
                         isSelected
-                          ? 'bg-gradient-to-r from-emerald-900 via-teal-900 to-slate-900 text-white border-emerald-700 shadow-md'
-                          : 'bg-slate-50/50 border-slate-200 hover:bg-emerald-50/40 hover:border-emerald-300 text-slate-900'
+                          ? 'bg-obsidian-950 text-champagne-200 border-champagne-400 shadow-foil'
+                          : 'bg-white text-ink-900 border-ivory-100 hover:border-champagne-400/50 shadow-xs'
                       }`}
                     >
                       <div className="flex items-center gap-3">
                         <span className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold border ${
-                          isSelected ? 'bg-emerald-400 text-slate-950 border-emerald-300' : 'bg-white border-slate-300 text-slate-900'
+                          isSelected ? 'bg-champagne-400 text-obsidian-950 border-champagne-300' : 'bg-ivory-100 border-ivory-200 text-ink-900'
                         }`}>
                           {String.fromCharCode(65 + optIdx)}
                         </span>
