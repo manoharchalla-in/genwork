@@ -7,15 +7,23 @@ export default {
   theme: {
     extend: {
       colors: {
-        chatgpt: {
-          bg: '#f9f9f9',
-          sidebarBg: '#f9f9f9',
-          sidebarHover: '#ececec',
-          activeItem: '#e3e3e3',
-          border: '#e5e5e5',
-          textPrimary: '#0d0d0d',
-          textSecondary: '#676767',
-          blueBtn: '#3b82f6'
+        navy: {
+          50: '#f0f4fa',
+          100: '#d9e2f1',
+          700: '#24385e',
+          800: '#1a2b4c',
+          900: '#101d36',
+        },
+        amber: {
+          500: '#f5921f',
+          600: '#e07e10',
+        },
+        brand: {
+          navy: '#1a2b4c',
+          amber: '#f5921f',
+          green: '#2ecc71',
+          bg: '#f8fafc',
+          activeBg: '#e8f0fe',
         }
       }
     },
