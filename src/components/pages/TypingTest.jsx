@@ -446,177 +446,168 @@ export default function TypingTest() {
         <div className="space-y-6 max-w-5xl mx-auto">
           
           {/* Mode Selector Tabs */}
-          <div className="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-slate-100 border border-slate-200">
-            {[
-              { id: 'time', label: 'Timed Mode', icon: Clock },
-              { id: 'words', label: 'Words Mode', icon: BookOpen },
-              { id: 'quote', label: 'Quote Mode', icon: Flame },
-              { id: 'code', label: 'Code Mode', icon: Code },
-              { id: 'zen', label: 'Zen Practice', icon: Sparkles },
-            ].map(m => {
-              const Icon = m.icon;
-              const isSelected = mode === m.id;
-              return (
-                <button
-                  key={m.id}
-                  onClick={() => setMode(m.id)}
-                  className={`flex-1 min-w-[120px] py-2.5 px-4 rounded-xl text-xs font-black transition flex items-center justify-center gap-2 ${
-                    isSelected 
-                      ? 'bg-slate-900 text-white shadow-sm font-bold' 
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
-                  }`}
-                >
-                  <Icon className="w-4 h-4" />
-                  <span>{m.label}</span>
-                </button>
-              );
-            })}
+          <div className="p-1.5 rounded-2xl bg-slate-100 border border-slate-200">
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-1.5">
+              {[
+                { id: 'time', label: 'Timed Mode', icon: Clock },
+                { id: 'words', label: 'Words Mode', icon: BookOpen },
+                { id: 'quote', label: 'Quote Mode', icon: Flame },
+                { id: 'code', label: 'Code Mode', icon: Code },
+                { id: 'zen', label: 'Zen Practice', icon: Sparkles },
+              ].map(m => {
+                const Icon = m.icon;
+                const isSelected = mode === m.id;
+                return (
+                  <button
+                    key={m.id}
+                    onClick={() => setMode(m.id)}
+                    className={`py-3 px-4 rounded-xl text-xs font-black transition flex items-center justify-center gap-2 ${
+                      isSelected 
+                        ? 'bg-slate-900 text-white shadow-sm font-bold' 
+                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/70'
+                    }`}
+                  >
+                    <Icon className="w-4 h-4 shrink-0" />
+                    <span className="truncate">{m.label}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
             
             {/* Left Box: Parameters (Duration / Word Count) */}
-            <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-5">
-              <h2 className="text-xs font-mono font-extrabold uppercase tracking-wider text-slate-900 flex items-center gap-2">
-                <Sliders className="w-4 h-4 text-slate-700" /> Test Target Setup
-              </h2>
+            <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between space-y-6">
+              <div className="space-y-5">
+                <h2 className="text-xs font-mono font-extrabold uppercase tracking-wider text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-3">
+                  <Sliders className="w-4 h-4 text-slate-700" /> Test Target Setup
+                </h2>
 
-              {mode === 'time' && (
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center text-xs font-bold">
-                    <span className="text-slate-600">Duration Preset</span>
-                    <span className="text-slate-900">{activeDurationSec} Seconds</span>
-                  </div>
-                  <div className="grid grid-cols-5 gap-2">
-                    {[30, 60, 120, 180, 300].map(sec => (
-                      <button
-                        key={sec}
-                        onClick={() => { setDurationPreset(sec); setCustomDuration(''); }}
-                        className={`py-2.5 rounded-xl border text-xs font-mono font-extrabold transition ${
-                          durationPreset === sec && !customDuration
-                            ? 'bg-slate-900 border-slate-900 text-white shadow-xs'
-                            : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50'
-                        }`}
-                      >
-                        {sec >= 60 ? `${sec / 60}m` : `${sec}s`}
-                      </button>
-                    ))}
-                  </div>
+                {mode === 'time' && (
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center text-xs font-bold">
+                      <span className="text-slate-600">Duration Preset</span>
+                      <span className="text-slate-900 font-mono">{activeDurationSec} Seconds</span>
+                    </div>
+                    <div className="grid grid-cols-5 gap-2">
+                      {[30, 60, 120, 180, 300].map(sec => (
+                        <button
+                          key={sec}
+                          onClick={() => { setDurationPreset(sec); setCustomDuration(''); }}
+                          className={`py-2.5 rounded-xl border text-xs font-mono font-extrabold transition ${
+                            durationPreset === sec && !customDuration
+                              ? 'bg-slate-900 border-slate-900 text-white shadow-xs'
+                              : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50'
+                          }`}
+                        >
+                          {sec >= 60 ? `${sec / 60}m` : `${sec}s`}
+                        </button>
+                      ))}
+                    </div>
 
-                  <div className="pt-2">
-                    <label className="text-[10px] font-mono uppercase text-slate-500 block mb-1">Custom Duration (10s - 600s)</label>
-                    <input
-                      type="number"
-                      placeholder="e.g. 120"
-                      value={customDuration}
-                      onChange={e => setCustomDuration(e.target.value)}
-                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-mono font-bold text-slate-900 outline-none focus:border-slate-900"
-                    />
+                    <div className="pt-2">
+                      <label className="text-[10px] font-mono uppercase text-slate-500 block mb-1">Custom Duration (10s - 600s)</label>
+                      <input
+                        type="number"
+                        placeholder="e.g. 120"
+                        value={customDuration}
+                        onChange={e => setCustomDuration(e.target.value)}
+                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-mono font-bold text-slate-900 outline-none focus:border-slate-900 focus:bg-white transition"
+                      />
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
 
-              {mode === 'words' && (
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center text-xs font-bold">
-                    <span className="text-slate-600">Word Goal Preset</span>
-                    <span className="text-slate-900">{wordCountPreset} Words</span>
+                {mode === 'words' && (
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center text-xs font-bold">
+                      <span className="text-slate-600">Word Goal Preset</span>
+                      <span className="text-slate-900 font-mono">{wordCountPreset} Words</span>
+                    </div>
+                    <div className="grid grid-cols-5 gap-2">
+                      {[10, 25, 50, 100, 200].map(count => (
+                        <button
+                          key={count}
+                          onClick={() => setWordCountPreset(count)}
+                          className={`py-2.5 rounded-xl border text-xs font-mono font-extrabold transition ${
+                            wordCountPreset === count
+                              ? 'bg-slate-900 border-slate-900 text-white shadow-xs'
+                              : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50'
+                          }`}
+                        >
+                          {count} W
+                        </button>
+                      ))}
+                    </div>
                   </div>
-                  <div className="grid grid-cols-5 gap-2">
-                    {[10, 25, 50, 100, 200].map(count => (
-                      <button
-                        key={count}
-                        onClick={() => setWordCountPreset(count)}
-                        className={`py-2.5 rounded-xl border text-xs font-mono font-extrabold transition ${
-                          wordCountPreset === count
-                            ? 'bg-slate-900 border-slate-900 text-white shadow-xs'
-                            : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50'
-                        }`}
-                      >
-                        {count} W
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
+                )}
+              </div>
 
               {/* Toggles & Options */}
-              <div className="space-y-3 pt-2 border-t border-slate-100">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500">Feature Toggles</span>
+              <div className="space-y-3 pt-4 border-t border-slate-100">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold block">Feature Toggles</span>
                 
                 <div className="grid grid-cols-2 gap-3">
-                  <label className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between cursor-pointer text-xs font-bold text-slate-800">
-                    <span>Ghost Racer</span>
-                    <input
-                      type="checkbox"
-                      checked={ghostRacerEnabled}
-                      onChange={e => setGhostRacerEnabled(e.target.checked)}
-                      className="accent-slate-900"
-                    />
-                  </label>
-
-                  <label className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between cursor-pointer text-xs font-bold text-slate-800">
-                    <span>Finger Guide</span>
-                    <input
-                      type="checkbox"
-                      checked={fingerGuideEnabled}
-                      onChange={e => setFingerGuideEnabled(e.target.checked)}
-                      className="accent-slate-900"
-                    />
-                  </label>
-
-                  <label className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between cursor-pointer text-xs font-bold text-slate-800">
-                    <span>Punctuation</span>
-                    <input
-                      type="checkbox"
-                      checked={includePunctuation}
-                      onChange={e => setIncludePunctuation(e.target.checked)}
-                      className="accent-slate-900"
-                    />
-                  </label>
-
-                  <label className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between cursor-pointer text-xs font-bold text-slate-800">
-                    <span>Numbers</span>
-                    <input
-                      type="checkbox"
-                      checked={includeNumbers}
-                      onChange={e => setIncludeNumbers(e.target.checked)}
-                      className="accent-slate-900"
-                    />
-                  </label>
+                  {[
+                    { label: 'Ghost Racer', state: ghostRacerEnabled, setState: setGhostRacerEnabled },
+                    { label: 'Finger Guide', state: fingerGuideEnabled, setState: setFingerGuideEnabled },
+                    { label: 'Punctuation', state: includePunctuation, setState: setIncludePunctuation },
+                    { label: 'Numbers', state: includeNumbers, setState: setIncludeNumbers },
+                  ].map((item, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => item.setState(!item.state)}
+                      className={`p-3 rounded-xl border flex items-center justify-between text-xs font-bold transition text-left ${
+                        item.state
+                          ? 'bg-slate-900 text-white border-slate-900'
+                          : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
+                      }`}
+                    >
+                      <span>{item.label}</span>
+                      <div className={`w-4 h-4 rounded-md border flex items-center justify-center transition ${
+                        item.state ? 'bg-white text-slate-900 border-white' : 'border-slate-300 bg-white'
+                      }`}>
+                        {item.state && <Check className="w-3 h-3 stroke-[3]" />}
+                      </div>
+                    </button>
+                  ))}
                 </div>
               </div>
             </div>
 
             {/* Right Box: Difficulty Tiers & Goal Tracker */}
-            <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-5">
-              <h2 className="text-xs font-mono font-extrabold uppercase tracking-wider text-slate-900 flex items-center gap-2">
-                <Trophy className="w-4 h-4 text-amber-500" /> Difficulty & Personal Goal
-              </h2>
+            <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between space-y-6">
+              <div className="space-y-5">
+                <h2 className="text-xs font-mono font-extrabold uppercase tracking-wider text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-3">
+                  <Trophy className="w-4 h-4 text-amber-500" /> Difficulty & Personal Goal
+                </h2>
 
-              <div className="space-y-2.5">
-                {[
-                  { id: 'Easy', label: 'Easy', desc: 'Common words & short prose.' },
-                  { id: 'Medium', label: 'Medium', desc: 'Standard technical paragraphs.' },
-                  { id: 'Hard', label: 'Hard', desc: 'Complex vocabulary & syntax.' },
-                  { id: 'Expert', label: 'Expert Code & Symbols', desc: 'API endpoints, SQL & JSON code tokens.' },
-                ].map(d => (
-                  <button
-                    key={d.id}
-                    onClick={() => setDifficulty(d.id)}
-                    className={`w-full p-3.5 rounded-2xl border text-left transition flex items-center justify-between ${
-                      difficulty === d.id
-                        ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
-                        : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50'
-                    }`}
-                  >
-                    <div>
-                      <span className="text-xs font-extrabold block">{d.label}</span>
-                      <span className={`text-[10px] font-medium ${difficulty === d.id ? 'text-slate-300' : 'text-slate-500'}`}>{d.desc}</span>
-                    </div>
-                    {difficulty === d.id && <Check className="w-4 h-4 text-white" />}
-                  </button>
-                ))}
+                <div className="space-y-2.5">
+                  {[
+                    { id: 'Easy', label: 'Easy', desc: 'Common words & short prose.' },
+                    { id: 'Medium', label: 'Medium', desc: 'Standard technical paragraphs.' },
+                    { id: 'Hard', label: 'Hard', desc: 'Complex vocabulary & syntax.' },
+                    { id: 'Expert', label: 'Expert Code & Symbols', desc: 'API endpoints, SQL & JSON code tokens.' },
+                  ].map(d => (
+                    <button
+                      key={d.id}
+                      onClick={() => setDifficulty(d.id)}
+                      className={`w-full p-3.5 rounded-2xl border text-left transition flex items-center justify-between ${
+                        difficulty === d.id
+                          ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
+                          : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50'
+                      }`}
+                    >
+                      <div>
+                        <span className="text-xs font-extrabold block">{d.label}</span>
+                        <span className={`text-[10px] font-medium ${difficulty === d.id ? 'text-slate-300' : 'text-slate-500'}`}>{d.desc}</span>
+                      </div>
+                      {difficulty === d.id && <Check className="w-4 h-4 text-white shrink-0" />}
+                    </button>
+                  ))}
+                </div>
               </div>
 
               {/* Goal Setter Widget */}
@@ -639,16 +630,18 @@ export default function TypingTest() {
 
           </div>
 
-          {/* Start Button */}
-          <div className="flex items-center justify-between pt-4 border-t border-slate-200">
-            <div className="text-xs text-slate-500 font-medium">
-              Mode: <strong className="text-slate-900 uppercase">{mode}</strong> | Difficulty: <strong className="text-slate-900">{difficulty}</strong>
+          {/* Bottom Launch Action Section */}
+          <div className="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="text-xs text-slate-500 font-medium flex items-center gap-2">
+              <span className="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800 font-bold uppercase text-[10px]">{mode} Mode</span>
+              <span>•</span>
+              <span>Difficulty: <strong className="text-slate-900">{difficulty}</strong></span>
             </div>
 
             <button
               onClick={handleStartTest}
               disabled={isCustomInvalid}
-              className="px-8 py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-black text-xs rounded-2xl shadow-md transition flex items-center gap-3 uppercase tracking-wider"
+              className="w-full sm:w-auto px-8 py-3.5 bg-slate-900 hover:bg-slate-800 disabled:opacity-50 text-white font-black text-xs rounded-2xl shadow-md transition flex items-center justify-center gap-3 uppercase tracking-wider"
             >
               <Play className="w-4 h-4 fill-white" />
               <span>Launch Test Arena</span>
