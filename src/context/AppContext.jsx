@@ -69,7 +69,7 @@ export const AppProvider = ({ children }) => {
   const [currentView, setCurrentView] = useState(getInitialPortal() === 'admin' ? 'admin' : 'dashboard');
   const [userRole, setUserRole] = useState(getInitialPortal()); // 'student' or 'admin'
   const [user, setUser] = useState(getInitialPortal() === 'admin' ? initialAdminUser : initialUser);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
   const [activePortalTab, setActivePortalTab] = useState(getInitialPortal()); // 'student' or 'admin' login view toggle
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [supportChatOpen, setSupportChatOpen] = useState(false);
