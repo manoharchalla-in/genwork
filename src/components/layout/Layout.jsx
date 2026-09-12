@@ -176,7 +176,11 @@ export default function Layout({ children }) {
                 <button
                   key={item.id}
                   onClick={() => {
-                    setCurrentView('admin');
+                    if (userRole === 'admin') {
+                      setCurrentView('admin');
+                    } else {
+                      setCurrentView(item.id);
+                    }
                   }}
                   title={!sidebarOpen ? item.label : undefined}
                   className={`w-full flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all relative ${
