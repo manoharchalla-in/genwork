@@ -154,16 +154,16 @@ export default function Layout({ children }) {
       </header>
 
       {/* Main Body */}
-      <div className="flex-1 flex overflow-hidden">
-        {/* Sidebar */}
-        <aside className={`${sidebarOpen ? 'w-64' : 'w-20'} bg-white text-slate-800 border-r border-slate-200 transition-all duration-200 flex flex-col z-20 shadow-xs`}>
-          <div className="px-4 py-3 border-b border-slate-100">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block">
+      <div className="flex-1 flex h-[calc(100vh-4rem)] overflow-hidden">
+        {/* Sidebar (Locked Viewport Height) */}
+        <aside className={`${sidebarOpen ? 'w-64' : 'w-16'} bg-white text-slate-800 border-r border-slate-200 transition-all duration-200 flex flex-col z-20 shadow-xs h-full shrink-0`}>
+          <div className="px-3 py-2 border-b border-slate-100 shrink-0">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block truncate">
               {sidebarOpen ? (userRole === 'admin' ? 'ADMINISTRATION' : 'STUDENT NAVIGATION') : 'NAV'}
             </span>
           </div>
 
-          <nav className="flex-1 overflow-y-auto py-1.5 px-2 space-y-0.5">
+          <nav className="flex-1 overflow-y-auto p-1.5 space-y-0.5 scrollbar-thin">
             {navList.map(item => {
               const Icon = item.icon;
               const isActive = currentView === item.id;
@@ -172,24 +172,23 @@ export default function Layout({ children }) {
                   key={item.id}
                   onClick={() => setCurrentView(item.id)}
                   title={!sidebarOpen ? item.label : undefined}
-                  className={`w-full flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all relative ${
+                  className={`w-full flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all relative ${
                     isActive 
                       ? 'bg-slate-900 text-white font-extrabold shadow-xs' 
                       : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
                   }`}
                 >
                   <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-white' : 'text-slate-500'}`} />
-                  {sidebarOpen && <span className="truncate text-[11px]">{item.label}</span>}
+                  {sidebarOpen && <span className="truncate text-[11px] font-semibold">{item.label}</span>}
                 </button>
               );
             })}
           </nav>
-
         </aside>
 
-        {/* Content Container (Clean Premium White Layout) */}
-        <main className="flex-1 overflow-y-auto bg-slate-50 p-6 sm:p-8 lg:p-10 relative min-h-screen">
-          <div className="max-w-7xl mx-auto space-y-8">
+        {/* Content Container (Scrolls independently of sidebar) */}
+        <main className="flex-1 overflow-y-auto bg-slate-50 p-4 sm:p-6 lg:p-8 relative h-full">
+          <div className="max-w-7xl mx-auto space-y-6">
             {children}
           </div>
         </main>
