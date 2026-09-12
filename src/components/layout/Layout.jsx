@@ -3,7 +3,7 @@ import { useApp } from '../../context/AppContext';
 import {
   LayoutDashboard, Trophy, FileSpreadsheet, Headphones, Target,
   Keyboard, BookOpen, Video, Users, FileText,
-  Menu, LogOut, ShieldCheck, Bot, Layers, Clock, Briefcase, Award, Heart, MessageSquare
+  Menu, LogOut, ShieldCheck, Bot, Layers, Clock, Briefcase, Award, Heart, MessageSquare, Flame
 } from 'lucide-react';
 
 export const NAV_ITEMS = [
