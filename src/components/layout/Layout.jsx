@@ -45,10 +45,8 @@ export default function Layout({ children }) {
 
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
   
-  // Combine Admin Command Center at top with all 15 platform modules
-  const navList = userRole === 'admin' 
-    ? [{ id: 'admin', label: 'Admin Command Center', icon: ShieldCheck }, ...NAV_ITEMS] 
-    : NAV_ITEMS;
+  // Admin role gets clean dedicated Admin Command Center navigation
+  const navList = userRole === 'admin' ? ADMIN_NAV_ITEMS : NAV_ITEMS;
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans antialiased selection:bg-amber-400 selection:text-slate-950">
