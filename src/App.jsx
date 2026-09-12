@@ -57,8 +57,21 @@ function MainContent() {
     case 'blogs':
       return <Blogs />;
     case 'admin':
+    case 'admin-overview':
+    case 'admin-people':
+    case 'admin-content':
+    case 'admin-engagement':
+    case 'admin-monitoring':
+    case 'admin-reports':
+    case 'admin-settings':
+    case 'admin-dir':
+    case 'admin-rbac':
+    case 'admin-csv':
       return <AdminPanel />;
     default:
+      if (currentView && currentView.startsWith('admin')) {
+        return <AdminPanel />;
+      }
       return <Dashboard />;
   }
 }
