@@ -116,22 +116,22 @@ export default function AdminPanel() {
         </div>
       )}
 
-      {/* Top Section Header & Scope Controls (Obsidian & Champagne $10M Glossy Theme per Spec §3) */}
-      <div className="glossy-card p-6 rounded-3xl border border-champagne-400/30 text-white shadow-glossy flex flex-col lg:flex-row lg:items-center justify-between gap-4 relative overflow-hidden">
+      {/* Top Section Header & Scope Controls */}
+      <div className="bg-white p-6 rounded-3xl border border-slate-200 text-slate-900 shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-4 relative overflow-hidden">
         <div className="relative z-10">
           <div className="flex items-center space-x-3">
-            <div className="p-2.5 rounded-2xl bg-obsidian-850 border border-champagne-400/40 text-champagne-400 shadow-inner">
+            <div className="p-2.5 rounded-2xl bg-slate-100 border border-slate-200 text-slate-900">
               <ShieldCheck className="w-7 h-7" />
             </div>
             <div>
-              <h1 className="font-serif text-2xl font-black tracking-tight text-white flex items-center gap-2">
+              <h1 className="text-2xl font-black tracking-tight text-slate-900 flex items-center gap-2">
                 Advanced Admin Command Center
-                <span className="text-[10px] px-2.5 py-0.5 rounded-full uppercase bg-champagne-400 text-obsidian-950 font-black tracking-widest">
-                  RBAC + ABAC Active
+                <span className="text-[10px] px-2.5 py-0.5 rounded-full uppercase bg-slate-900 text-white font-black tracking-widest">
+                  Single Source of Truth
                 </span>
               </h1>
-              <p className="text-xs text-slate-400 mt-0.5 font-medium">
-                Multi-tenant institutional governance, content pipeline, predictive analytics & live proctoring.
+              <p className="text-xs text-slate-500 mt-0.5 font-medium">
+                Multi-tenant institutional governance, 46-section specification & live database control.
               </p>
             </div>
           </div>
@@ -139,38 +139,38 @@ export default function AdminPanel() {
 
         {/* Institution & Scope Selectors */}
         <div className="relative z-10 flex flex-wrap items-center gap-3">
-          <div className="bg-obsidian-950 border border-obsidian-700 rounded-xl px-3 py-1.5 flex items-center space-x-2 text-xs">
-            <Globe className="w-3.5 h-3.5 text-champagne-400" />
-            <span className="text-slate-400 font-bold">Tenant:</span>
+          <div className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 flex items-center space-x-2 text-xs">
+            <Globe className="w-3.5 h-3.5 text-slate-600" />
+            <span className="text-slate-500 font-bold">Tenant:</span>
             <select 
               value={selectedInstitution} 
               onChange={e => setSelectedInstitution(e.target.value)}
-              className="bg-transparent font-bold text-white outline-none cursor-pointer text-xs"
+              className="bg-transparent font-bold text-slate-900 outline-none cursor-pointer text-xs"
             >
-              <option value="CITY Engineering College" className="bg-obsidian-900 text-white">CITY Engineering College</option>
-              <option value="STANFORD Tech Institute" className="bg-obsidian-900 text-white">STANFORD Tech Institute</option>
-              <option value="ALL" className="bg-obsidian-900 text-white">All Institutions (Global)</option>
+              <option value="CITY Engineering College">CITY Engineering College</option>
+              <option value="STANFORD Tech Institute">STANFORD Tech Institute</option>
+              <option value="ALL">All Institutions (Global)</option>
             </select>
           </div>
 
-          <div className="bg-obsidian-950 border border-obsidian-700 rounded-xl px-3 py-1.5 flex items-center space-x-2 text-xs">
-            <Users className="w-3.5 h-3.5 text-champagne-400" />
-            <span className="text-slate-400 font-bold">Batch:</span>
+          <div className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 flex items-center space-x-2 text-xs">
+            <Users className="w-3.5 h-3.5 text-slate-600" />
+            <span className="text-slate-500 font-bold">Batch:</span>
             <select 
               value={selectedBatch} 
               onChange={e => setSelectedBatch(e.target.value)}
-              className="bg-transparent font-bold text-white outline-none cursor-pointer text-xs"
+              className="bg-transparent font-bold text-slate-900 outline-none cursor-pointer text-xs"
             >
-              <option value="ALL" className="bg-obsidian-900 text-white">All Batches</option>
-              <option value="ABAP - CITY 2026" className="bg-obsidian-900 text-white">ABAP - CITY 2026</option>
-              <option value="ECE - CITY 2026" className="bg-obsidian-900 text-white">ECE - CITY 2026</option>
+              <option value="ALL">All Batches</option>
+              <option value="ABAP - CITY 2026">ABAP - CITY 2026</option>
+              <option value="ECE - CITY 2026">ECE - CITY 2026</option>
             </select>
           </div>
         </div>
       </div>
 
       {/* Main Navigation Bar (7 Primary Clusters) */}
-      <div className="flex overflow-x-auto p-1.5 bg-obsidian-900/90 border border-obsidian-700 rounded-2xl text-xs font-bold scrollbar-none shadow-glossy">
+      <div className="flex overflow-x-auto p-1.5 bg-white border border-slate-200 rounded-2xl text-xs font-bold scrollbar-none shadow-sm gap-1">
         {[
           { id: 'overview', label: '1. Overview', icon: Activity },
           { id: 'people', label: '2. People & RBAC', icon: Users },
@@ -181,17 +181,18 @@ export default function AdminPanel() {
           { id: 'settings', label: '7. Platform Settings', icon: Settings },
         ].map(nav => {
           const Icon = nav.icon;
+          const isSelected = activeSection === nav.id;
           return (
             <button
               key={nav.id}
               onClick={() => { setActiveSection(nav.id); setSubTab('kpis'); }}
               className={`flex-1 min-w-[130px] py-2.5 px-3 rounded-xl transition-all flex items-center justify-center space-x-2 ${
-                activeSection === nav.id
-                  ? 'bg-gradient-to-r from-champagne-400 to-champagne-500 text-obsidian-950 font-black shadow-foil'
-                  : 'text-slate-400 hover:text-white hover:bg-obsidian-800'
+                isSelected
+                  ? 'bg-slate-900 text-white font-black shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
               }`}
             >
-              <Icon className={`w-4 h-4 ${activeSection === nav.id ? 'text-obsidian-950' : 'text-champagne-400'}`} />
+              <Icon className={`w-4 h-4 ${isSelected ? 'text-white' : 'text-slate-500'}`} />
               <span className="whitespace-nowrap">{nav.label}</span>
             </button>
           );
