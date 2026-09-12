@@ -89,7 +89,7 @@ export default function StudyPlanner() {
               { time: '09:00 AM - 10:00 AM', task: 'Data Structures: Tree Traversal Lesson', module: 'Courses', completed: true },
               { time: '11:30 AM - 12:15 PM', task: 'Quantitative Aptitude Practice Bank (15 Qs)', module: 'Practice Bank', completed: true },
               { time: '03:00 PM - 03:45 PM', task: 'Versant English Speaking Mock Test 4', module: 'LSRW Practice', completed: false },
-              { time: '05:30 PM - 06:00 PM', task: 'Spaced Repetition Flashcards Review (8 Cards)', module: 'Flashcards', completed: false },
+              { time: '05:30 PM - 06:00 PM', task: 'AI Smart Notes Review & Key Takeaways', module: 'Smart Notes', completed: false },
             ].map((item, idx) => (
               <div key={idx} className={`p-4 rounded-2xl border flex items-center justify-between text-xs transition ${
                 item.completed ? 'bg-slate-50 border-slate-200 text-slate-500' : 'bg-white border-emerald-500/30 text-slate-900 shadow-sm'

@@ -24,7 +24,7 @@ export default function Dashboard() {
 
   const quickLaunch = [
     { id: 'ai-tutor', title: 'AI Study Tutor', desc: 'OCR Doubt Solver', icon: Bot },
-    { id: 'flashcards', title: 'Flashcards (SRS)', desc: 'Active Recall', icon: Layers },
+    { id: 'smart-notes', title: 'Smart Notes', desc: 'AI Summarizer', icon: FileText },
     { id: 'mock-interview', title: 'AI Mock Interview', desc: 'STAR Scoring', icon: Video },
     { id: 'job-board', title: 'Job Placement', desc: 'AI Matched Drives', icon: Briefcase },
   ];

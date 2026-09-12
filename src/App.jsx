@@ -17,7 +17,6 @@ import AdminPanel from './components/pages/AdminPanel';
 
 // v3 AI Super-App Modules
 import AITutor from './components/pages/AITutor';
-import Flashcards from './components/pages/Flashcards';
 import SmartNotes from './components/pages/SmartNotes';
 import StudyPlanner from './components/pages/StudyPlanner';
 import ResumeBuilder from './components/pages/ResumeBuilder';
@@ -35,8 +34,6 @@ function MainContent() {
       return <Dashboard />;
     case 'ai-tutor':
       return <AITutor />;
-    case 'flashcards':
-      return <Flashcards />;
     case 'smart-notes':
       return <SmartNotes />;
     case 'study-planner':

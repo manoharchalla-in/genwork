@@ -9,7 +9,6 @@ import {
 export const NAV_ITEMS = [
   { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { id: 'ai-tutor', label: 'AI Study Tutor', icon: Bot },
-  { id: 'flashcards', label: 'Flashcards (SRS)', icon: Layers },
   { id: 'smart-notes', label: 'Smart Notes', icon: FileText },
   { id: 'study-planner', label: 'Study Planner', icon: Clock },
   { id: 'resume-builder', label: 'AI Resume Builder', icon: FileSpreadsheet },

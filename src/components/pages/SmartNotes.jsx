@@ -96,18 +96,11 @@ export default function SmartNotes() {
                 <span className="text-[10px] font-black uppercase text-amber-900 tracking-wider">RETRIEVAL QUIZ NUDGE</span>
                 <p className="text-xs font-bold text-slate-900">{aiSummary.quickQuiz[0]}</p>
               </div>
-
-              <button 
-                onClick={() => alert("Extracted 3 flashcard pairs and saved to Flashcards deck!")}
-                className="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs rounded-xl shadow-sm flex items-center justify-center gap-2"
-              >
-                <Layers className="w-4 h-4 text-amber-400" /> Convert Summary to Flashcard Deck
-              </button>
             </div>
           ) : (
             <div className="p-12 text-center text-xs text-slate-400 space-y-2 bg-slate-50/50 rounded-2xl border border-dashed border-slate-200">
               <Sparkles className="w-6 h-6 text-slate-300 mx-auto" />
-              <p>Click "AI Summarize Note" above to extract key points and auto-generate flashcards.</p>
+              <p>Click "AI Summarize Note" above to extract key points and action items.</p>
             </div>
           )}
         </div>
