@@ -169,30 +169,37 @@ export default function AdminPanel() {
         </div>
       </div>
 
-      {/* Main Navigation Bar (Exact 7 Sections Specified) */}
+      {/* Main Navigation Bar (10 Requested Admin Sections) */}
       <div className="flex overflow-x-auto p-1.5 bg-white border border-slate-200 rounded-2xl text-xs font-bold scrollbar-none shadow-sm gap-1">
         {[
-          { id: 'overview', label: '1. Overview', icon: Activity },
-          { id: 'people', label: '2. People & RBAC', icon: Users },
-          { id: 'content', label: '3. Content Pipeline', icon: Layers },
-          { id: 'engagement', label: '4. Gamification & Blogs', icon: Flame },
-          { id: 'monitoring', label: '5. Live Proctoring & Audit', icon: ShieldAlert },
-          { id: 'reports', label: '6. Custom Reports', icon: BarChart2 },
-          { id: 'settings', label: '7. Platform Settings', icon: Settings },
+          { id: 'overview', label: '1. Overview', icon: Activity, sub: 'kpis' },
+          { id: 'people', label: '2. People & RBAC', icon: Users, sub: 'kpis' },
+          { id: 'content', label: '3. Content Pipeline', icon: Layers, sub: 'kpis' },
+          { id: 'engagement', label: '4. Gamification & Blogs', icon: Flame, sub: 'kpis' },
+          { id: 'monitoring', label: '5. Live Proctoring & Audit', icon: ShieldAlert, sub: 'kpis' },
+          { id: 'reports', label: '6. Custom Reports', icon: BarChart2, sub: 'kpis' },
+          { id: 'settings', label: '7. Platform Settings', icon: Settings, sub: 'kpis' },
+          { id: 'people-dir', label: 'Student Directory & Impersonation', icon: UserPlus, section: 'people', sub: 'kpis' },
+          { id: 'people-rbac', label: 'RBAC Permission Matrix', icon: Key, section: 'people', sub: 'roles' },
+          { id: 'people-csv', label: 'Batch & CSV Bulk Import', icon: Upload, section: 'people', sub: 'batches' },
         ].map(nav => {
           const Icon = nav.icon;
-          const isSelected = activeSection === nav.id;
+          const isSelected = activeSection === nav.section || activeSection === nav.id;
+          const isSubSelected = nav.section === 'people' ? (activeSection === 'people' && subTab === nav.sub) : isSelected;
           return (
             <button
               key={nav.id}
-              onClick={() => { setActiveSection(nav.id); setSubTab('kpis'); }}
-              className={`flex-1 min-w-[130px] py-2.5 px-3 rounded-xl transition-all flex items-center justify-center space-x-2 ${
-                isSelected
+              onClick={() => { 
+                setActiveSection(nav.section || nav.id); 
+                setSubTab(nav.sub || 'kpis'); 
+              }}
+              className={`flex-1 min-w-[150px] py-2.5 px-3.5 rounded-xl transition-all flex items-center justify-center space-x-2 ${
+                isSubSelected
                   ? 'bg-slate-900 text-white font-black shadow-xs'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
               }`}
             >
-              <Icon className={`w-4 h-4 ${isSelected ? 'text-white' : 'text-slate-500'}`} />
+              <Icon className={`w-4 h-4 ${isSubSelected ? 'text-white' : 'text-slate-500'}`} />
               <span className="whitespace-nowrap">{nav.label}</span>
             </button>
           );
