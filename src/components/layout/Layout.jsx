@@ -163,7 +163,7 @@ export default function Layout({ children }) {
             </span>
           </div>
 
-          <nav className="flex-1 overflow-y-auto py-3 px-2.5 space-y-1">
+          <nav className="flex-1 overflow-y-auto py-1.5 px-2 space-y-0.5">
             {navList.map(item => {
               const Icon = item.icon;
               const isActive = currentView === item.id;
@@ -172,14 +172,14 @@ export default function Layout({ children }) {
                   key={item.id}
                   onClick={() => setCurrentView(item.id)}
                   title={!sidebarOpen ? item.label : undefined}
-                  className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all relative ${
+                  className={`w-full flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all relative ${
                     isActive 
-                      ? 'bg-slate-900 text-white font-extrabold shadow-md' 
+                      ? 'bg-slate-900 text-white font-extrabold shadow-xs' 
                       : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
                   }`}
                 >
-                  <Icon className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-slate-500'}`} />
-                  {sidebarOpen && <span className="truncate">{item.label}</span>}
+                  <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-white' : 'text-slate-500'}`} />
+                  {sidebarOpen && <span className="truncate text-[11px]">{item.label}</span>}
                 </button>
               );
             })}
