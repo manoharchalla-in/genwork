@@ -34,23 +34,7 @@ export default function LoginPage() {
       <div className="fixed top-1/4 left-10 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl pointer-events-none" />
       <div className="fixed bottom-10 right-10 w-96 h-96 bg-purple-300/20 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Top Header Branding Bar */}
-      <header className="w-full max-w-5xl mx-auto flex items-center justify-between py-2 flex-shrink-0">
-        <div className="flex items-center space-x-3">
-          <div className="h-9 px-2 bg-white rounded-xl flex items-center justify-center border border-slate-200 shadow-xs">
-            <img src="/genwork-logo.jpg" alt="Logo" className="h-6 object-contain rounded" />
-          </div>
-          <div>
-            <span className="text-lg font-black tracking-wider text-slate-900 leading-tight">GEN-<span className="text-red-600">VNXV</span></span>
-            <span className="block text-[9px] uppercase font-bold tracking-widest text-slate-500 leading-none">Technologies</span>
-          </div>
-        </div>
 
-        <div className="hidden sm:flex items-center space-x-2 text-xs font-extrabold text-slate-700 bg-white/80 backdrop-blur-md shadow-xs px-3.5 py-1.5 rounded-full border border-slate-200/80">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          <span>Placement & Readiness Portal</span>
-        </div>
-      </header>
 
       {/* Split Dual-Panel Card */}
       <main className="w-full max-w-5xl my-auto flex-shrink flex items-center justify-center py-2 overflow-hidden">
