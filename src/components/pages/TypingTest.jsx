@@ -371,10 +371,15 @@ export default function TypingTest() {
   const nextChar = targetText[typedInput.length] ? targetText[typedInput.length].toUpperCase() : '';
   const recommendedFinger = FINGER_MAP[nextChar] || 'Thumbs / Index';
 
-  // Fullscreen Mode Toggle Handler
+  const containerRef = useRef(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  // Fullscreen Mode Toggle Handler (Focuses ONLY the Typing Test container)
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen().catch(() => {});
+      if (containerRef.current?.requestFullscreen) {
+        containerRef.current.requestFullscreen().catch(() => {});
+      }
     } else {
       if (document.exitFullscreen) {
         document.exitFullscreen().catch(() => {});
@@ -382,8 +387,21 @@ export default function TypingTest() {
     }
   };
 
+  useEffect(() => {
+    const handleFsChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+    document.addEventListener('fullscreenchange', handleFsChange);
+    return () => document.removeEventListener('fullscreenchange', handleFsChange);
+  }, []);
+
   return (
-    <div className="space-y-6 font-sans text-slate-900 selection:bg-slate-900 selection:text-white pb-12">
+    <div 
+      ref={containerRef} 
+      className={`space-y-6 font-sans text-slate-900 selection:bg-slate-900 selection:text-white transition-all ${
+        isFullscreen ? 'fixed inset-0 z-50 bg-slate-50 p-6 sm:p-10 overflow-y-auto w-screen h-screen' : 'pb-12'
+      }`}
+    >
       
       {/* Top Header & Mode Bar */}
       <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -409,7 +427,7 @@ export default function TypingTest() {
             className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition flex items-center gap-2 shadow-sm"
           >
             <Maximize2 className="w-4 h-4" />
-            <span>Full Screen Mode</span>
+            <span>{isFullscreen ? 'Exit Full Screen' : 'Full Screen Mode'}</span>
           </button>
 
           <button
